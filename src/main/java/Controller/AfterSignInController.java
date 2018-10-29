@@ -8,6 +8,7 @@ public class AfterSignInController extends Controller {
     private AfterSignInView afterSignInView;
     private String currentUser="";
     int x=4;
+    int y=5;
 
     public AfterSignInController(){
         super("AfterSignIn2.fxml");
