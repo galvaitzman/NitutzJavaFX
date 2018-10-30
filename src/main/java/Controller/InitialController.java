@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 public class InitialController extends Controller {
     private InitialView initialView;
     int x=6;
+    int y=7;
 
     public InitialController(){
         super("MainViewForm.fxml");
