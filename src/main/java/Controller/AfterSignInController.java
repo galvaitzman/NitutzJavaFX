@@ -3,17 +3,25 @@ package Controller;
 import View.AfterSignInView;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.stage.WindowEvent;
 
 public class AfterSignInController extends Controller {
     private AfterSignInView afterSignInView;
     private String currentUser="";
-    int x=4;
-    int y=5;
 
     public AfterSignInController(){
-        super("AfterSignIn2.fxml");
+        super("AfterSignIn.fxml");
         afterSignInView = fxmlLoader.getController();
         afterSignInView.start(new ButtonUpdateMyUserClickedHandler(),new ButtonSearchUserClickedHandler(),new ButtonDeleteClickedHandler());
+        window.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                if (currentUser.equals("")) {
+                    window.close();
+                    mainController.activeInitialController();
+                }
+            }
+        });
 
     }
     @Override
@@ -26,8 +34,13 @@ public class AfterSignInController extends Controller {
             afterSignInView.deleteMyUserButton.setVisible(false);
             afterSignInView.updateMyUserButton.setVisible(false);
             afterSignInView.userNameLable.setText("Guest");
+
         }
-        else afterSignInView.userNameLable.setText(currentUser);
+        else {
+            afterSignInView.deleteMyUserButton.setVisible(true);
+            afterSignInView.updateMyUserButton.setVisible(true);
+            afterSignInView.userNameLable.setText(currentUser);
+        }
         //afterSignInView.updateMyUserButton = (Button)root.lookup("#updateMyUserButton");
         //afterSignInView.searchUserButton = (Button)root.lookup("#searchUserButton");
         //afterSignInView.deleteMyUserButton = (Button)root.lookup("#deleteMyUserButton");

@@ -13,13 +13,15 @@ public class SearchController extends Controller{
     public SearchController(){
         super("Search.fxml");
         searchView = fxmlLoader.getController();
+        searchView.start(new ButtonSearchUserClickedHandler());
     }
     @Override
     public void start(){
         window.show();
         window.setTitle("Search");
+        searchView.usernameTextBox.setText("");
         //signUpView.signUpButton = (Button)root.lookup("#signUpButton");
-        searchView.start(new ButtonSearchUserClickedHandler());
+
     }
 
     public class ButtonSearchUserClickedHandler implements EventHandler{
