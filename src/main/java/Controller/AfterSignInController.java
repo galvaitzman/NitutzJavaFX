@@ -10,6 +10,7 @@ public class AfterSignInController extends Controller {
     private String currentUser="";
     int x=5;
     int y=7;
+    int z=9;
 
     public AfterSignInController(){
         super("AfterSignIn.fxml");
