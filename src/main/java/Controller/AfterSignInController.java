@@ -8,6 +8,7 @@ import javafx.stage.WindowEvent;
 public class AfterSignInController extends Controller {
     private AfterSignInView afterSignInView;
     private String currentUser="";
+    int x=5;
 
     public AfterSignInController(){
         super("AfterSignIn.fxml");
