@@ -60,7 +60,7 @@ public class AfterSignInController extends Controller {
         @Override
         public void handle(Event event) {
             //window.close();
-            mainController.update(afterSignInView.userNameLable.getText());
+            mainController.activeUpdateController(afterSignInView.userNameLable.getText());
         }
     }
 
@@ -68,7 +68,7 @@ public class AfterSignInController extends Controller {
         @Override
         public void handle(Event event) {
             //window.close();
-            mainController.search();
+            mainController.activeSearchController();
         }
     }
 

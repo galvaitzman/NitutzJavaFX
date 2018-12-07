@@ -52,7 +52,7 @@ public class SignUpController extends Controller{
                 }
                 else{
                     window.close();
-                    mainController.signInSuccessfuly(signUpView.usernameTextBox.getText());
+                    mainController.activeAfterSignInContoller(signUpView.usernameTextBox.getText());
                     signUpView.showAlert("Sign up successfully");
 
 
