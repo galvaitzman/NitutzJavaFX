@@ -30,7 +30,22 @@ public class Main extends Application {
         //primaryStage.show();
         //InitialView initialView = fxmlLoader.getController();
         //initialController.signInPress();
+
+        /**
+         * this is the line befor the part B just the one line
+         */
         MainController mainController = new MainController();
+
+
+        //Part B
+       // VacationModel vacationModel = new VacationModel();
+        //createNewTableVacation();
+      // vacationModel.insertVacationToDB("elal","arkia","17:00","18:00","19:00", "20:00","12","13","18/04/1993","24/4/1993","","",1,"beer sheva","eilat","child","fun","","","700","","","sure","","","","");
+       //vacationModel.updateVacation(3,"elal","arkia","17:00","18:00","19:00", "20:00","12","13","18/04/1993","24/4/1993","","",1,"beer sheva","eilat","child","fun","","","700","","","sure","","","","xxxxxxxx");
+       // vacationModel.updateVacationStatus(3,"בוטלה");
+       // vacationModel.deleteVacation(2);
+      //  vacationModel.current_user = "gal";
+        //vacationModel.searchVacationsByUser_Id();
     }
 
     /*
@@ -50,7 +65,57 @@ public class Main extends Application {
     }
 */
 
-    public static void createNewTable() {
+
+
+    public static void createNewTableVacation() {
+        // SQLite connection string
+        String url = "jdbc:sqlite:Vacation4U.db";
+        // SQL statement for creating a new table
+        String sql = "CREATE TABLE IF NOT EXISTS Vacation(\n"
+                + "	vacation_ID INTEGER NOT NULL PRIMARY KEY,\n"
+                + "	user_name varchar(255) NOT NULL ,\n"
+                + "	airline_name1 varchar(255) NOT NULL,\n"
+                + "	airline_name2 varchar(255) NOT NULL,\n"
+                + "	departure_time_1 varchar(255) NOT NULL,\n"
+                + "	destination_time_1 varchar(255) NOT NULL,\n"
+                + "	departure_time_2 varchar(255) NOT NULL,\n"
+                + "	destination_time_2 varchar(255) NOT NULL,\n"
+                + "	flight_number_1 varchar(255) NOT NULL,\n"
+                + "	flight_number_2 varchar(255) NOT NULL,\n"
+                + "	flight_date_1 varchar(255) NOT NULL,\n"
+                + "	filght_date_2 varchar(255) NOT NULL,\n"
+                + "	flight_baggage_1 varchar(255) NOT NULL,\n"
+                + "	flight_baggage_2 varchar(255) NOT NULL,\n"
+                + "	number_of_tickets INTEGER NOT NULL,\n"
+                + "	departure_city varchar(255) NOT NULL,\n"
+                + "	destination_city varchar(255) NOT NULL,\n"
+                + "	tickets_type varchar(255) NOT NULL,\n"
+                + "	vacation_type varchar(255) NOT NULL,\n"
+                + "	stying_place_name varchar(255) ,\n"
+                + "	stying_place_rank varchar(255) ,\n"
+                + "	price varchar(255) NOT NULL,\n"
+                + "	connection1 varchar(255) ,\n"
+                + "	connection2 varchar(255) ,\n"
+                + "	sell_all_tickets varchar(255) NOT NULL,\n"
+                + "	bank_acount_number varchar(255) ,\n"
+                + "	number_snif varchar(255) ,\n"
+                + "	bank_number varchar(255) ,\n"
+                + "	paypal varchar(255) ,\n"
+                + "	status varchar(255) NOT NULL,\n"
+                + "	post_type varchar(255) NOT NULL\n"
+                + ");" ;
+
+        try (Connection conn = DriverManager.getConnection(url);
+             Statement stmt = conn.createStatement()) {
+            // create a new table
+            stmt.execute(sql);
+            System.out.println("the table created");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void createNewTableUser() {
         // SQLite connection string
         String url = "jdbc:sqlite:Vacation4U.db";
 
@@ -65,9 +130,7 @@ public class Main extends Application {
                 + "	Email varchar(255) NOT NULL\n"
                 //  + "	Picture BLOB NOT NULL,\n"
                 + ");" ;
-        //Yogev
-        //Gal
-        //Liron
+
 
         try (Connection conn = DriverManager.getConnection(url);
              Statement stmt = conn.createStatement()) {
@@ -107,7 +170,7 @@ public class Main extends Application {
      * @param City
      */
 
-    public static void insert(String User_name, String Password, String Birth_day, String First_name, String Last_name, String City,String Email) {
+    public static void insertUser(String User_name, String Password, String Birth_day, String First_name, String Last_name, String City,String Email) {
         String sql = "INSERT INTO Users(User_name,Password,Birth_day,First_name,Last_name,City,Email) VALUES(?,?,?,?,?,?,?)";
 
         try (Connection conn = connect();
@@ -129,6 +192,5 @@ public class Main extends Application {
     public static void main(String[] args) {
        // createNewTable();
         launch(args);
-
     }
 }

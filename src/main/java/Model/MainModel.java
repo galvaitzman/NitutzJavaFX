@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainModel {
+    public String current_user = "";
+    
+    
     public boolean createUser(String user_name, String password, String birth_day, String first_name, String last_name, String city, String email)
     {
         if(searchUserByUserName(user_name).isEmpty())
@@ -22,7 +25,7 @@ public class MainModel {
             //users_Dic.put(user_name,new User(user_name,password,birth_day,first_name,last_name,city,email));
         }
     }
-    private Connection connect() {
+    public Connection connect() {
         // SQLite connection string
         String url = "jdbc:sqlite:Vacation4U.db";
         Connection conn = null;
@@ -45,6 +48,10 @@ public class MainModel {
      */
 
     private void insertUserToDB(String User_name, String Password, String Birth_day, String First_name, String Last_name, String City,String Email) {
+        
+        // insert new User
+        
+        
         String sql = "INSERT INTO Users(User_name,Password,Birth_day,First_name,Last_name,City,Email) VALUES(?,?,?,?,?,?,?)";
         try (Connection conn = connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -118,7 +125,7 @@ public class MainModel {
             pstmt.executeUpdate();
 
 
-            // maybe to remove all the details in other tables like flights , vacations and hotels
+            // maybe to remove all the details in other tables like flights , vacations and stying_places
 
 
         } catch (SQLException e) {
@@ -154,8 +161,10 @@ public class MainModel {
 
     public boolean validateUserNameAndPassword(String userName, String password){
         List<String> searchResult = searchUserByUserName(userName);
+        
         if (searchResult.isEmpty() || !password.equals(searchResult.get(1)))
             return false;
         return true;
     }
+
 }
