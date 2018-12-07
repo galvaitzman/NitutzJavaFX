@@ -4,6 +4,10 @@ import Model.MainModel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.shape.Box;
 import javafx.stage.Stage;
 
 import java.io.IOException;

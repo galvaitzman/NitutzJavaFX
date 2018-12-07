@@ -6,8 +6,7 @@ import javafx.event.EventHandler;
 
 public class InitialController extends Controller {
     private InitialView initialView;
-    int x=6;
-    int y=7;
+
 
     public InitialController(){
         super("MainViewForm.fxml");
@@ -38,7 +37,7 @@ public class InitialController extends Controller {
             }
             else
             {
-                mainController.signInSuccessfuly(initialView.usernameTextBox.getText());
+                mainController.activeAfterSignInContoller(initialView.usernameTextBox.getText());
                 initialView.usernameTextBox.setText("");
                 initialView.passwordTextBox.setText("");
                 window.close();
@@ -51,7 +50,7 @@ public class InitialController extends Controller {
         @Override
         public void handle(Event event) {
             window.close();
-            mainController.signUp();
+            mainController.activeSignUpContoller();
         }
     }
 
@@ -59,7 +58,7 @@ public class InitialController extends Controller {
         @Override
         public void handle(Event event) {
             window.close();
-            mainController.signInSuccessfuly("");
+            mainController.activeAfterSignInContoller("");
         }
     }
 

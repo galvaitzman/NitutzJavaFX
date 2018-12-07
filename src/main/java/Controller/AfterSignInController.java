@@ -6,7 +6,7 @@ import javafx.event.EventHandler;
 import javafx.stage.WindowEvent;
 
 public class AfterSignInController extends Controller {
-    private AfterSignInView afterSignInView;
+    private AfterSignInView afterSignInView;//
     private String currentUser="";
     int x=5;
     int y=7;
@@ -60,7 +60,7 @@ public class AfterSignInController extends Controller {
         @Override
         public void handle(Event event) {
             //window.close();
-            mainController.update(afterSignInView.userNameLable.getText());
+            mainController.activeUpdateController(afterSignInView.userNameLable.getText());
         }
     }
 
@@ -68,7 +68,7 @@ public class AfterSignInController extends Controller {
         @Override
         public void handle(Event event) {
             //window.close();
-            mainController.search();
+            mainController.activeSearchController();
         }
     }
 

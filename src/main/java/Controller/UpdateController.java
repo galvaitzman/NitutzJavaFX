@@ -42,7 +42,7 @@ public class UpdateController extends Controller {
                     updateView.errorusernameLable.setText("Username already exists");
                 } else {
 
-                    mainController.signInSuccessfuly(updateView.usernameTextBox.getText());
+                    mainController.activeAfterSignInContoller(updateView.usernameTextBox.getText());
                     updateView.showAlert("Updated successfully");
                     window.close();
                 }
