@@ -1,10 +1,14 @@
 package View;
 
-import Controller.MainController;
+import Model.MainModel;
+import Model.VacationModel;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 
 public class Main extends Application {
@@ -34,18 +38,36 @@ public class Main extends Application {
         /**
          * this is the line befor the part B just the one line
          */
-        MainController mainController = new MainController();
+       // MainController mainController = new MainController();
 
 
         //Part B
-       // VacationModel vacationModel = new VacationModel();
-        //createNewTableVacation();
-      // vacationModel.insertVacationToDB("elal","arkia","17:00","18:00","19:00", "20:00","12","13","18/04/1993","24/4/1993","","",1,"beer sheva","eilat","child","fun","","","700","","","sure","","","","");
-       //vacationModel.updateVacation(3,"elal","arkia","17:00","18:00","19:00", "20:00","12","13","18/04/1993","24/4/1993","","",1,"beer sheva","eilat","child","fun","","","700","","","sure","","","","xxxxxxxx");
+        /**
+         * Vacation
+         */
+       VacationModel vacationModel = new VacationModel();
+       //    createNewTableVacation();
+    //    vacationModel.current_user.setUser_name( "dan");
+   //     vacationModel.current_user.set_User_type("exceptional");
+   //     vacationModel.insertVacationToDB("elal","arkia","17:00","18:00","19:00", "20:00","12","13","18/04/1993","24/4/1993","","",1,"beer sheva","eilat","child","fun","","","700","","","sure","","","","");
+   //     vacationModel.insertVacationToDB("elal","arkia","17:00","18:00","19:00", "20:00","12","13","18/04/1993","24/4/1993","","",1,"beer sheva","eilat","child","fun","","","700","","","sure","","","","");
+       // vacationModel.updateVacation(3,"elal","arkia","17:00","18:00","19:00", "20:00","12","13","18/04/1993","24/4/1993","","",1,"beer sheva","eilat","child","fun","","","700","","","sure","","","","xxxxxxxx");
        // vacationModel.updateVacationStatus(3,"בוטלה");
        // vacationModel.deleteVacation(2);
       //  vacationModel.current_user = "gal";
-        //vacationModel.searchVacationsByUser_Id();
+      //  vacationModel.searchVacationsByUser_Id();
+        MainModel.current_user.setUser_name("gal");
+        vacationModel.searchVacationsByUser_Id();
+
+
+        /**
+         * Users
+         */
+/*       createNewTableUser();
+        MainModel mainModel = new MainModel();
+       mainModel.createUser("gal","123","18/04/1993","gal","vaitzman","beer-sheva","g@gmail.com");
+        mainModel.createUser("gal2","123","18/04/1993","gal","vaitzman","beer-sheva","g@gmail.com");
+        mainModel.createUser("gal3","123","18/04/1993","gal","vaitzman","beer-sheva","g@gmail.com");*/
     }
 
     /*
@@ -127,7 +149,8 @@ public class Main extends Application {
                 + "	First_name varchar(255) NOT NULL,\n"
                 + "	Last_name varchar(255) NOT NULL,\n"
                 + "	City varchar(255) NOT NULL,\n"
-                + "	Email varchar(255) NOT NULL\n"
+                + "	Email varchar(255) NOT NULL,\n"
+                + "	User_type varchar(255) NOT NULL\n"
                 //  + "	Picture BLOB NOT NULL,\n"
                 + ");" ;
 
@@ -142,12 +165,7 @@ public class Main extends Application {
         }
     }
 
-
-    /**
-     * Connect to the test.db database
-     *
-     * @return the Connection object
-     */
+/*
     private static Connection connect() {
         // SQLite connection string
         String url = "jdbc:sqlite:Vacation4U.db";
@@ -160,16 +178,7 @@ public class Main extends Application {
         return conn;
     }
 
-    /**
-     * Insert a new row into the warehouses table
-     * @param User_name
-     * @param Password
-     * @param Birth_day
-     * @param First_name
-     * @param Last_name
-     * @param City
-     */
-
+  /*
     public static void insertUser(String User_name, String Password, String Birth_day, String First_name, String Last_name, String City,String Email) {
         String sql = "INSERT INTO Users(User_name,Password,Birth_day,First_name,Last_name,City,Email) VALUES(?,?,?,?,?,?,?)";
 
@@ -193,4 +202,6 @@ public class Main extends Application {
        // createNewTable();
         launch(args);
     }
+    */
+
 }

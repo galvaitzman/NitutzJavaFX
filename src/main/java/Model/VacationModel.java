@@ -15,10 +15,20 @@ public class VacationModel extends MainModel {
      , האם המלון/צימר/חדר שכור כלול במחיר, דירוג מקום הלינה, מחיר, האם מדובר בטיסת המשך או טיסה ישירה, האם ניתן לרכוש חלק מכרטיסי הטיסה.
      */
 
+
+
+    //צריך לטפל בנושא המודעה החמה
     public void insertVacationToDB( String airline_name1,String airline_name2, String departure_time_1 , String destination_time_1, String departure_time_2, String destination_time_2,
                                     String flight_number_1,String flight_number_2,String flight_date_1,String filght_date_2,String flight_baggage_1,String flight_baggage_2,
                                     int number_of_tickets, String departure_city,String destination_city, String tickets_type, String vacation_type, String stying_place_name, String stying_place_rank,
-                                    String price , String connection1  ,String connection2, String sell_all_tickets , String bank_acount_number, String number_snif, String bank_number, String paypal,String post_type) {
+                                    String price , String connection1  ,String connection2, String sell_all_tickets , String bank_acount_number, String number_snif, String bank_number, String paypal) {
+        String post_type ;
+        System.out.println(current_user.get_User_type());
+        if (current_user.get_User_type().equals("exceptional"))
+            post_type = "exceptional";
+
+        else  post_type = "standard";
+
         String sql_vacation_id = "SELECT max(vacation_id) FROM Vacation";
         int vacation_id =0;
         try (Connection conn1 = connect();
@@ -31,7 +41,6 @@ public class VacationModel extends MainModel {
             System.out.println(e.getMessage());
             return;
         }
-        System.out.println("gal");
 
         String sql = "INSERT INTO Vacation(vacation_id," +
                 "user_name," +
@@ -67,7 +76,7 @@ public class VacationModel extends MainModel {
         try (Connection conn = connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1 ,vacation_id);
-            pstmt.setString(2 ,current_user);
+            pstmt.setString(2 ,current_user.getUser_name());
             pstmt.setString(3 ,airline_name1);
             pstmt.setString(4 ,airline_name2);
             pstmt.setString(5 ,departure_time_1);
@@ -95,7 +104,7 @@ public class VacationModel extends MainModel {
             pstmt.setString(27 ,number_snif);
             pstmt.setString(28 ,bank_number);
             pstmt.setString(29 ,paypal);
-            pstmt.setString(30 ,"זמינה");
+            pstmt.setString(30 ,"valid");
             pstmt.setString(31 ,post_type);
             pstmt.executeUpdate();
         } catch (SQLException e) {
@@ -252,25 +261,28 @@ public class VacationModel extends MainModel {
 
 
 
-        public List<String> searchVacationsByUser_Id(){
+        public List<Vacation> searchVacationsByUser_Id(){
             String sql = "SELECT * from Vacation where user_name = ?";
-            List<String> VacationDetails = new ArrayList<String>();
+            List<Vacation> VacationDetails = new ArrayList<>();
             try (Connection conn = this.connect();
                  PreparedStatement statement = conn.prepareStatement(sql)){
-                statement.setString(1, current_user);
+                statement.setString(1, current_user.getUser_name());
                 ResultSet rs = statement.executeQuery();
                 ResultSetMetaData rsmd = rs.getMetaData();
                 int colCount = rsmd.getColumnCount();
                 while (rs.next())
                 {
+                    Vacation vac = new Vacation();
                     for (int col=1; col <= colCount; col++)
                     {
                         Object value = rs.getObject(col);
                         if (value != null)
                         {
-                            VacationDetails.add(value.toString());
+                            vac.vacation_details[col-1] = value.toString();
+                           // VacationDetails.add(value.toString());
                         }
                     }
+                    VacationDetails.add(vac);
                 }
             } catch (SQLException e) {
                 System.out.println(e.getMessage());

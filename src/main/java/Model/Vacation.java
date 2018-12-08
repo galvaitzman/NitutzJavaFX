@@ -3,8 +3,13 @@ package Model;
 public class Vacation {
     String[] vacation_details;
 
-    public Vacation(
-	String vacation_ID,
+    public Vacation()
+    {
+        vacation_details=new String[31];
+    }
+
+    /*
+    String vacation_ID,
     String user_name,
     String airline_name1,
     String airline_name2,
@@ -34,9 +39,7 @@ public class Vacation {
     String bank_number,
     String paypal,
     String status,
-    String post_type)
-    {
-        vacation_details=new String[31];
+    String post_type
+     */
 
-    }
 }

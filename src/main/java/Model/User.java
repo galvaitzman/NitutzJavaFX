@@ -12,9 +12,38 @@ public class User {
     private String Last_name;
     private String City;
     private String Email;
+    private String User_type;
 
 
-    public User(String user_name, String password, String birth_day, String first_name, String last_name, String city, String email) {
+    // relevant for debug
+    public User(){
+        User_name= "";
+        Password ="";
+        Birth_day="";
+        First_name="";
+        Last_name="";
+        City="";
+        Email="";
+        User_type="";
+
+    }
+
+    public User( List<String> searchResult)
+    {
+    User_name= searchResult.get(0);
+    Password = searchResult.get(1);
+    Birth_day=searchResult.get(2);
+    First_name=searchResult.get(3);
+    Last_name=searchResult.get(4);
+    City=searchResult.get(5);
+    Email=searchResult.get(6);
+    User_type=searchResult.get(7);
+    }
+
+
+
+
+    public User(String user_name, String password, String birth_day, String first_name, String last_name, String city, String email,String user_type) {
         User_name = user_name;
         Password = password;
         Birth_day = birth_day;
@@ -22,6 +51,7 @@ public class User {
         Last_name = last_name;
         City = city;
         Email = email;
+        User_type = user_type;
     }
 
     public String getUser_name() {
@@ -80,8 +110,16 @@ public class User {
         Email = email;
     }
 
+    public String get_User_type() {
+        return User_type;
+    }
+
+    public void set_User_type(String user_type) {
+        User_type = user_type;
+    }
+
     public List<String> listOfUserDetails() {
-        List <String> list = Arrays.asList(User_name,Password,Birth_day,First_name,Last_name,City,Email);
+        List <String> list = Arrays.asList(User_name,Password,Birth_day,First_name,Last_name,City,Email,User_type);
         return list;
     }
 }

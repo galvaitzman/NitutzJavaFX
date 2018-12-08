@@ -6,14 +6,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainModel {
-    public String current_user = "";
+    public static User current_user ;
+
+    public MainModel(){
+        current_user = new User();
+    }
     
     
     public boolean createUser(String user_name, String password, String birth_day, String first_name, String last_name, String city, String email)
     {
         if(searchUserByUserName(user_name).isEmpty())
         {
-            insertUserToDB(user_name,password,birth_day,first_name,last_name,city,email);
+            current_user = new User( user_name, password, birth_day, first_name, last_name,  city,  email,"standard" );
+            insertUserToDB(user_name,password,birth_day,first_name,last_name,city,email,"standard");
             return true;
         }
 
@@ -47,12 +52,9 @@ public class MainModel {
      * @param City
      */
 
-    private void insertUserToDB(String User_name, String Password, String Birth_day, String First_name, String Last_name, String City,String Email) {
-        
+    private void insertUserToDB(String User_name, String Password, String Birth_day, String First_name, String Last_name, String City,String Email,String User_type) {
         // insert new User
-        
-        
-        String sql = "INSERT INTO Users(User_name,Password,Birth_day,First_name,Last_name,City,Email) VALUES(?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO Users(User_name,Password,Birth_day,First_name,Last_name,City,Email,User_type) VALUES(?,?,?,?,?,?,?,?)";
         try (Connection conn = connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, User_name);
@@ -62,6 +64,7 @@ public class MainModel {
             pstmt.setString(5, Last_name);
             pstmt.setString(6, City);
             pstmt.setString(7, Email);
+            pstmt.setString(8, User_type);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -82,6 +85,13 @@ public class MainModel {
 
     public boolean updateUser(String user_name_after,String user_name,String password, String birth_day, String first_name, String last_name, String city, String email) {
         if (user_name.equals(user_name_after) || searchUserByUserName(user_name_after).isEmpty()){
+            current_user.setPassword(password);
+            current_user.setBirth_day(birth_day);
+            current_user.setUser_name(user_name);
+            current_user.setFirst_name(first_name);
+            current_user.setLast_name(last_name);
+            current_user.setCity(city);
+            current_user.setEmail(email);
             String sql = "UPDATE Users SET Password = ? , "
                     + "Birth_day = ? ,"
                     + "User_name = ? ,"
@@ -164,6 +174,7 @@ public class MainModel {
         
         if (searchResult.isEmpty() || !password.equals(searchResult.get(1)))
             return false;
+        current_user = new User(searchResult);
         return true;
     }
 
