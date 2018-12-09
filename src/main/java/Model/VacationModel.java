@@ -7,15 +7,6 @@ import java.util.List;
 public class VacationModel extends AModel {
 
 
-    /*
-
-    בעת הוספת חופשה על המוכר להזין את הקריטריונים הבאים:
-     חברות התעופה, שעות המראה ונחיתה, מספרי טיסות, תאריכים לחופשה,
-     איזו כבודה כלולה בחופשה, מספר כרטיסים, מדינת היעד, האם כלולה טיסה חזור, סוג כרטיס הטיסה (מבוגר/ילד/תינוק), סוג החופשה (אורבנית/אקזוטית)
-     , האם המלון/צימר/חדר שכור כלול במחיר, דירוג מקום הלינה, מחיר, האם מדובר בטיסת המשך או טיסה ישירה, האם ניתן לרכוש חלק מכרטיסי הטיסה.
-     */
-
-
     //צריך לטפל בנושא המודעה החמה
     // צריך לבדוק האם הוכנה אותה חופשה - לפי הדרישות
     public void insertVacationToDB(String airline_name1, String airline_name2, String departure_time_1, String destination_time_1, String departure_time_2, String destination_time_2,
@@ -239,17 +230,20 @@ public class VacationModel extends AModel {
         return false;
     }
 
-    public void deleteVacation(int vacation_id) {
-        String sql = "DELETE FROM Vacation WHERE vacation_id = ?";
+    public boolean deleteVacation(int vacation_id) {
+        String sql = "DELETE FROM Vacation WHERE vacation_id = ? AND status =?";
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             // set the corresponding param
             pstmt.setInt(1, vacation_id);
+            pstmt.setString(2, "valid");
             // execute the delete statement
-            pstmt.executeUpdate();
+            int x = pstmt.executeUpdate();
+            return (x==1);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        return true;
     }
 
 

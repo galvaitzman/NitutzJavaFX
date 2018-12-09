@@ -1,6 +1,5 @@
 package View;
 
-import Model.Vacation;
 import Model.VacationModel;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -9,7 +8,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.List;
 
 
 public class Main extends Application {
@@ -62,8 +60,9 @@ public class Main extends Application {
         //  vacationModel.searchVacationsByUser_Id();
 
         //   List<Vacation> l =  vacationModel.searchVacationsByParameters("","","from","");
-        List<Vacation> l = ((VacationModel) vacationModel).searchVacationsByParameters("", "", "from", "eilat");
-        System.out.println("gal");
+       // List<Vacation> l = ((VacationModel) vacationModel).searchVacationsByParameters("", "", "from", "eilat");
+       // System.out.println( vacationModel.deleteVacation(1));
+
 
         /**
          * Users
