@@ -42,7 +42,8 @@ public class UserModel extends AModel {
 
     private void insertUserToDB(String User_name, String Password, String Birth_day, String First_name, String Last_name, String City,String Email,String User_type) {
         // insert new User
-        String sql = "INSERT INTO Users(User_name,Password,Birth_day,First_name,Last_name,City,Email,User_type) VALUES(?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO Users(User_name,Password,Birth_day,First_name,Last_name,City,Email,User_type)" +
+                " VALUES(?,?,?,?,?,?,?,?)";
         try (Connection conn = connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, User_name);

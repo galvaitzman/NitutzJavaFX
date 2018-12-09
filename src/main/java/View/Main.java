@@ -1,6 +1,6 @@
 package View;
 
-import Model.VacationModel;
+import Model.OrdersModel;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -37,16 +37,30 @@ public class Main extends Application {
         /**
          * this is the line befor the part B just the one line
          */
-        // MainController mainController = new MainController();
+         //MainController mainController = new MainController();
 
 
         //Part B
         /**
+         * Orders
+         */
+
+       // createNewTableOrder();
+        OrdersModel ordersModel = new OrdersModel();
+
+//
+//       AModel.current_user.setUser_name("gonenel");
+//       ordersModel.insertOrderToDB("galgalgal","galgalgalgal","galgalgalgalgal");
+ //      ordersModel.updateOrderStatus(1,"yoyoyo");
+
+
+
+        /**
          * Vacation
          */
-        VacationModel vacationModel = new VacationModel();
-        // createNewTableVacation();
-      //  vacationModel.current_user.setUser_name("dan");
+//     /  VacationModel vacationModel = new VacationModel();
+//        // createNewTableVacation();
+//      //  vacationModel.current_user.setUser_name("dan");
        // vacationModel.current_user.set_User_type("exceptional");
        // vacationModel.updateVacationStatus(3,"in order");
      //    vacationModel.insertVacationToDB("elal","arkia","17:00","18:00","19:00", "20:00","12","13","10/04/1993","14/04/1993","","",2,"from","eilat","child","fun","","","700","","","sure","","","","");
@@ -66,7 +80,7 @@ public class Main extends Application {
       //  List<Vacation> l =  vacationModel.searchVacationsByParameters("","","from","");
       //  List<Vacation> l =  vacationModel.searchVacationsByParameters("10/04/1993","","from","");
 
-        System.out.println("gal");
+      //  System.out.println(new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime()));
 
         /**
          * Users
@@ -159,6 +173,32 @@ public class Main extends Application {
             System.out.println(e.getMessage());
         }
     }
+
+
+    public static void createNewTableOrder() {
+        // SQLite connection string
+        String url = "jdbc:sqlite:Vacation4U.db";
+        // SQL statement for creating a new table
+        String sql = "CREATE TABLE IF NOT EXISTS Orders(\n"
+                + "	order_id INTEGER NOT NULL PRIMARY KEY,\n"
+                + "	user_name_buyer varchar(255) NOT NULL ,\n"
+                + "	user_name_seller varchar(255) NOT NULL,\n"
+                + "	vacation_id varchar(255) NOT NULL,\n"
+                + "	number_of_tickets varchar(255) NOT NULL,\n"
+                + "	order_status varchar(255) NOT NULL,\n"
+                + "	last_update varchar(255) NOT NULL\n"
+                + ");" ;
+
+        try (Connection conn = DriverManager.getConnection(url);
+             Statement stmt = conn.createStatement()) {
+            // create a new table
+            stmt.execute(sql);
+            System.out.println("the table created");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 
 /*
     private static Connection connect() {
