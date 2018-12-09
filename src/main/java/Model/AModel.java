@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public abstract class AModel {
-    public static User current_user ;
+    public static User current_user = new User() ;
     protected Connection connect() {
         // SQLite connection string
         String url = "jdbc:sqlite:Vacation4U.db";

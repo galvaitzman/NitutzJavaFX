@@ -1,5 +1,5 @@
 package View;
-import Controller.CreateAVacationController;
+import Controller.CreateVacationController;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -42,9 +42,9 @@ public class CreateVacationDetailsView  extends AView{
     public CheckBox flightBack;
 
 
-    public void start(CreateAVacationController.ButtonNumberOfTickets numberOfTicketsButton,
-                      CreateAVacationController.ButtonMoveToPaymentMethod moveToPaymentMethod,
-                      CreateAVacationController.ButtonFlightBack flightBackButton) {
+    public void start(CreateVacationController.ButtonNumberOfTickets numberOfTicketsButton,
+                      CreateVacationController.ButtonMoveToPaymentMethod moveToPaymentMethod,
+                      CreateVacationController.ButtonFlightBack flightBackButton) {
         ticketType1.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, numberOfTicketsButton);
         moveToPaymentMethodButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, moveToPaymentMethod);
         flightBack.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,flightBackButton);

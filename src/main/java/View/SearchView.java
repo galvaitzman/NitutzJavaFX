@@ -1,6 +1,6 @@
 package View;
 
-import Controller.SearchAUserController;
+import Controller.SearchUserController;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -22,7 +22,7 @@ public class SearchView extends AView{
 
 
 
-    public void start(SearchAUserController.ButtonSearchUserClickedHandler buttonSearchUserClickedHandler){
+    public void start(SearchUserController.ButtonSearchUserClickedHandler buttonSearchUserClickedHandler){
         searchButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonSearchUserClickedHandler);
     }
 

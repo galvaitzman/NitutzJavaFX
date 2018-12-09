@@ -6,8 +6,6 @@
 
 איתי כרמי 205632003
 
-
-
 לינק לקובץ git:
 
 https://github.com/galvaitzman/NitutzJavaFX.git

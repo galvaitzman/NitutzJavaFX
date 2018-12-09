@@ -1,6 +1,6 @@
 package View;
 
-import Controller.UpdateControllerA;
+import Controller.UpdateController;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
@@ -128,7 +128,7 @@ public class UpdateView extends AView{
 
     }
 
-    public void start(UpdateControllerA.ButtonUpdateClickedHandler buttonUpdateClickedHandler){
+    public void start(UpdateController.ButtonUpdateClickedHandler buttonUpdateClickedHandler){
         updateButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonUpdateClickedHandler);
     }
 

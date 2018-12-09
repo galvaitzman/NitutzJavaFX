@@ -305,10 +305,11 @@ public class VacationModel extends AModel {
 
             // only destination
             case "0001":
-                sql = "SELECT * from Vacation where destination_city = ?";
+                sql = "SELECT * from Vacation where destination_city = ? AND status = ?";
                 try (Connection conn = this.connect();
                      PreparedStatement statement = conn.prepareStatement(sql)) {
                     statement.setString(1, destination_city);
+                    statement.setString(2, "valid");
 
                     ResultSet rs = statement.executeQuery();
                     ResultSetMetaData rsmd = rs.getMetaData();
@@ -332,11 +333,11 @@ public class VacationModel extends AModel {
 
             //only   departure_city
             case "0010":
-                sql = "SELECT * from Vacation where departure_city = ?";
+                sql = "SELECT * from Vacation where departure_city = ? AND status = ?";
                 try (Connection conn = this.connect();
                      PreparedStatement statement = conn.prepareStatement(sql)) {
                     statement.setString(1, departure_city);
-
+                    statement.setString(2, "valid");
                     ResultSet rs = statement.executeQuery();
                     ResultSetMetaData rsmd = rs.getMetaData();
                     int colCount = rsmd.getColumnCount();
@@ -359,11 +360,12 @@ public class VacationModel extends AModel {
 
             //  destination and departure_city
             case "0011":
-                sql = "SELECT * from Vacation where departure_city = ? AND destination_city= ?";
+                sql = "SELECT * from Vacation where departure_city = ? AND destination_city= ? AND status=?";
                 try (Connection conn = this.connect();
                      PreparedStatement statement = conn.prepareStatement(sql)) {
                     statement.setString(1, departure_city);
                     statement.setString(2, destination_city);
+                    statement.setString(3, "valid");
                     ResultSet rs = statement.executeQuery();
                     ResultSetMetaData rsmd = rs.getMetaData();
                     int colCount = rsmd.getColumnCount();

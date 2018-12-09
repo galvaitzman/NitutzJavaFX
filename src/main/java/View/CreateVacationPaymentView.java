@@ -1,6 +1,6 @@
 package View;
 
-import Controller.CreateAVacationController;
+import Controller.CreateVacationController;
 import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,7 +17,7 @@ public class CreateVacationPaymentView extends AView{
     public TextField branch_number;
     public TextField account_number;
     public TextField paypal;
-    public void start(CreateAVacationController.ButtonPostVacation buttonPostVacation,
+    public void start(CreateVacationController.ButtonPostVacation buttonPostVacation,
                       ChangeListener changeListener){
         paypalOrBank.getSelectionModel().selectedIndexProperty().addListener(changeListener);
         postVacation.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonPostVacation);
