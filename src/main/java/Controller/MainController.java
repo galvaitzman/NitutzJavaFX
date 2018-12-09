@@ -12,20 +12,23 @@ public class MainController{
     Controller createVacationController = new CreateVacationController();
     Controller searchVacationController = new SearchVacationController();
     Controller currentController = initialController;
+    Controller searchResultController = new SearchResultController();
+    Controller signInSuccessfulyController = new SignInSuccessfulyController();
     Stack <Controller> controllers = new Stack<Controller>();
 
     public MainController (){
         Controller.setMainController(this);
-        AUserController.setMainModel();
-        AVacationController.setMainModel();
+        Controller.setMainUserModel();
+        Controller.setMainVacationModel();
+        initialController.start();
         //searchVacationController.start();
-        createVacationController.start();
+        //createVacationController.start();
         //currentController.start();
         controllers.push(currentController);
     }
 
-    public void activeAfterSignInContoller(String user_name){
-        ((AfterSignInController)afterSignInController).setCurrentUser(user_name);
+    public void activeAfterSignInContoller(){
+
         controllers.push(currentController);
         currentController = afterSignInController;
         currentController.start();
@@ -37,10 +40,9 @@ public class MainController{
         signUpController.start();
     }
 
-    public void activeUpdateController(String userName){
+    public void activeUpdateController(){
         controllers.push(currentController);
         currentController = updateController;
-        ((UpdateController)updateController).setCurrentUser(userName);
         updateController.start();
     }
 
@@ -55,6 +57,35 @@ public class MainController{
         controllers.push(currentController);
         currentController = initialController;
         initialController.start();
+    }
+
+    public  void activeSearchResultContoller(){
+        controllers.push(currentController);
+        currentController = searchResultController;
+        searchResultController.start();
+    }
+
+    public void activeSignInSuccessfuly(){
+        controllers.push(currentController);
+        currentController = signInSuccessfulyController;
+        signInSuccessfulyController.start();
+    }
+
+    public void activaSearchVacationController(){
+        controllers.push(currentController);
+        currentController = searchVacationController;
+        searchVacationController.start();
+    }
+
+    public void activeCreateVacationController(){
+        controllers.push(currentController);
+        currentController = createVacationController;
+        createVacationController.start();
+    }
+
+
+    public void activeMyVacationsContoller(){
+        System.out.println("is working");
     }
 
 }

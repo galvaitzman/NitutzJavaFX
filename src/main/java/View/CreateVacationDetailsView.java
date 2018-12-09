@@ -1,6 +1,6 @@
 package View;
-import Controller.CreateVacationController;
 
+import Controller.CreateVacationController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -84,13 +84,25 @@ public class CreateVacationDetailsView  extends AView{
         connectionItems.add("Direct");
         connection1.setItems(connectionItems);
         connection2.setItems(connectionItems);
-        flight_date_2.setDisable(true);
+
         departure_time_2.setDisable(true);
         destination_time_2.setDisable(true);
         airLineName_2.setDisable(true);
         flight_number_2.setDisable(true);
         flight_baggage_2.setDisable(true);
         connection2.setDisable(true);
+        departure_time_2.setText("");
+        destination_time_2.setText("");
+        airLineName_2.setText("");
+        flight_number_2.setText("");
+        flight_baggage_2.setText("");
+        connection2.setValue("");
+
+        staying_place_name.setText("none");
+        stayingPlaceRanking.setValue("1");
+
+
+
 
     }
 
@@ -105,11 +117,7 @@ public class CreateVacationDetailsView  extends AView{
     public boolean isValidDate() {
         LocalDate ld1 = flight_date_1.getValue();
         LocalDate ld2 = flight_date_2.getValue();
-        if (ld1 == null || (ld1!=null && LocalDate.from(ld1).until(LocalDate.now(), ChronoUnit.DAYS) >= 0)){
-            alert("illegal dates");
-            return false;
-        }
-        else if (ld2!=null && (LocalDate.from(ld1).until(LocalDate.now(), ChronoUnit.DAYS) >= 0 ||
+        if (ld1==null || ld2==null  ||  (LocalDate.from(ld1).until(LocalDate.now(), ChronoUnit.DAYS) >= 0 ||
                 LocalDate.from(ld2).until(LocalDate.now(), ChronoUnit.DAYS) >= 0 ||
                 LocalDate.from(ld2).until(LocalDate.from(ld1),ChronoUnit.DAYS) >=0)) {
             alert("illegal dates");
@@ -136,30 +144,20 @@ public class CreateVacationDetailsView  extends AView{
             alert("mandatory fields missing");
             return false;
         }
-        if (flight_date_2.getValue() == null &&
-            departure_time_2.getText().equals("") &&
-                    destination_time_2.getText().equals("") &&
-                    airLineName_2.getText().equals("") &&
-                    flight_number_2.getText().equals("") &&
-                    flight_baggage_2.getText().equals("") &&
-                (connection2.getValue() == null || connection2.getValue().toString().equals(""))) {
-            return true;
-        }
-        else if ((flight_date_2.getValue() != null ||
-                !departure_time_2.getText().equals("") ||
-                !destination_time_2.getText().equals("") &&
-                !airLineName_2.getText().equals("") &&
-                !flight_number_2.getText().equals("") &&
-                !flight_baggage_2.getText().equals("") &&
-                !(connection2.getValue() == null || connection2.getValue().toString().equals("")))){
-
+       if (flightBack.isSelected() && (departure_time_2.getText().equals("") ||
+                destination_time_2.getText().equals("") ||
+                airLineName_2.getText().equals("") ||
+                flight_number_2.getText().equals("") ||
+                flight_baggage_2.getText().equals("") ||
+                (connection2.getValue() == null || connection2.getValue().toString().equals("")))){
+           alert("mandatory fields missing");
+           return false;
         }
         return true;
     }
 
     public void enableOrDisableFlightBackDetails(){
-        if (flight_date_2.isDisable()) {
-            flight_date_2.setDisable(false);
+        if (departure_time_2.isDisable()) {
             departure_time_2.setDisable(false);
             destination_time_2.setDisable(false);
             airLineName_2.setDisable(false);
@@ -168,7 +166,6 @@ public class CreateVacationDetailsView  extends AView{
             connection2.setDisable(false);
         }
         else {
-            flight_date_2.setDisable(true);
             departure_time_2.setDisable(true);
             destination_time_2.setDisable(true);
             airLineName_2.setDisable(true);

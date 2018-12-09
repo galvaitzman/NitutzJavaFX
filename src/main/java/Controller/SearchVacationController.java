@@ -4,7 +4,7 @@ import View.SearchVacationView;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 
-public class SearchVacationController extends AVacationController {
+public class SearchVacationController extends Controller {
 
     SearchVacationView searchVacationView;
     public SearchVacationController(){
@@ -23,7 +23,8 @@ public class SearchVacationController extends AVacationController {
         public void handle(Event event) {
             if (!searchVacationView.isValidDate()) return;
             if (!searchVacationView.isOneFieldsFull()) return;
-
+            //model.searchVacation
+            mainController.activeSearchResultContoller();
         }
     }
 }

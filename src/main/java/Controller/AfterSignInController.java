@@ -1,23 +1,24 @@
 package Controller;
 
+import Model.AModel;
 import View.AfterSignInView;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.stage.WindowEvent;
 
-public class AfterSignInController extends AUserController {
+public class AfterSignInController extends Controller {
     private AfterSignInView afterSignInView;//
-    private String currentUser="";
+
 
 
     public AfterSignInController(){
-        super("AfterSignIn.fxml");
+        super("UserManagment.fxml");
         afterSignInView = fxmlLoader.getController();
         afterSignInView.start(new ButtonUpdateMyUserClickedHandler(),new ButtonSearchUserClickedHandler(),new ButtonDeleteClickedHandler());
         window.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
-                if (currentUser.equals("")) {
+                if (userModel.getCurrent_user().getUser_name().equals("")) {
                     window.close();
                     mainController.activeInitialController();
                 }
@@ -30,7 +31,7 @@ public class AfterSignInController extends AUserController {
         window.show();
         window.setTitle("Vacation4U");
 
-        if (currentUser.equals(""))
+        if (userModel.getCurrent_user().getUser_name().equals(""))
         {
             afterSignInView.deleteMyUserButton.setVisible(false);
             afterSignInView.updateMyUserButton.setVisible(false);
@@ -40,7 +41,7 @@ public class AfterSignInController extends AUserController {
         else {
             afterSignInView.deleteMyUserButton.setVisible(true);
             afterSignInView.updateMyUserButton.setVisible(true);
-            afterSignInView.userNameLable.setText(currentUser);
+            afterSignInView.userNameLable.setText(userModel.getCurrent_user().getUser_name());
         }
         //afterSignInView.updateMyUserButton = (Button)root.lookup("#updateMyUserButton");
         //afterSignInView.searchUserButton = (Button)root.lookup("#searchUserButton");
@@ -50,15 +51,12 @@ public class AfterSignInController extends AUserController {
 
     }
 
-    public void setCurrentUser(String currentUser){
-        this.currentUser=currentUser;
-    }
 
     public class ButtonUpdateMyUserClickedHandler implements EventHandler {
         @Override
         public void handle(Event event) {
             //window.close();
-            mainController.activeUpdateController(afterSignInView.userNameLable.getText());
+            mainController.activeUpdateController();
         }
     }
 
@@ -74,7 +72,7 @@ public class AfterSignInController extends AUserController {
         @Override
         public void handle(Event event) {
             //window.close();
-            userModel.delete(currentUser);
+            userModel.delete(userModel.getCurrent_user().getUser_name());
             window.close();
             mainController.activeInitialController();
             afterSignInView.showAlert("The user has been deleted");
@@ -82,6 +80,6 @@ public class AfterSignInController extends AUserController {
     }
 
     public String getCurrentUser(){
-        return currentUser;
+        return userModel.getCurrent_user().getUser_name() ;
     }
 }

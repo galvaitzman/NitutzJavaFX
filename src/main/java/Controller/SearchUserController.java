@@ -6,7 +6,7 @@ import javafx.event.EventHandler;
 
 import java.util.List;
 
-public class SearchUserController extends AUserController {
+public class SearchUserController extends Controller {
 
     SearchView searchView;
 

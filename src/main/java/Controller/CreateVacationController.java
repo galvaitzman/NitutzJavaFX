@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class CreateVacationController extends AVacationController {
+public class CreateVacationController extends Controller {
     private CreateVacationDetailsView createVacationDetailsView;
     private CreateVacationPaymentView createVacationPaymentView;
     public CreateVacationController(){
@@ -84,7 +84,6 @@ public class CreateVacationController extends AVacationController {
            try {
                if (createVacationPaymentView.paypalOrBank.getValue()!=null){
                    if (createVacationPaymentView.paypalOrBank.getValue().toString().equals("Bank account")){
-                       String s = createVacationPaymentView.account_number.toString();
                        vacationModel.insertVacationToDB(createVacationDetailsView.airLineName_1.getText(),
                                 createVacationDetailsView.airLineName_2.getText(),
                                 createVacationDetailsView.departure_time_1.getText(),

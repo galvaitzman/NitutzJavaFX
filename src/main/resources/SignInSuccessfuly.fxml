@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.*?>
 
 
-<AnchorPane fx:id="addNewVacation" prefHeight="213.0" prefWidth="283.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.AfterSignInView">
+<AnchorPane prefHeight="213.0" prefWidth="283.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.SignInSuccessfulyView">
    <children>
       <Button fx:id="searchVacation" layoutX="71.0" layoutY="31.0" mnemonicParsing="false" prefWidth="142.0" text="Search Vacation" />
       <Button fx:id="manageMyUser" layoutX="71.0" layoutY="71.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="142.0" text="Manage my user" />
       <Button fx:id="myVacations" layoutX="71.0" layoutY="111.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="142.0" text="My vacations" />
-      <Button fx:id="createNewVacation" layoutX="71.0" layoutY="151.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="142.0" text="Create new vacation" />
+       <Button fx:id="createNewVacation" layoutX="71.0" layoutY="151.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="142.0" text="Create vacation" />
    </children>
 </AnchorPane>

@@ -1,6 +1,5 @@
 package View;
 
-
 import Controller.InitialController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

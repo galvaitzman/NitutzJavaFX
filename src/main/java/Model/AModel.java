@@ -3,9 +3,12 @@ package Model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.List;
 
 public abstract class AModel {
     public static User current_user = new User() ;
+    private List<Vacation> currentListOfVacations;
+    private Vacation currentVacation;
     protected Connection connect() {
         // SQLite connection string
         String url = "jdbc:sqlite:Vacation4U.db";
@@ -16,5 +19,29 @@ public abstract class AModel {
             System.out.println(e.getMessage());
         }
         return conn;
+    }
+
+    public User getCurrent_user() {
+        return current_user;
+    }
+
+    public void setCurrent_user(User current_user) {
+        AModel.current_user = current_user;
+    }
+
+    public List<Vacation> getCurrentListOfVacations() {
+        return currentListOfVacations;
+    }
+
+    public void setCurrentListOfVacations(List<Vacation> currentListOfVacations) {
+        this.currentListOfVacations = currentListOfVacations;
+    }
+
+    public Vacation getCurrentVacation() {
+        return currentVacation;
+    }
+
+    public void setCurrentVacation(Vacation currentVacation) {
+        this.currentVacation = currentVacation;
     }
 }

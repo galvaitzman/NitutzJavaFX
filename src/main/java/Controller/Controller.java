@@ -2,6 +2,7 @@ package Controller;
 
 import Model.AModel;
 import Model.UserModel;
+import Model.VacationModel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,11 +17,18 @@ public abstract class Controller{
     Parent root = null;
     FXMLLoader fxmlLoader = new FXMLLoader();
     Scene scene;
-
+    protected static UserModel userModel;
+    public static void setMainUserModel (){
+        userModel = new UserModel();
+    }
     public static void setMainController (MainController other){
         mainController = other;
     }
+    protected static VacationModel vacationModel;
 
+    public static void setMainVacationModel (){
+        vacationModel = new VacationModel();
+    }
 
     public abstract void start();
 

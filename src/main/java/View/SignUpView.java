@@ -2,6 +2,7 @@ package View;
 
 
 import Controller.SignUpController;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import java.time.LocalDate;

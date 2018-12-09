@@ -36,7 +36,7 @@
       <Label layoutX="109.0" layoutY="226.0" text="Airline:" />
       <Label layoutX="98.0" layoutY="324.0" text="Baggage:" />
       <Label layoutX="408.0" layoutY="24.0" text="Destination city:" />
-      <Label layoutX="350.0" layoutY="74.0" text="Date of departure from destination city:" />
+      <Label layoutX="350.0" layoutY="74.0" text="Date of returning from destination city:" />
       <Label layoutX="353.0" layoutY="123.0" text="Departure's hour from destination city:" />
       <Label layoutX="378.0" layoutY="174.0" text="Landing's hour in origin city:" />
       <Label layoutX="431.0" layoutY="226.0" text="Airline:" />

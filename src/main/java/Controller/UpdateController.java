@@ -1,15 +1,16 @@
 package Controller;
 
+import Model.AModel;
 import View.UpdateView;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 
 import java.util.List;
 
-public class UpdateController extends AUserController {
+public class UpdateController extends Controller {
 
     private UpdateView updateView;
-    private String currentUser;
+
 
     public UpdateController(){
         super("Update.fxml");
@@ -20,7 +21,7 @@ public class UpdateController extends AUserController {
     public void start() {
         window.show();
         window.setTitle("Update");
-        List<String> list = userModel.searchUserByUserName(currentUser);
+        List<String> list = userModel.searchUserByUserName( userModel.getCurrent_user().getUser_name());
         if (!list.isEmpty()) {
             updateView.setTxtFields(list.get(0), list.get(1), list.get(2), list.get(3), list.get(4), list.get(5), list.get(6));
         }
@@ -28,21 +29,18 @@ public class UpdateController extends AUserController {
 
     }
 
-    public void setCurrentUser(String currentUser){
-        this.currentUser=currentUser;
-    }
 
     public class ButtonUpdateClickedHandler implements EventHandler {
         @Override
         public void handle(Event event) {
             if (updateView.filledUpdate()) {
-                if (!userModel.updateUser(updateView.usernameTextBox.getText(),currentUser, updateView.passwordTextBox.getText(), updateView.birthdayDatePicker.getValue().toString(), updateView.firstNameTextBox.getText(),
+                if (!userModel.updateUser(updateView.usernameTextBox.getText(), userModel.getCurrent_user().getUser_name(), updateView.passwordTextBox.getText(), updateView.birthdayDatePicker.getValue().toString(), updateView.firstNameTextBox.getText(),
                         updateView.lastNameTextBox.getText(), updateView.cityTextBox.getText(), updateView.emailTextBox.getText())) {
                     updateView.errorusernameLable.setVisible(true);
                     updateView.errorusernameLable.setText("Username already exists");
                 } else {
 
-                    mainController.activeAfterSignInContoller(updateView.usernameTextBox.getText());
+                    mainController.activeAfterSignInContoller();
                     updateView.showAlert("Updated successfully");
                     window.close();
                 }

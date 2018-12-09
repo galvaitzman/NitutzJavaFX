@@ -5,7 +5,7 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.stage.WindowEvent;
 
-public class SignUpController extends AUserController {
+public class SignUpController extends Controller {
     private SignUpView signUpView;
 
     public SignUpController(){
@@ -52,10 +52,8 @@ public class SignUpController extends AUserController {
                 }
                 else{
                     window.close();
-                    mainController.activeAfterSignInContoller(signUpView.usernameTextBox.getText());
+                    mainController.activeSignInSuccessfuly();
                     signUpView.showAlert("Sign up successfully");
-
-
                 }
             }
 

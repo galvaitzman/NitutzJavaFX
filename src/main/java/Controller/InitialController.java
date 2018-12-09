@@ -1,10 +1,11 @@
 package Controller;
 
+import Model.User;
 import View.InitialView;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 
-public class InitialController extends AUserController {
+public class InitialController extends Controller {
     private InitialView initialView;
 
 
@@ -17,7 +18,7 @@ public class InitialController extends AUserController {
 
 
     public void start(){
-
+        userModel.setCurrent_user(new User());
         window.show();
         window.setTitle("Vacation4U");
         //initialView.signInButton = (Button)root.lookup("#signInButton");
@@ -37,7 +38,7 @@ public class InitialController extends AUserController {
             }
             else
             {
-                mainController.activeAfterSignInContoller(initialView.usernameTextBox.getText());
+                mainController.activeSignInSuccessfuly();
                 initialView.usernameTextBox.setText("");
                 initialView.passwordTextBox.setText("");
                 window.close();
@@ -58,7 +59,7 @@ public class InitialController extends AUserController {
         @Override
         public void handle(Event event) {
             window.close();
-            mainController.activeAfterSignInContoller("");
+            mainController.activeSignInSuccessfuly();
         }
     }
 
