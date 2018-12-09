@@ -1,6 +1,6 @@
 package View;
 
-import Controller.UpdateController;
+import Controller.UpdateControllerA;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.regex.Pattern;
 
-public class UpdateView {
+public class UpdateView extends AView{
 
     @FXML
     public Button updateButton;
@@ -128,7 +128,7 @@ public class UpdateView {
 
     }
 
-    public void start(UpdateController.ButtonUpdateClickedHandler buttonUpdateClickedHandler){
+    public void start(UpdateControllerA.ButtonUpdateClickedHandler buttonUpdateClickedHandler){
         updateButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonUpdateClickedHandler);
     }
 

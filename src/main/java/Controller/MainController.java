@@ -1,7 +1,5 @@
 package Controller;
 
-import Model.MainModel;
-
 import java.util.Stack;
 
 public class MainController{
@@ -9,15 +7,18 @@ public class MainController{
     Controller initialController = new InitialController();
     Controller signUpController = new SignUpController();
     Controller afterSignInController = new AfterSignInController();
-    Controller searchController = new SearchController();
+    Controller searchController = new SearchUserController();
     Controller updateController = new UpdateController();
     Controller createVacationController = new CreateVacationController();
+    Controller searchVacationController = new SearchVacationController();
     Controller currentController = initialController;
     Stack <Controller> controllers = new Stack<Controller>();
 
     public MainController (){
         Controller.setMainController(this);
-        Controller.setMainModel(new MainModel());
+        AUserController.setMainModel();
+        AVacationController.setMainModel();
+        //searchVacationController.start();
         createVacationController.start();
         //currentController.start();
         controllers.push(currentController);

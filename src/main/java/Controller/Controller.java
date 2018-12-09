@@ -1,19 +1,16 @@
 package Controller;
 
-import Model.MainModel;
+import Model.AModel;
+import Model.UserModel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.shape.Box;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public abstract class Controller{
-    protected static MainModel mainModel;
+
     protected static MainController mainController;
     protected Stage window = new Stage();
     Parent root = null;
@@ -24,9 +21,6 @@ public abstract class Controller{
         mainController = other;
     }
 
-    public static void setMainModel (MainModel other){
-        mainModel = other;
-    }
 
     public abstract void start();
 
@@ -36,7 +30,8 @@ public abstract class Controller{
             scene = new Scene (root);
             window.setScene(scene);
         }
-        catch (IOException e){e.printStackTrace();}
+        catch (IOException e){
+            e.printStackTrace();}
     }
 
 }

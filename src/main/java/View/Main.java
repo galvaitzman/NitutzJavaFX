@@ -1,6 +1,7 @@
 package View;
 
-import Model.MainModel;
+import Controller.MainController;
+import Model.Vacation;
 import Model.VacationModel;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -9,6 +10,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 
 public class Main extends Application {
@@ -16,16 +18,16 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
+        new MainController();
         /*
 
         primaryStage.setScene(new Scene(root,382,249));
         primaryStage.show();
-       // MainModel mm = new MainModel();
+       // UserModel mm = new UserModel();
        // mc = new MainController(mm);
        // mv = new SignUpView();
         initialView = fxmlLoader.getController();
-        mainModel = new MainModel();
+        mainModel = new UserModel();
         initialController = new AfterSignInController(initialView,mainModel) ;*/
         //FXMLLoader fxmlLoader = new FXMLLoader();
         //Parent root = fxmlLoader.load(getClass().getResource("MainViewForm.fxml"));
@@ -45,7 +47,41 @@ public class Main extends Application {
         /**
          * Vacation
          */
-       VacationModel vacationModel = new VacationModel();
+        VacationModel vacationModel = new VacationModel();
+        // createNewTableVacation();
+        vacationModel.current_user.setUser_name( "dan");
+        vacationModel.current_user.set_User_type("exceptional");
+        //    vacationModel.insertVacationToDB("elal","arkia","17:00","18:00","19:00", "20:00","12","13","1993-04-18","1994-04-24","","",2,"from","eilat","child","fun","","","700","","","sure","","","","");
+        //     vacationModel.insertVacationToDB("elal","arkia","17:00","18:00","19:00", "20:00","12","13","18/04/1993","24/4/1993","","",1,"beer sheva","eilat","child","fun","","","700","","","sure","","","","");
+        // vacationModel.updateVacation(3,"elal","arkia","17:00","18:00","19:00", "20:00","12","13","18/04/1993","24/4/1993","","",1,"beer sheva","eilat","child","fun","","","700","","","sure","","","","xxxxxxxx");
+        // vacationModel.updateVacationStatus(3,"בוטלה");
+        // vacationModel.deleteVacation(2);
+        //  vacationModel.current_user = "gal";
+        //  vacationModel.searchVacationsByUser_Id();
+        //  UserModel.current_user.setUser_name("gal");
+        //  vacationModel.searchVacationsByUser_Id();
+
+        //   List<Vacation> l =  vacationModel.searchVacationsByParameters("","","from","");
+        List<Vacation> l =  ((VacationModel)vacationModel).searchVacationsByParameters("","","","eilat");
+        System.out.println("gal");
+
+        /**
+         * Users
+         */
+/*       createNewTableUser();
+        UserModel mainModel = new UserModel();
+       mainModel.createUser("gal","123","18/04/1993","gal","vaitzman","beer-sheva","g@gmail.com");
+        mainModel.createUser("gal2","123","18/04/1993","gal","vaitzman","beer-sheva","g@gmail.com");
+        mainModel.createUser("gal3","123","18/04/1993","gal","vaitzman","beer-sheva","g@gmail.com");*/
+
+
+
+
+
+        // goni
+
+
+      // AModel vacationModel = new VacationModel();
        //    createNewTableVacation();
     //    vacationModel.current_user.setUser_name( "dan");
    //     vacationModel.current_user.set_User_type("exceptional");
@@ -56,15 +92,15 @@ public class Main extends Application {
        // vacationModel.deleteVacation(2);
       //  vacationModel.current_user = "gal";
       //  vacationModel.searchVacationsByUser_Id();
-        MainModel.current_user.setUser_name("gal");
-        vacationModel.searchVacationsByUser_Id();
+     //   UserModel.current_user.setUser_name("gal");
+        //(VacationModel)vacationModel.searchVacationsByUser_Id();
 
 
         /**
          * Users
          */
 /*       createNewTableUser();
-        MainModel mainModel = new MainModel();
+        UserModel mainModel = new UserModel();
        mainModel.createUser("gal","123","18/04/1993","gal","vaitzman","beer-sheva","g@gmail.com");
         mainModel.createUser("gal2","123","18/04/1993","gal","vaitzman","beer-sheva","g@gmail.com");
         mainModel.createUser("gal3","123","18/04/1993","gal","vaitzman","beer-sheva","g@gmail.com");*/

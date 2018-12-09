@@ -4,7 +4,7 @@ import View.InitialView;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 
-public class InitialController extends Controller {
+public class InitialController extends AUserController {
     private InitialView initialView;
 
 
@@ -31,7 +31,7 @@ public class InitialController extends Controller {
         public void handle(Event event) {
             initialView.invalidLoginLabel.setVisible(false);
 
-            if (initialView.checkFieldsEmpty() || !mainModel.validateUserNameAndPassword(initialView.usernameTextBox.getText(),initialView.passwordTextBox.getText()))
+            if (initialView.checkFieldsEmpty() || !userModel.validateUserNameAndPassword(initialView.usernameTextBox.getText(),initialView.passwordTextBox.getText()))
             {
                 initialView.invalidLoginLabel.setVisible(true);
             }

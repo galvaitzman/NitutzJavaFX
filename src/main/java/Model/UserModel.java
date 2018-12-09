@@ -5,10 +5,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainModel {
-    public static User current_user ;
+public class UserModel extends AModel {
 
-    public MainModel(){
+    public UserModel(){
         current_user = new User();
     }
     
@@ -29,17 +28,6 @@ public class MainModel {
             //users_passwords_Dic.put(user_name,password);
             //users_Dic.put(user_name,new User(user_name,password,birth_day,first_name,last_name,city,email));
         }
-    }
-    public Connection connect() {
-        // SQLite connection string
-        String url = "jdbc:sqlite:Vacation4U.db";
-        Connection conn = null;
-        try {
-            conn = DriverManager.getConnection(url);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return conn;
     }
 
     /**

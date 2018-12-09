@@ -5,7 +5,7 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.stage.WindowEvent;
 
-public class SignUpController extends Controller{
+public class SignUpController extends AUserController {
     private SignUpView signUpView;
 
     public SignUpController(){
@@ -44,7 +44,7 @@ public class SignUpController extends Controller{
         @Override
         public void handle(Event event) {
             if (signUpView.filledSignUp()){
-                if(!mainModel.createUser(signUpView.usernameTextBox.getText(),signUpView.passwordTextBox.getText(),signUpView.birthdayDatePicker.getValue().toString(),signUpView.firstNameTextBox.getText(),
+                if(!userModel.createUser(signUpView.usernameTextBox.getText(),signUpView.passwordTextBox.getText(),signUpView.birthdayDatePicker.getValue().toString(),signUpView.firstNameTextBox.getText(),
                         signUpView.lastNameTextBox.getText(), signUpView.cityTextBox.getText(), signUpView.emailTextBox.getText()))
                 {
                     signUpView.errorusernameLable.setVisible(true);

@@ -1,14 +1,14 @@
 package View;
 
 
-import Controller.SignUpController;
+import Controller.SignUpControllerA;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.regex.Pattern;
 
-public class SignUpView {
+public class SignUpView extends AView{
 
     @FXML
     public Button signUpButton;
@@ -128,7 +128,7 @@ public class SignUpView {
 
     }
 
-    public void start(SignUpController.ButtonSignUpClickedHandler buttonSignUpClickedHandler){
+    public void start(SignUpControllerA.ButtonSignUpClickedHandler buttonSignUpClickedHandler){
         signUpButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonSignUpClickedHandler);
     }
 

@@ -1,6 +1,6 @@
 package View;
 
-import Controller.InitialController;
+import Controller.InitialControllerA;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 
 //import java.awt.*;
 
-public class InitialView {
+public class InitialView extends AView{
 
     @FXML
     public Button signInButton;
@@ -18,9 +18,9 @@ public class InitialView {
     public TextField passwordTextBox ;
     public Label invalidLoginLabel ;
 
-    public void start(InitialController.ButtonSignInClickedHandler buttonSignInClickedHandler,
-                      InitialController.ButtonSignUpClickedHandler buttonSignUpClickedHandler,
-                      InitialController.ButtonSignInAsGuestClickedHandler buttonSignInAsGuestClickedHandler){
+    public void start(InitialControllerA.ButtonSignInClickedHandler buttonSignInClickedHandler,
+                      InitialControllerA.ButtonSignUpClickedHandler buttonSignUpClickedHandler,
+                      InitialControllerA.ButtonSignInAsGuestClickedHandler buttonSignInAsGuestClickedHandler){
         signInButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonSignInClickedHandler);
         signUpButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonSignUpClickedHandler);
         signInAsGuest.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonSignInAsGuestClickedHandler);

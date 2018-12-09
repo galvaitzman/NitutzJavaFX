@@ -5,12 +5,10 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.stage.WindowEvent;
 
-public class AfterSignInController extends Controller {
+public class AfterSignInController extends AUserController {
     private AfterSignInView afterSignInView;//
     private String currentUser="";
-    int x=5;
-    int y=7;
-    int z=9;
+
 
     public AfterSignInController(){
         super("AfterSignIn.fxml");
@@ -76,7 +74,7 @@ public class AfterSignInController extends Controller {
         @Override
         public void handle(Event event) {
             //window.close();
-            mainModel.delete(currentUser);
+            userModel.delete(currentUser);
             window.close();
             mainController.activeInitialController();
             afterSignInView.showAlert("The user has been deleted");

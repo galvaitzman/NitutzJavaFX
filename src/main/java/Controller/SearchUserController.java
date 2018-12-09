@@ -6,11 +6,11 @@ import javafx.event.EventHandler;
 
 import java.util.List;
 
-public class SearchController extends Controller{
+public class SearchUserController extends AUserController {
 
     SearchView searchView;
 
-    public SearchController(){
+    public SearchUserController(){
         super("Search.fxml");
         searchView = fxmlLoader.getController();
         searchView.start(new ButtonSearchUserClickedHandler());
@@ -27,7 +27,7 @@ public class SearchController extends Controller{
     public class ButtonSearchUserClickedHandler implements EventHandler{
         @Override
         public void handle(Event event) {
-            List<String> list = mainModel.searchUserByUserName(searchView.usernameTextBox.getText());
+            List<String> list = userModel.searchUserByUserName(searchView.usernameTextBox.getText());
             if (!list.isEmpty()){
                searchView.setTxtFields(list.get(2),list.get(3),list.get(4),list.get(5),list.get(6));
             }
