@@ -46,12 +46,12 @@ public class Main extends Application {
          */
         VacationModel vacationModel = new VacationModel();
         // createNewTableVacation();
-        vacationModel.current_user.setUser_name("dan");
-        vacationModel.current_user.set_User_type("exceptional");
-        vacationModel.updateVacationStatus(3,"in order");
-        //    vacationModel.insertVacationToDB("elal","arkia","17:00","18:00","19:00", "20:00","12","13","1993-04-18","1994-04-24","","",2,"from","eilat","child","fun","","","700","","","sure","","","","");
-        //     vacationModel.insertVacationToDB("elal","arkia","17:00","18:00","19:00", "20:00","12","13","18/04/1993","24/4/1993","","",1,"beer sheva","eilat","child","fun","","","700","","","sure","","","","");
-        // vacationModel.updateVacation(3,"elal","arkia","17:00","18:00","19:00", "20:00","12","13","18/04/1993","24/4/1993","","",1,"beer sheva","eilat","child","fun","","","700","","","sure","","","","xxxxxxxx");
+      //  vacationModel.current_user.setUser_name("dan");
+       // vacationModel.current_user.set_User_type("exceptional");
+       // vacationModel.updateVacationStatus(3,"in order");
+     //    vacationModel.insertVacationToDB("elal","arkia","17:00","18:00","19:00", "20:00","12","13","10/04/1993","14/04/1993","","",2,"from","eilat","child","fun","","","700","","","sure","","","","");
+      //   vacationModel.insertVacationToDB("elal","arkia","17:00","18:00","19:00", "20:00","12","13","18/04/1993","24/4/1993","","",1,"beer sheva","eilat","child","fun","","","700","","","sure","","","","");
+         //vacationModel.updateVacation(3,"elal","arkia","17:00","18:00","19:00", "20:00","12","13","18/04/1993","24/4/1993","","",1,"beer sheva","eilat","child","fun","","","700","","","sure","","","","xxxxxxxx");
         // vacationModel.updateVacationStatus(3,"בוטלה");
         // vacationModel.deleteVacation(2);
         //  vacationModel.current_user = "gal";
@@ -63,6 +63,10 @@ public class Main extends Application {
        // List<Vacation> l = ((VacationModel) vacationModel).searchVacationsByParameters("", "", "from", "eilat");
        // System.out.println( vacationModel.deleteVacation(1));
 
+      //  List<Vacation> l =  vacationModel.searchVacationsByParameters("","","from","");
+      //  List<Vacation> l =  vacationModel.searchVacationsByParameters("10/04/1993","","from","");
+
+        System.out.println("gal");
 
         /**
          * Users
@@ -96,7 +100,7 @@ public class Main extends Application {
                 + "	flight_number_1 varchar(255) NOT NULL,\n"
                 + "	flight_number_2 varchar(255) NOT NULL,\n"
                 + "	flight_date_1 varchar(255) NOT NULL,\n"
-                + "	filght_date_2 varchar(255) NOT NULL,\n"
+                + "	flight_date_2 varchar(255) NOT NULL,\n"
                 + "	flight_baggage_1 varchar(255) NOT NULL,\n"
                 + "	flight_baggage_2 varchar(255) NOT NULL,\n"
                 + "	number_of_tickets INTEGER NOT NULL,\n"

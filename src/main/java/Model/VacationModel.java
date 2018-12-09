@@ -43,7 +43,7 @@ public class VacationModel extends AModel {
                 "flight_number_1," +
                 "flight_number_2 ," +
                 "flight_date_1," +
-                "filght_date_2," +
+                "flight_date_2," +
                 "flight_baggage_1," +
                 "flight_baggage_2," +
                 "number_of_tickets," +
@@ -75,8 +75,8 @@ public class VacationModel extends AModel {
             pstmt.setString(8, destination_time_2);
             pstmt.setString(9, flight_number_1);
             pstmt.setString(10, flight_number_2);
-            pstmt.setDate(11, java.sql.Date.valueOf(flight_date_1));
-            pstmt.setDate(12, java.sql.Date.valueOf(flight_date_2));
+            pstmt.setString(11, flight_date_1);
+            pstmt.setString(12, flight_date_2);
             pstmt.setString(13, flight_baggage_1);
             pstmt.setString(14, flight_baggage_2);
             pstmt.setInt(15, number_of_tickets);
@@ -108,7 +108,7 @@ public class VacationModel extends AModel {
      */
 
     public boolean updateVacation(int vacation_ID, String airline_name1, String airline_name2, String departure_time_1, String destination_time_1, String departure_time_2, String destination_time_2,
-                                  String flight_number_1, String flight_number_2, String flight_date_1, String filght_date_2, String flight_baggage_1, String flight_baggage_2,
+                                  String flight_number_1, String flight_number_2, String flight_date_1, String flight_date_2, String flight_baggage_1, String flight_baggage_2,
                                   int number_of_tickets, String departure_city, String destination_city, String tickets_type, String vacation_type, String stying_place_name, String stying_place_rank,
                                   String price, String connection1, String connection2, String sell_all_tickets, String bank_acount_number, String number_snif, String bank_number, String paypal) {
         //   if (!searchVacationByVacationID(vacation_ID).isEmpty()){
@@ -121,7 +121,7 @@ public class VacationModel extends AModel {
                 "flight_number_1=?," +
                 "flight_number_2 =?," +
                 "flight_date_1=?," +
-                "filght_date_2=?," +
+                "flight_date_2=?," +
                 "flight_baggage_1=?," +
                 "flight_baggage_2=?," +
                 "number_of_tickets=?," +
@@ -155,7 +155,7 @@ public class VacationModel extends AModel {
             pstmt.setString(7, flight_number_1);
             pstmt.setString(8, flight_number_2);
             pstmt.setString(9, flight_date_1);
-            pstmt.setString(10, filght_date_2);
+            pstmt.setString(10, flight_date_2);
             pstmt.setString(11, flight_baggage_1);
             pstmt.setString(12, flight_baggage_2);
             pstmt.setInt(13, number_of_tickets);
@@ -277,157 +277,58 @@ public class VacationModel extends AModel {
     public List<Vacation> searchVacationsByParameters(String flight_date_1, String flight_date_2, String departure_city, String destination_city) {
         String sql;
         List<Vacation> VacationDetails = new ArrayList<>();
-        int d1 = 0;
-        if (!flight_date_1.equals(""))
-            d1 = 1;
 
-        int d2 = 0;
-        if (!flight_date_2.equals(""))
-            d1 = 1;
+        sql = ("SELECT * from Vacation where status = ? AND ");
 
-        int dc1 = 0;
-        if (!departure_city.equals(""))
-            dc1 = 1;
+        if (flight_date_1.equals(""))
+            sql += ("flight_date_1 is not NULL AND ");
+        else
+            sql += ("flight_date_1 = ? AND ");
 
-        int dc2 = 0;
-        if (!destination_city.equals(""))
-            dc2 = 1;
+        if (flight_date_2.equals(""))
+            sql += ("flight_date_2 is not null AND ");
+        else
+            sql += ("flight_date_2 = ? AND ");
 
-        String binartyCalculate = d1 + "" + d2 + "" + dc1 + "" + dc2;
+        if (departure_city.equals(""))
+            sql += ("departure_city is not null AND ");
+        else
+            sql += ("departure_city = ? AND ");
 
-        switch (binartyCalculate) {
+        if (destination_city.equals(""))
+            sql += ("destination_city is not null");
+        else
+            sql += ("destination_city = ?");
 
-            // only destination
-            case "0001":
-                sql = "SELECT * from Vacation where destination_city = ? AND status = ?";
-                try (Connection conn = this.connect();
-                     PreparedStatement statement = conn.prepareStatement(sql)) {
-                    statement.setString(1, destination_city);
-                    statement.setString(2, "valid");
-
-                    ResultSet rs = statement.executeQuery();
-                    ResultSetMetaData rsmd = rs.getMetaData();
-                    int colCount = rsmd.getColumnCount();
-                    while (rs.next()) {
-                        Vacation vac = new Vacation();
-                        for (int col = 1; col <= colCount; col++) {
-                            Object value = rs.getObject(col);
-                            if (value != null) {
-                                vac.vacation_details[col - 1] = value.toString();
-                                // VacationDetails.add(value.toString());
-                            }
-                        }
-                        VacationDetails.add(vac);
+        try (Connection conn = this.connect();
+             PreparedStatement statement = conn.prepareStatement(sql)) {
+            int i = 1;
+            statement.setString(i++, "valid");
+            if (!flight_date_1.equals(""))
+                statement.setString(i++, flight_date_1);
+            if (!flight_date_2.equals(""))
+                statement.setString(i++, flight_date_2);
+            if (!departure_city.equals(""))
+                statement.setString(i++, departure_city);
+            if (!destination_city.equals(""))
+                statement.setString(i, destination_city);
+            ResultSet rs = statement.executeQuery();
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int colCount = rsmd.getColumnCount();
+            while (rs.next()) {
+                Vacation vac = new Vacation();
+                for (int col = 1; col <= colCount; col++) {
+                    Object value = rs.getObject(col);
+                    if (value != null) {
+                        vac.vacation_details[col - 1] = value.toString();
                     }
-                } catch (SQLException e) {
-                    System.out.println(e.getMessage());
                 }
-                return VacationDetails;
-
-
-            //only   departure_city
-            case "0010":
-                sql = "SELECT * from Vacation where departure_city = ? AND status = ?";
-                try (Connection conn = this.connect();
-                     PreparedStatement statement = conn.prepareStatement(sql)) {
-                    statement.setString(1, departure_city);
-                    statement.setString(2, "valid");
-                    ResultSet rs = statement.executeQuery();
-                    ResultSetMetaData rsmd = rs.getMetaData();
-                    int colCount = rsmd.getColumnCount();
-                    while (rs.next()) {
-                        Vacation vac = new Vacation();
-                        for (int col = 1; col <= colCount; col++) {
-                            Object value = rs.getObject(col);
-                            if (value != null) {
-                                vac.vacation_details[col - 1] = value.toString();
-                                // VacationDetails.add(value.toString());
-                            }
-                        }
-                        VacationDetails.add(vac);
-                    }
-                } catch (SQLException e) {
-                    System.out.println(e.getMessage());
-                }
-                return VacationDetails;
-
-
-            //  destination and departure_city
-            case "0011":
-                sql = "SELECT * from Vacation where departure_city = ? AND destination_city= ? AND status=?";
-                try (Connection conn = this.connect();
-                     PreparedStatement statement = conn.prepareStatement(sql)) {
-                    statement.setString(1, departure_city);
-                    statement.setString(2, destination_city);
-                    statement.setString(3, "valid");
-                    ResultSet rs = statement.executeQuery();
-                    ResultSetMetaData rsmd = rs.getMetaData();
-                    int colCount = rsmd.getColumnCount();
-                    while (rs.next()) {
-                        Vacation vac = new Vacation();
-                        for (int col = 1; col <= colCount; col++) {
-                            Object value = rs.getObject(col);
-                            if (value != null) {
-                                vac.vacation_details[col - 1] = value.toString();
-                                // VacationDetails.add(value.toString());
-                            }
-                        }
-                        VacationDetails.add(vac);
-                    }
-                } catch (SQLException e) {
-                    System.out.println(e.getMessage());
-                }
-                return VacationDetails;
-
-
-            // date 2
-            case "0100":
-
-
-                //date 2 and destination
-            case "0101":
-
-
-                // date 2 and departure_city
-            case "0110":
-
-                // date 2  departure_city ,destination
-            case "0111":
-
-
-                // date 1
-            case "1000":
-
-
-                //date1 and destination
-            case "1001":
-
-
-                // date1 and departure_city
-            case "1010":
-
-
-                // date 1 departure_city and destination
-            case "1011":
-
-
-                // date 1 and date 2
-            case "1100":
-
-
-                // date 1 , date 2 and destination
-            case "1101":
-
-
-                // date1 , date 2 and departure_city
-            case "1110":
-
-                // all the parameters
-            case "1111":
-
-
+                VacationDetails.add(vac);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
-        return null;
+        return VacationDetails;
     }
 }
 
