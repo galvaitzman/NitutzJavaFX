@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ShowApprovalsView {
     @FXML
-    public TableView tableViewShowApprovals;
+    public TableView tableViewShowApprovals;//
     public TableColumn colSeller;
     public TableColumn colVacationID;
 

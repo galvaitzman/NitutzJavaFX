@@ -30,7 +30,7 @@ public class ShowApprovalsController extends Controller {
 
     @Override
     public void start() {
-        showApprovalsView.showApprovals(ordersModel.getOrdersInCaseBuyer());
-        window.show();
+        showApprovalsView.showApprovals(ordersModel.getOrdersInCaseBuyer());//
+        window.show();//
     }
 }
