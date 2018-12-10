@@ -86,7 +86,7 @@ public class MainController{
     }
 
 
-    public void activeMyVacationsContoller(){
+    public void activeMyVacationsController(){
         controllers.push(currentController);
         currentController = myVacationsController;
         myVacationsController.start();
@@ -96,6 +96,12 @@ public class MainController{
         controllers.push(currentController);
         currentController = updateVacationDetailsController;
         updateVacationDetailsController.start();
+    }
+
+    public void activeViewVacationController(){
+        controllers.push(currentController);
+        currentController = viewVacationController;
+        viewVacationController.start();
     }
 
 }

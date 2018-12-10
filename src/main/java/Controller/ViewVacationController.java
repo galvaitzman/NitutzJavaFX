@@ -8,6 +8,9 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -17,30 +20,29 @@ public class ViewVacationController extends Controller {
     public ViewVacationController(){
         super("ViewVacationDetails.fxml");
         viewVacationDetailsView = fxmlLoader.getController();
+        viewVacationDetailsView.start(new ButtonRequestOrder());
     }
 
     @Override
     public void start() {
         window.show();
-        window.setTitle("Create vacation");
+        window.setTitle("View Vacation Offer");
+        viewVacationDetailsView.showVacationDetails(vacationModel.getCurrentVacation().getVacation_details());
     }
 
-    public class ButtonNumberOfTickets implements EventHandler {
+    public class ButtonRequestOrder implements EventHandler {
         @Override
         public void handle(Event event) {
-            viewVacationDetailsView.enableVacationType();
-
+            String sellerId = vacationModel.getCurrentVacation().getVacation_details()[1];
+            String vacationId = vacationModel.getCurrentVacation().getVacation_details()[0];
+            String numOfTickets = vacationModel.getCurrentVacation().getVacation_details()[14];
+            ordersModel.insertOrderToDB(sellerId, vacationId, numOfTickets);
+            Alert alertRequestSubmitted = new Alert(Alert.AlertType.INFORMATION, "Your request has been submitted!", ButtonType.OK);
+            alertRequestSubmitted.show();
+            window.close();
+            mainController.activeSearchResultContoller();
         }
     }
-
-    public class ButtonFlightBack implements EventHandler{
-        @Override
-        public void handle(Event event) {
-            viewVacationDetailsView.enableOrDisableFlightBackDetails();
-        }
-    }
-
-
 
 
 }

@@ -20,9 +20,7 @@ public class SearchResultController extends Controller {
                      Vacation selectedVacation = (Vacation) selectionModel.getSelectedItem();
                      vacationModel.setCurrentVacation(selectedVacation);
                      window.close();
-
-
-
+                     mainController.activeViewVacationController();
                  }
              }
          });
