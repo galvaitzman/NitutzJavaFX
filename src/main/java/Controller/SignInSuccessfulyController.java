@@ -1,7 +1,5 @@
 package Controller;
 
-import Model.AModel;
-import View.SearchVacationView;
 import View.SignInSuccessfulyView;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -19,6 +17,7 @@ public class SignInSuccessfulyController extends Controller {
         if (userModel.getCurrent_user().getUser_name().equals("")){
             signInSuccessfulyView.myVacations.setVisible(false);
             signInSuccessfulyView.manageMyUser.setVisible(false);
+            signInSuccessfulyView.createNewVacation.setVisible(false);
         }
         window.show();
     }
@@ -42,6 +41,7 @@ public class SignInSuccessfulyController extends Controller {
     public class ButtonMyVacations implements EventHandler{
         @Override
         public void handle(Event event) {
+            vacationModel.searchVacationsByUser_Id();
             window.close();
             mainController.activeMyVacationsContoller();
         }

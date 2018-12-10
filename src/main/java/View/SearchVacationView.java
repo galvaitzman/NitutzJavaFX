@@ -6,7 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
-import java.awt.*;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
@@ -21,6 +20,9 @@ public class SearchVacationView extends AView {
 
     public void start (SearchVacationController.ButtonSearchVacation buttonSearchVacation){
         searchButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonSearchVacation);
+        from.setText("");
+        to.setText("");
+
     }
 
     public boolean isOneFieldsFull(){

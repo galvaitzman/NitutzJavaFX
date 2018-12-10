@@ -3,12 +3,13 @@ package Model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AModel {
     public static User current_user = new User() ;
-    private List<Vacation> currentListOfVacations;
-    private Vacation currentVacation;
+    protected List<Vacation> currentListOfVacations = new ArrayList<>();
+    protected Vacation currentVacation;
     protected Connection connect() {
         // SQLite connection string
         String url = "jdbc:sqlite:Vacation4U.db";

@@ -14,13 +14,16 @@ public class MainController{
     Controller currentController = initialController;
     Controller searchResultController = new SearchResultController();
     Controller signInSuccessfulyController = new SignInSuccessfulyController();
+    Controller myVacationsController = new MyVacationsController();
+    Controller buyingVacationPaypalOrVisaPaymentController = new BuyingVacationPaypalOrVisaPaymentController();
     Stack <Controller> controllers = new Stack<Controller>();
 
     public MainController (){
         Controller.setMainController(this);
         Controller.setMainUserModel();
         Controller.setMainVacationModel();
-        initialController.start();
+        buyingVacationPaypalOrVisaPaymentController.start();
+        //initialController.start();
         //searchVacationController.start();
         //createVacationController.start();
         //currentController.start();
@@ -85,7 +88,9 @@ public class MainController{
 
 
     public void activeMyVacationsContoller(){
-        System.out.println("is working");
+        controllers.push(currentController);
+        currentController = myVacationsController;
+        myVacationsController.start();
     }
 
 }

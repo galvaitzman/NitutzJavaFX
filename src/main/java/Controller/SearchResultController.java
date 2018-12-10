@@ -21,13 +21,14 @@ public class SearchResultController extends Controller {
                      vacationModel.setCurrentVacation(selectedVacation);
                      window.close();
 
+
                  }
              }
          });
     }
     @Override
     public void start() {
-        searchResultView.showVacations(null);
+        searchResultView.showVacations(vacationModel.getCurrentListOfVacations());
         window.show();
     }
 }

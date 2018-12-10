@@ -8,6 +8,22 @@ public class Vacation {
         vacation_details=new String[31];
     }
 
+    public String getFlight_date_1(){
+        return vacation_details[10];
+    }
+    public String getFlight_date_2(){
+        return vacation_details[11];
+    }
+
+    public String getDeparture_city(){
+        return vacation_details[15];
+    }
+    public String getDestination_city(){
+        return vacation_details[16];
+    }
+    public String getPrice(){
+        return vacation_details[21];
+    }
     /*
     String vacation_ID,
     String user_name,
