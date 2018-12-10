@@ -1,19 +1,10 @@
 package Controller;
 
 import View.ViewVacationDetailsView;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class ViewVacationController extends Controller {
     private ViewVacationDetailsView viewVacationDetailsView;
@@ -36,7 +27,7 @@ public class ViewVacationController extends Controller {
             String sellerId = vacationModel.getCurrentVacation().getVacation_details()[1];
             String vacationId = vacationModel.getCurrentVacation().getVacation_details()[0];
             String numOfTickets = vacationModel.getCurrentVacation().getVacation_details()[14];
-            ordersModel.insertOrderToDB(sellerId, vacationId, numOfTickets);
+            ordersModel.insertOrderToDB(sellerId, Integer.parseInt(vacationId), numOfTickets);
             Alert alertRequestSubmitted = new Alert(Alert.AlertType.INFORMATION, "Your request has been submitted!", ButtonType.OK);
             alertRequestSubmitted.show();
             window.close();
