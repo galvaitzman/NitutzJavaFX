@@ -15,15 +15,15 @@ public class MainController{
     Controller searchResultController = new SearchResultController();
     Controller signInSuccessfulyController = new SignInSuccessfulyController();
     Controller myVacationsController = new MyVacationsController();
-    Controller buyingVacationPaypalOrVisaPaymentController = new BuyingVacationPaypalOrVisaPaymentController();
+//    Controller buyingVacationPaypalOrVisaPaymentController = new BuyingVacationPaypalOrVisaPaymentController();
     Stack <Controller> controllers = new Stack<Controller>();
 
     public MainController (){
         Controller.setMainController(this);
         Controller.setMainUserModel();
         Controller.setMainVacationModel();
-        buyingVacationPaypalOrVisaPaymentController.start();
-        //initialController.start();
+//        buyingVacationPaypalOrVisaPaymentController.start();
+        initialController.start();
         //searchVacationController.start();
         //createVacationController.start();
         //currentController.start();
