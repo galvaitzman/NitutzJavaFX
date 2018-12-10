@@ -9,7 +9,7 @@ import java.util.List;
 public class OrdersModel extends AModel{
 
 
-    public void insertOrderToDB(String user_name_seller, String vacation_id, String number_of_tickets){
+    public void insertOrderToDB(String user_name_seller, int vacation_id, String number_of_tickets){
 
         String sql_order_id = "SELECT max(order_id) FROM Orders";
         int order_id = 0;
@@ -37,7 +37,7 @@ public class OrdersModel extends AModel{
             pstmt.setInt(1, order_id);
             pstmt.setString(2, current_user.getUser_name());
             pstmt.setString(3, user_name_seller);
-            pstmt.setString(4, vacation_id);
+            pstmt.setInt(4, vacation_id);
             pstmt.setString(5, number_of_tickets);
             pstmt.setString(6, "waiting for approval of purchase offer");
             pstmt.setString(7, last_update);
@@ -74,9 +74,8 @@ public class OrdersModel extends AModel{
     }
 
 
-    public boolean updateOrderStatus(int order_id, String order_status) {
-        if (!searchOrferByOrderID(order_id).isEmpty()) {
-            String sql = "UPDATE Orders SET order_status=?, last_update=? WHERE order_id  = ?";
+    public void updateOrderStatus(int order_id, String order_status) {
+            String sql = "UPDATE Orders SET order_status=?, last_update=? WHERE order_id= ?";
             String last_update  = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
             try (Connection conn = this.connect();
                  PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -86,18 +85,15 @@ public class OrdersModel extends AModel{
                 pstmt.setInt(3, order_id);
                 // update
                 pstmt.executeUpdate();
-                return true;
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
-        }
-        return false;
     }
 
     public List<Order> getOrdersInCaseBuyer()
     {
         List<Order> orderArrayList = new ArrayList<>();
-        String sql = "SELECT * from Orders where user_name_buyer = ? AND order_status = ?";
+        String sql = "SELECT * from Orders where user_name_buyer = ? AND order_status = ? ORDER BY vacation_id";
         try (Connection conn = this.connect();
              PreparedStatement statement = conn.prepareStatement(sql)) {
             statement.setString(1, current_user.getUser_name());
@@ -113,7 +109,7 @@ public class OrdersModel extends AModel{
                     temp[col-1] = value.toString();
                     }
                 }
-                orderArrayList.add(new Order(temp[0] ,temp[1],temp[2],temp[3],temp[4],temp[5],temp[6]));
+                orderArrayList.add(new Order(temp[0] ,temp[1],temp[2],Integer.parseInt(temp[3]),temp[4],temp[5],temp[6]));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -127,7 +123,7 @@ public class OrdersModel extends AModel{
     public List<Order> getOrdersInCaseSeller()
     {
         List<Order> orderArrayList = new ArrayList<>();
-        String sql = "SELECT * from Orders where user_name_seller = ? AND order_status = ?";
+        String sql = "SELECT * from Orders where user_name_seller = ? AND order_status = ? ORDER BY vacation_id";
         try (Connection conn = this.connect();
              PreparedStatement statement = conn.prepareStatement(sql)) {
             statement.setString(1, current_user.getUser_name());
@@ -143,7 +139,7 @@ public class OrdersModel extends AModel{
                         temp[col-1] = value.toString();
                     }
                 }
-                orderArrayList.add(new Order(temp[0] ,temp[1],temp[2],temp[3],temp[4],temp[5],temp[6]));
+                orderArrayList.add(new Order(temp[0] ,temp[1],temp[2],Integer.parseInt(temp[3]),temp[4],temp[5],temp[6]));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -151,10 +147,7 @@ public class OrdersModel extends AModel{
         currentListOfOrders.clear();
         currentListOfOrders = orderArrayList;
         return orderArrayList;
-
-
-
-
     }
+
 
 }
