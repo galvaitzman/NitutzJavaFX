@@ -14,7 +14,7 @@ public class Vacation {
     public String getFlight_date_2(){
         return vacation_details[11];
     }
-
+    public String getVacation_ID(){return vacation_details[0];}
     public String getDeparture_city(){
         return vacation_details[15];
     }

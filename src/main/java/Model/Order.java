@@ -29,7 +29,7 @@ public class Order {
         this.order_id = order_id;
     }
 
-    public java.lang.String getUser_name_buyer() {
+    public String getUser_name_buyer() {
         return user_name_buyer;
     }
 

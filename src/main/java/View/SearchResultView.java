@@ -17,6 +17,7 @@ public class SearchResultView extends AView {
     public TableColumn colDepartureDate;
     public TableColumn colReturnDate;
     public TableColumn colPrice;
+    public TableColumn colVacationID;
 
     public void start(ChangeListener changeListener){
         tableViewShowVacations.getSelectionModel().selectedItemProperty().addListener(changeListener);
@@ -29,6 +30,7 @@ public class SearchResultView extends AView {
         colDepartureDate.setCellValueFactory(new PropertyValueFactory<Vacation,String>("Flight_date_1"));
         colReturnDate.setCellValueFactory(new PropertyValueFactory<Vacation,String>("Flight_date_2"));
         colPrice.setCellValueFactory(new PropertyValueFactory<Vacation,String>("Price"));
+        colVacationID.setCellValueFactory(new PropertyValueFactory<Vacation,String>("Vacation_ID"));
 
 
 

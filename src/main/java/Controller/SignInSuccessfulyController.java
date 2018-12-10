@@ -10,17 +10,31 @@ public class SignInSuccessfulyController extends Controller {
         super("SignInSuccessfuly.fxml");
         signInSuccessfulyView = fxmlLoader.getController();
         signInSuccessfulyView.start(new ButtonSearchVacation(), new ButtonManageMyUser(), new ButtonMyVacations(),
-                new ButtonCreateVacation());
+                new ButtonCreateVacation(), new ButtonShowRequests(), new ButtonShowApprovals());
     }
     @Override
     public void start() {
+        window.show();
         if (userModel.getCurrent_user().getUser_name().equals("")){
             signInSuccessfulyView.myVacations.setVisible(false);
             signInSuccessfulyView.manageMyUser.setVisible(false);
             signInSuccessfulyView.createNewVacation.setVisible(false);
         }
+        if (ordersModel.getOrdersInCaseSeller().size()>0){
+            signInSuccessfulyView.requestButton.setVisible(true);
+            signInSuccessfulyView.alert("You have new requests for purchasing your vacations");
+        }
+        else{
+            signInSuccessfulyView.requestButton.setVisible(false);
+        }
+        if (ordersModel.getOrdersInCaseBuyer().size()>0){
+            signInSuccessfulyView.approvalButton.setVisible(true);
+            signInSuccessfulyView.alert("You have new approvals for your vacation purchases requests");
+        }
+        else{
+            signInSuccessfulyView.approvalButton.setVisible(false);
+        }
 
-        window.show();
     }
 
     public class ButtonSearchVacation implements EventHandler{
@@ -53,6 +67,22 @@ public class SignInSuccessfulyController extends Controller {
         public void handle(Event event) {
             window.close();
             mainController.activeCreateVacationController();
+        }
+    }
+
+    public class ButtonShowRequests implements EventHandler{
+        @Override
+        public void handle(Event event) {
+            window.close();
+            mainController.activeShowRequestsController();
+        }
+    }
+
+    public class ButtonShowApprovals implements EventHandler{
+        @Override
+        public void handle(Event event) {
+            window.close();
+            mainController.activeShowApprovalsController();
         }
     }
 }
