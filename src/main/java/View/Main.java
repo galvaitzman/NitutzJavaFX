@@ -1,7 +1,6 @@
 package View;
 
 import Controller.MainController;
-import Model.OrdersModel;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -16,7 +15,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        new MainController();
+
+      new MainController();
         /*
 
         primaryStage.setScene(new Scene(root,382,249));
@@ -46,12 +46,27 @@ public class Main extends Application {
          * Orders
          */
 
-       // createNewTableOrder();
-        OrdersModel ordersModel = new OrdersModel();
 
-//
-//       AModel.current_user.setUser_name("gonenel");
-//       ordersModel.insertOrderToDB("galgalgal","galgalgalgal","galgalgalgalgal");
+    //    createNewTableOrder();
+    //   OrdersModel ordersModel = new OrdersModel();
+
+
+
+     //  AModel.current_user.setUser_name("itay");
+     //  ordersModel.insertOrderToDB("goni",12,"2");
+      //  ordersModel.insertOrderToDB("goni",14,"2");
+      //  ordersModel.insertOrderToDB("itay",17,"2");
+      //  ordersModel.insertOrderToDB("itay",2,"2");
+       // ordersModel.insertOrderToDB("itay",18,"2");
+/*
+        ordersModel.updateOrderStatus(4,"waiting for payment");
+        ordersModel.updateOrderStatus(1,"waiting for payment");
+
+        // ordersModel.insertOrderToDB("goni","11","2");
+    //    ordersModel.insertOrderToDB("itay","17","2");
+        List<Order> L = ordersModel.getOrdersInCaseBuyer();
+        System.out.println("");*/
+
  //      ordersModel.updateOrderStatus(1,"yoyoyo");
 
 
@@ -59,14 +74,14 @@ public class Main extends Application {
         /**
          * Vacation
          */
-//     /  VacationModel vacationModel = new VacationModel();
-//        // createNewTableVacation();
+ //VacationModel vacationModel = new VacationModel();
+        // createNewTableVacation();
 //      //  vacationModel.current_user.setUser_name("dan");
        // vacationModel.current_user.set_User_type("exceptional");
        // vacationModel.updateVacationStatus(3,"in order");
-     //    vacationModel.insertVacationToDB("elal","arkia","17:00","18:00","19:00", "20:00","12","13","10/04/1993","14/04/1993","","",2,"from","eilat","child","fun","","","700","","","sure","","","","");
-      //   vacationModel.insertVacationToDB("elal","arkia","17:00","18:00","19:00", "20:00","12","13","18/04/1993","24/4/1993","","",1,"beer sheva","eilat","child","fun","","","700","","","sure","","","","");
-         //vacationModel.updateVacation(3,"elal","arkia","17:00","18:00","19:00", "20:00","12","13","18/04/1993","24/4/1993","","",1,"beer sheva","eilat","child","fun","","","700","","","sure","","","","xxxxxxxx");
+        // vacationModel.insertVacationToDB("elal","arkia","17:00","18:00","19:00", "20:00","12","13","2018-04-04","2018-04-09","","",2,"from","eilat","child","fun","","","700","","","sure","","","","");
+        // vacationModel.insertVacationToDB("elal","arkia","17:00","18:00","19:00", "20:00","12","13","2018-02-04","2018-04-10","","",1,"beer sheva","eilat","child","fun","","","700","","","sure","","","","");
+         //vacationModel.updateVacation(3,"elal","arkia","17:00","18:00","19:00", "20:00","12","13","2018-03-04","24/4/1993","","",1,"beer sheva","eilat","child","fun","","","700","","","sure","","","","xxxxxxxx");
         // vacationModel.updateVacationStatus(3,"בוטלה");
         // vacationModel.deleteVacation(2);
         //  vacationModel.current_user = "gal";
@@ -184,7 +199,7 @@ public class Main extends Application {
                 + "	order_id INTEGER NOT NULL PRIMARY KEY,\n"
                 + "	user_name_buyer varchar(255) NOT NULL ,\n"
                 + "	user_name_seller varchar(255) NOT NULL,\n"
-                + "	vacation_id varchar(255) NOT NULL,\n"
+                + "	vacation_id INTEGER NOT NULL,\n"
                 + "	number_of_tickets varchar(255) NOT NULL,\n"
                 + "	order_status varchar(255) NOT NULL,\n"
                 + "	last_update varchar(255) NOT NULL\n"
@@ -233,11 +248,11 @@ public class Main extends Application {
             System.out.println(e.getMessage());
         }
     }
-
+*/
     public static void main(String[] args) {
        // createNewTable();
         launch(args);
     }
-    */
+
 
 }

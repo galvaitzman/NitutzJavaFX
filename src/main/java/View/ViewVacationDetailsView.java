@@ -2,8 +2,9 @@ package View;
 
 import Controller.ViewVacationController;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import java.time.LocalDate;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 public class ViewVacationDetailsView extends AView{
     @FXML
@@ -78,23 +79,23 @@ public class ViewVacationDetailsView extends AView{
         }
         if (Integer.parseInt(vacationDetails[14]) > 1) {
             ticket2.setVisible(true);
-            ticketType1.setVisible(true);
-            ticketType1.setText(vacationDetails[17].split(",")[1]);
+            ticketType2.setVisible(true);
+            ticketType2.setText(vacationDetails[17].split(",")[1]);
         }
         if (Integer.parseInt(vacationDetails[14]) > 2) {
             ticket3.setVisible(true);
-            ticketType1.setVisible(true);
-            ticketType1.setText(vacationDetails[17].split(",")[2]);
+            ticketType3.setVisible(true);
+            ticketType3.setText(vacationDetails[17].split(",")[2]);
         }
         if (Integer.parseInt(vacationDetails[14]) > 3) {
             ticket4.setVisible(true);
-            ticketType1.setVisible(true);
-            ticketType1.setText(vacationDetails[17].split(",")[3]);
+            ticketType4.setVisible(true);
+            ticketType4.setText(vacationDetails[17].split(",")[3]);
         }
         if (Integer.parseInt(vacationDetails[14]) > 4) {
             ticket5.setVisible(true);
-            ticketType1.setVisible(true);
-            ticketType1.setText(vacationDetails[17].split(",")[4]);
+            ticketType5.setVisible(true);
+            ticketType5.setText(vacationDetails[17].split(",")[4]);
         }
         vacationType.setText(vacationDetails[18]);
         staying_place_name.setText(vacationDetails[19]);
