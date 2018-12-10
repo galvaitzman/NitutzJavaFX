@@ -39,7 +39,7 @@ public class OrdersModel extends AModel{
             pstmt.setString(3, user_name_seller);
             pstmt.setString(4, vacation_id);
             pstmt.setString(5, number_of_tickets);
-            pstmt.setString(6, "awaiting for approval of purchase offer");
+            pstmt.setString(6, "waiting for approval of purchase offer");
             pstmt.setString(7, last_update);
             pstmt.executeUpdate();
         } catch (SQLException e) {
@@ -94,6 +94,67 @@ public class OrdersModel extends AModel{
         return false;
     }
 
+    public List<Order> getOrdersInCaseBuyer()
+    {
+        List<Order> orderArrayList = new ArrayList<>();
+        String sql = "SELECT * from Orders where user_name_buyer = ? AND order_status = ?";
+        try (Connection conn = this.connect();
+             PreparedStatement statement = conn.prepareStatement(sql)) {
+            statement.setString(1, current_user.getUser_name());
+            statement.setString(2, "waiting for payment");
+            ResultSet rs = statement.executeQuery();
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int colCount = rsmd.getColumnCount();
+            while (rs.next()) {
+               String [] temp = new String[7];
+                for (int col = 1; col <= colCount; col++) {
+                    Object value = rs.getObject(col);
+                    if (value != null) {
+                    temp[col-1] = value.toString();
+                    }
+                }
+                orderArrayList.add(new Order(temp[0] ,temp[1],temp[2],temp[3],temp[4],temp[5],temp[6]));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        currentListOfOrders.clear();
+        currentListOfOrders = orderArrayList;
+        return orderArrayList;
 
+    }
+
+    public List<Order> getOrdersInCaseSeller()
+    {
+        List<Order> orderArrayList = new ArrayList<>();
+        String sql = "SELECT * from Orders where user_name_seller = ? AND order_status = ?";
+        try (Connection conn = this.connect();
+             PreparedStatement statement = conn.prepareStatement(sql)) {
+            statement.setString(1, current_user.getUser_name());
+            statement.setString(2, "waiting for approval of purchase offer");
+            ResultSet rs = statement.executeQuery();
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int colCount = rsmd.getColumnCount();
+            while (rs.next()) {
+                String [] temp = new String[7];
+                for (int col = 1; col <= colCount; col++) {
+                    Object value = rs.getObject(col);
+                    if (value != null) {
+                        temp[col-1] = value.toString();
+                    }
+                }
+                orderArrayList.add(new Order(temp[0] ,temp[1],temp[2],temp[3],temp[4],temp[5],temp[6]));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        currentListOfOrders.clear();
+        currentListOfOrders = orderArrayList;
+        return orderArrayList;
+
+
+
+
+    }
 
 }

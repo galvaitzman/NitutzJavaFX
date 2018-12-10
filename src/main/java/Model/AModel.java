@@ -10,6 +10,8 @@ public abstract class AModel {
     public static User current_user = new User() ;
     protected List<Vacation> currentListOfVacations = new ArrayList<>();
     protected Vacation currentVacation;
+    protected List<Order> currentListOfOrders = new ArrayList<>();
+    protected Vacation currentOrder;
     protected Connection connect() {
         // SQLite connection string
         String url = "jdbc:sqlite:Vacation4U.db";
