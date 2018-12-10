@@ -24,7 +24,7 @@ public class Vacation {
     public String getPrice(){
         return vacation_details[21];
     }
-    public String[] getVacation_details(){return vacation_details;}
+    public String[] getVacation_details(){return vacation_details;}//
     /*
     String vacation_ID,
     String user_name,
