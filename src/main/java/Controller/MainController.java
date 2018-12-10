@@ -16,17 +16,16 @@ public class MainController{
     Controller signInSuccessfulyController = new SignInSuccessfulyController();
     Controller myVacationsController = new MyVacationsController();
     Controller buyingVacationPaypalOrVisaPaymentController = new BuyingVacationPaypalOrVisaPaymentController();
+    Controller viewVacationController = new ViewVacationController();
+    Controller updateVacationDetailsController = new UpdateVacationDetailsController();
     Stack <Controller> controllers = new Stack<Controller>();
 
     public MainController (){
         Controller.setMainController(this);
         Controller.setMainUserModel();
         Controller.setMainVacationModel();
-        buyingVacationPaypalOrVisaPaymentController.start();
+        Controller.setMainOrderModel();
         initialController.start();
-        //searchVacationController.start();
-        //createVacationController.start();
-        //currentController.start();
         controllers.push(currentController);
     }
 
@@ -93,8 +92,10 @@ public class MainController{
         myVacationsController.start();
     }
 
-    public void activeDeleteOrUpdateVacationController(){
-
+    public void activeUpdateVacationController(){
+        controllers.push(currentController);
+        currentController = updateVacationDetailsController;
+        updateVacationDetailsController.start();
     }
 
 }

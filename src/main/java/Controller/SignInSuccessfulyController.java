@@ -19,6 +19,7 @@ public class SignInSuccessfulyController extends Controller {
             signInSuccessfulyView.manageMyUser.setVisible(false);
             signInSuccessfulyView.createNewVacation.setVisible(false);
         }
+
         window.show();
     }
 

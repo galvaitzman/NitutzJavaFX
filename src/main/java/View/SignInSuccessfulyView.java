@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 
 import java.awt.*;
 
-public class SignInSuccessfulyView {
+public class SignInSuccessfulyView extends AView{
 
     @FXML
     public Button searchVacation;

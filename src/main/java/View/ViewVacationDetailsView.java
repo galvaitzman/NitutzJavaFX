@@ -44,10 +44,10 @@ public class ViewVacationDetailsView extends AView{
 
 
     public void start(ViewVacationController.ButtonNumberOfTickets numberOfTicketsButton,
-                      ViewVacationController.ButtonMoveToPaymentMethod moveToPaymentMethod,
+                     // ViewVacationController.ButtonMoveToPaymentMethod moveToPaymentMethod,
                       ViewVacationController.ButtonFlightBack flightBackButton) {
         ticketType1.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, numberOfTicketsButton);
-        moveToPaymentMethodButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, moveToPaymentMethod);
+       // moveToPaymentMethodButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, moveToPaymentMethod);
         flightBack.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,flightBackButton);
         ObservableList<String> sellAllTicketsItems = FXCollections.observableArrayList();
         ObservableList<String> vacationTypeItems = FXCollections.observableArrayList();

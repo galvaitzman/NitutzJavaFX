@@ -6,12 +6,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="213.0" prefWidth="283.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.SignInSuccessfulyView">
+<AnchorPane prefHeight="449.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.SignInSuccessfulyView">
    <children>
-      <Button fx:id="searchVacation" layoutX="71.0" layoutY="31.0" mnemonicParsing="false" prefWidth="142.0" text="Search Vacation" />
-      <Button fx:id="manageMyUser" layoutX="71.0" layoutY="71.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="142.0" text="Manage my user" />
-      <Button fx:id="myVacations" layoutX="71.0" layoutY="111.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="142.0" text="My vacations" />
-       <Button fx:id="createNewVacation" layoutX="71.0" layoutY="151.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="142.0" text="Create vacation" />
+      <Button fx:id="searchVacation" layoutX="160.0" layoutY="116.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="166.0" text="Search Vacation" />
+      <Button fx:id="manageMyUser" layoutX="160.0" layoutY="57.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="166.0" text="Manage my user" />
+      <Button fx:id="myVacations" layoutX="160.0" layoutY="171.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="166.0" text="My vacations" />
+       <Button fx:id="createNewVacation" layoutX="160.0" layoutY="231.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="166.0" text="Create vacation" />
+      <Label fx:id="requestLabel" layoutX="36.0" layoutY="282.0" text="You have new requests for purchasing your vacations " />
+      <Button fx:id="requestButton" layoutX="112.0" layoutY="307.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="277.0" text="press here to see the requests" />
+      <Label fx:id="approvalLable" layoutX="11.0" layoutY="360.0" text="You have new approvals for you purchase vacation's request" />
+      <Button fx:id="approvalButton" layoutX="112.0" layoutY="387.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="277.0" text="press here to see the approvals" />
    </children>
 </AnchorPane>

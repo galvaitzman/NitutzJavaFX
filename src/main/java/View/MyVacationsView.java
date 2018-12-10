@@ -9,7 +9,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.util.List;
 
-public class MyVacationsView {
+public class MyVacationsView extends AView {
     @FXML
     public TableView tableViewShowVacations;
     public TableColumn colFrom;

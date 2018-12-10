@@ -22,6 +22,7 @@ public class SearchResultController extends Controller {
                      window.close();
 
 
+
                  }
              }
          });
