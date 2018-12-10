@@ -29,9 +29,9 @@ public class ViewVacationController extends Controller {
             String numOfTickets = vacationModel.getCurrentVacation().getVacation_details()[14];
             ordersModel.insertOrderToDB(sellerId, Integer.parseInt(vacationId), numOfTickets);
             Alert alertRequestSubmitted = new Alert(Alert.AlertType.INFORMATION, "Your request has been submitted!", ButtonType.OK);
-            alertRequestSubmitted.show();
             window.close();
             mainController.activeSearchResultContoller();
+            alertRequestSubmitted.show();
         }
     }
 

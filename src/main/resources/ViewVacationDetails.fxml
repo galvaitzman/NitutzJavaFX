@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,7 +8,6 @@
 <AnchorPane prefHeight="655.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewVacationDetailsView">
     <children>
             <TextField fx:id="departure_city" editable="false" layoutX="40.0" layoutY="40.0" prefHeight="27.0" prefWidth="185.0" />
-            <DatePicker fx:id="flight_date_1" editable="false" layoutX="40.0" layoutY="90.0" prefHeight="27.0" prefWidth="185.0" />
             <TextField fx:id="departure_time_1" editable="false" layoutX="40.0" layoutY="140.0" prefHeight="27.0" prefWidth="185.0" />
             <TextField fx:id="destination_time_1" editable="false" layoutX="40.0" layoutY="190.0" prefHeight="27.0" prefWidth="185.0" />
             <TextField fx:id="airLineName_1" editable="false" layoutX="40.0" layoutY="240.0" prefHeight="27.0" prefWidth="185.0" />
@@ -20,7 +17,6 @@
 
 
             <TextField fx:id="destination_city" editable="false" layoutX="350.0" layoutY="40.0" prefHeight="27.0" prefWidth="210.0" />
-            <DatePicker fx:id="flight_date_2" editable="false" layoutX="350.0" layoutY="90.0" prefHeight="27.0" prefWidth="210.0" />
             <TextField fx:id="departure_time_2" editable="false" layoutX="350.0" layoutY="140.0" prefHeight="27.0" prefWidth="210.0" />
             <TextField fx:id="destination_time_2" editable="false" layoutX="350.0" layoutY="190.0" prefHeight="27.0" prefWidth="210.0" />
             <TextField fx:id="airLineName_2" editable="false" layoutX="350.0" layoutY="240.0" prefHeight="27.0" prefWidth="210.0" />
@@ -43,20 +39,18 @@
       <Label layoutX="412.0" layoutY="276.0" text="Flight number:" />
       <Label layoutX="424.0" layoutY="324.0" text="Baggage:" />
       <Label layoutX="395.0" layoutY="375.0" text="Connection or direct:" />
-      <Label layoutX="41.0" layoutY="518.0" text="Staying place (hotel, hostel, appartment etc)" />
-      <Label layoutX="292.0" layoutY="518.0" text="Rank:" />
+      <Label layoutX="42.0" layoutY="518.0" text="Staying place (hotel, hostel, appartment etc)" />
+      <Label layoutX="295.0" layoutY="518.0" text="Rank:" />
       <Label layoutX="74.0" layoutY="375.0" text="Connection or direct:" />
       <Label layoutX="169.0" layoutY="449.0" text="Number of tickets:" />
       <Label layoutX="45.0" layoutY="448.0" text="Price (ILS):" />
       <Label layoutX="305.0" layoutY="447.0" text="Vacation type:" />
-      <Label layoutX="459.0" layoutY="438.0" text="ticket type 1:" />
-      <Label layoutX="459.0" layoutY="468.0" text="ticket type 2:" />
-      <Label layoutX="459.0" layoutY="498.0" text="ticket type 3:" />
-      <Label layoutX="459.0" layoutY="528.0" text="ticket type 4:" />
-      <Label layoutX="459.0" layoutY="558.0" text="ticket type 5:" />
-      <Button fx:id="requestOrderButton" layoutX="278.0" layoutY="601.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Submit Order Request" />
-      <CheckBox fx:id="flightBack" layoutX="252.0" layoutY="94.0" mnemonicParsing="false" text="Flight back" />
-      <Label layoutX="279.0" layoutY="107.0" text="included" />
+      <Label fx:id="ticket1" layoutX="457.0" layoutY="438.0" text="Ticket 1 type:" />
+      <Label fx:id="ticket2" layoutX="457.0" layoutY="468.0" text="Ticket 2 type:" />
+      <Label fx:id="ticket3" layoutX="457.0" layoutY="498.0" text="Ticket 3 type:" />
+      <Label fx:id="ticket4" layoutX="457.0" layoutY="528.0" text="Ticket 4 type:" />
+      <Label fx:id="ticket5" layoutX="457.0" layoutY="558.0" text="Ticket 5 type:" />
+      <Button fx:id="requestOrderButton" layoutX="266.0" layoutY="601.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Submit Order Request" />
       <TextField fx:id="stayingPlaceRanking" editable="false" layoutX="294.0" layoutY="535.0" prefHeight="27.0" prefWidth="42.0" />
       <TextField fx:id="numOfTickets" editable="false" layoutX="168.0" layoutY="463.0" prefHeight="27.0" prefWidth="100.0" />
       <TextField fx:id="vacationType" editable="false" layoutX="299.0" layoutY="463.0" prefHeight="27.0" prefWidth="100.0" />
@@ -67,6 +61,8 @@
       <TextField fx:id="ticketType3" editable="false" layoutX="530.0" layoutY="495.0" prefHeight="27.0" prefWidth="90.0" />
       <TextField fx:id="ticketType4" editable="false" layoutX="530.0" layoutY="525.0" prefHeight="27.0" prefWidth="90.0" />
       <TextField fx:id="ticketType5" editable="false" layoutX="530.0" layoutY="555.0" prefHeight="27.0" prefWidth="90.0" />
+      <TextField fx:id="flight_date_1" editable="false" layoutX="41.0" layoutY="90.0" prefHeight="27.0" prefWidth="185.0" />
+      <TextField fx:id="flight_date_2" editable="false" layoutX="350.0" layoutY="90.0" prefHeight="27.0" prefWidth="210.0" />
 
 
 
