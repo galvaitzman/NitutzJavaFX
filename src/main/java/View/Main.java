@@ -1,5 +1,6 @@
 package View;
 
+import Controller.MainController;
 import Model.OrdersModel;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -15,7 +16,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-       // new MainController();
+        new MainController();
         /*
 
         primaryStage.setScene(new Scene(root,382,249));
