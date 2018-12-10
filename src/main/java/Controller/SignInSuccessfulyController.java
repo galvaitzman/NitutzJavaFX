@@ -19,6 +19,7 @@ public class SignInSuccessfulyController extends Controller {
             signInSuccessfulyView.manageMyUser.setVisible(false);
             signInSuccessfulyView.createNewVacation.setVisible(false);
         }
+
         window.show();
     }
 
@@ -43,7 +44,7 @@ public class SignInSuccessfulyController extends Controller {
         public void handle(Event event) {
             vacationModel.searchVacationsByUser_Id();
             window.close();
-            mainController.activeMyVacationsContoller();
+            mainController.activeMyVacationsController();
         }
     }
 

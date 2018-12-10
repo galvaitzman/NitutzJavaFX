@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.AModel;
+import Model.OrdersModel;
 import Model.UserModel;
 import Model.VacationModel;
 import javafx.fxml.FXMLLoader;
@@ -13,19 +14,21 @@ import java.io.IOException;
 public abstract class Controller{
 
     protected static MainController mainController;
+    protected static UserModel userModel;
+    protected static VacationModel vacationModel;
+    protected static OrdersModel ordersModel;
     protected Stage window = new Stage();
     Parent root = null;
     FXMLLoader fxmlLoader = new FXMLLoader();
     Scene scene;
-    protected static UserModel userModel;
+
     public static void setMainUserModel (){
         userModel = new UserModel();
     }
     public static void setMainController (MainController other){
         mainController = other;
     }
-    protected static VacationModel vacationModel;
-
+    public static void setMainOrderModel (){ordersModel = new OrdersModel(); }
     public static void setMainVacationModel (){
         vacationModel = new VacationModel();
     }
@@ -33,8 +36,7 @@ public abstract class Controller{
     public abstract void start();
 
     public Controller(String fxml){
-        try {
-            root = fxmlLoader.load(getClass().getResource("/" + fxml).openStream());
+        try { root = fxmlLoader.load(getClass().getResource("/" + fxml).openStream());
             scene = new Scene (root);
             window.setScene(scene);
         }

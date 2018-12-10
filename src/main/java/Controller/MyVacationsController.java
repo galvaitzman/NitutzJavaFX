@@ -20,7 +20,7 @@ public class MyVacationsController extends Controller {
                     Vacation selectedVacation = (Vacation) selectionModel.getSelectedItem();
                     vacationModel.setCurrentVacation(selectedVacation);
                     window.close();
-                    mainController.activeDeleteOrUpdateVacationController();
+                    mainController.activeUpdateVacationController();
                 }
             }
         });

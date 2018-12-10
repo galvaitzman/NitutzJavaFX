@@ -9,7 +9,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.util.List;
 
-public class SearchResultView {
+public class SearchResultView extends AView {
     @FXML
     public TableView tableViewShowVacations;
     public TableColumn colFrom;

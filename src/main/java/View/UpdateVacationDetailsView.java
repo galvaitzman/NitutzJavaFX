@@ -1,6 +1,7 @@
 package View;
 import Controller.CreateVacationController;
 
+import Controller.UpdateVacationDetailsController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -42,9 +43,9 @@ public class UpdateVacationDetailsView  extends AView{
     public CheckBox flightBack;
 
 //
-    public void start(CreateVacationController.ButtonNumberOfTickets numberOfTicketsButton,
-                      CreateVacationController.ButtonMoveToPaymentMethod moveToPaymentMethod,
-                      CreateVacationController.ButtonFlightBack flightBackButton) {
+    public void start(UpdateVacationDetailsController.ButtonNumberOfTickets numberOfTicketsButton,
+                      UpdateVacationDetailsController.ButtonUpdate moveToPaymentMethod,
+                      UpdateVacationDetailsController.ButtonFlightBack flightBackButton) {
         ticketType1.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, numberOfTicketsButton);
         moveToPaymentMethodButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, moveToPaymentMethod);
         flightBack.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,flightBackButton);
@@ -84,13 +85,25 @@ public class UpdateVacationDetailsView  extends AView{
         connectionItems.add("Direct");
         connection1.setItems(connectionItems);
         connection2.setItems(connectionItems);
-        flight_date_2.setDisable(true);
+
         departure_time_2.setDisable(true);
         destination_time_2.setDisable(true);
         airLineName_2.setDisable(true);
         flight_number_2.setDisable(true);
         flight_baggage_2.setDisable(true);
         connection2.setDisable(true);
+        departure_time_2.setText("");
+        destination_time_2.setText("");
+        airLineName_2.setText("");
+        flight_number_2.setText("");
+        flight_baggage_2.setText("");
+        connection2.setValue("");
+
+        staying_place_name.setText("none");
+        stayingPlaceRanking.setValue("1");
+
+
+
 
     }
 
@@ -105,11 +118,7 @@ public class UpdateVacationDetailsView  extends AView{
     public boolean isValidDate() {
         LocalDate ld1 = flight_date_1.getValue();
         LocalDate ld2 = flight_date_2.getValue();
-        if (ld1 == null || (ld1!=null && LocalDate.from(ld1).until(LocalDate.now(), ChronoUnit.DAYS) >= 0)){
-            alert("illegal dates");
-            return false;
-        }
-        else if (ld2!=null && (LocalDate.from(ld1).until(LocalDate.now(), ChronoUnit.DAYS) >= 0 ||
+        if (ld1==null || ld2==null  ||  (LocalDate.from(ld1).until(LocalDate.now(), ChronoUnit.DAYS) >= 0 ||
                 LocalDate.from(ld2).until(LocalDate.now(), ChronoUnit.DAYS) >= 0 ||
                 LocalDate.from(ld2).until(LocalDate.from(ld1),ChronoUnit.DAYS) >=0)) {
             alert("illegal dates");
@@ -136,30 +145,20 @@ public class UpdateVacationDetailsView  extends AView{
             alert("mandatory fields missing");
             return false;
         }
-        if (flight_date_2.getValue() == null &&
-                departure_time_2.getText().equals("") &&
-                destination_time_2.getText().equals("") &&
-                airLineName_2.getText().equals("") &&
-                flight_number_2.getText().equals("") &&
-                flight_baggage_2.getText().equals("") &&
-                (connection2.getValue() == null || connection2.getValue().toString().equals(""))) {
-            return true;
-        }
-        else if ((flight_date_2.getValue() != null ||
-                !departure_time_2.getText().equals("") ||
-                !destination_time_2.getText().equals("") &&
-                        !airLineName_2.getText().equals("") &&
-                        !flight_number_2.getText().equals("") &&
-                        !flight_baggage_2.getText().equals("") &&
-                        !(connection2.getValue() == null || connection2.getValue().toString().equals("")))){
-
+        if (flightBack.isSelected() && (departure_time_2.getText().equals("") ||
+                destination_time_2.getText().equals("") ||
+                airLineName_2.getText().equals("") ||
+                flight_number_2.getText().equals("") ||
+                flight_baggage_2.getText().equals("") ||
+                (connection2.getValue() == null || connection2.getValue().toString().equals("")))){
+            alert("mandatory fields missing");
+            return false;
         }
         return true;
     }
 
     public void enableOrDisableFlightBackDetails(){
-        if (flight_date_2.isDisable()) {
-            flight_date_2.setDisable(false);
+        if (departure_time_2.isDisable()) {
             departure_time_2.setDisable(false);
             destination_time_2.setDisable(false);
             airLineName_2.setDisable(false);
@@ -168,7 +167,6 @@ public class UpdateVacationDetailsView  extends AView{
             connection2.setDisable(false);
         }
         else {
-            flight_date_2.setDisable(true);
             departure_time_2.setDisable(true);
             destination_time_2.setDisable(true);
             airLineName_2.setDisable(true);
@@ -176,5 +174,46 @@ public class UpdateVacationDetailsView  extends AView{
             flight_baggage_2.setDisable(true);
             connection2.setDisable(true);
         }
+    }
+
+    public void setTxtFields(String [] vacationDetails){
+        airLineName_1.setText(vacationDetails[2]);
+        airLineName_2.setText(vacationDetails[3]);
+        departure_time_1.setText(vacationDetails[4]);
+        destination_time_1.setText(vacationDetails[5]);
+        departure_time_2.setText(vacationDetails[6]);
+        destination_time_2.setText(vacationDetails[7]);
+        flight_number_1.setText(vacationDetails[8]);
+        flight_number_2.setText(vacationDetails[9]);
+        flight_date_1.setValue(LocalDate.parse(vacationDetails[10]));
+        flight_date_2.setValue(LocalDate.parse(vacationDetails[11]));
+        flight_baggage_1.setText(vacationDetails[12]);
+        flight_baggage_2.setText(vacationDetails[13]);
+        numberOfTickets.setValue(vacationDetails[14]);
+        departure_city.setText(vacationDetails[15]);
+        destination_city.setText(vacationDetails[16]);
+        ticketType1.setValue(vacationDetails[17].split(",")[0]);
+        ticketType2.setValue(vacationDetails[17].split(",")[1]);
+        ticketType3.setValue(vacationDetails[17].split(",")[2]);
+        ticketType4.setValue(vacationDetails[17].split(",")[3]);
+        ticketType5.setValue(vacationDetails[17].split(",")[4]);
+        vacationType.setValue(vacationDetails[18]);
+        staying_place_name.setText(vacationDetails[19]);
+        stayingPlaceRanking.setValue(vacationDetails[20]);
+        price.setText(vacationDetails[21]);
+        connection1.setValue(vacationDetails[22]);
+        connection2.setValue(vacationDetails[23]);
+        sellAllTickets.setValue(vacationDetails[24]);
+        if (!departure_time_2.getText().equals("")){
+            flightBack.setSelected(true);
+            departure_time_2.setDisable(false);
+            destination_time_2.setDisable(false);
+            airLineName_2.setDisable(false);
+            flight_number_2.setDisable(false);
+            flight_baggage_2.setDisable(false);
+            connection2.setDisable(false);
+        }
+
+
     }
 }
