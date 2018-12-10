@@ -29,7 +29,6 @@ public class SearchVacationController extends Controller {
             else departDate = searchVacationView.departDate.getValue().toString();
             if (searchVacationView.returnDate.getValue() == null) returnDate="";
             else returnDate = searchVacationView.returnDate.getValue().toString();
-
             vacationModel.searchVacationsByParameters(departDate,returnDate,
                     searchVacationView.from.getText(),searchVacationView.to.getText());
             mainController.activeSearchResultContoller();

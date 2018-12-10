@@ -13,7 +13,7 @@ import javafx.scene.control.TextField;
 public class CreateVacationPaymentView extends AView{
     @FXML
     public Button postVacation;
-    public volatile ChoiceBox paypalOrBank;
+    public ChoiceBox paypalOrBank;
     public TextField bank_number;
     public TextField branch_number;
     public TextField account_number;

@@ -9,10 +9,12 @@ public class VacationModel extends AModel {
 
     //צריך לטפל בנושא המודעה החמה
     // צריך לבדוק האם הוכנה אותה חופשה - לפי הדרישות
-    public void insertVacationToDB(String airline_name1, String airline_name2, String departure_time_1, String destination_time_1, String departure_time_2, String destination_time_2,
-                                   String flight_number_1, String flight_number_2, String flight_date_1, String flight_date_2, String flight_baggage_1, String flight_baggage_2,
-                                   int number_of_tickets, String departure_city, String destination_city, String tickets_type, String vacation_type, String stying_place_name, String stying_place_rank,
-                                   String price, String connection1, String connection2, String sell_all_tickets, String bank_acount_number, String number_snif, String bank_number, String paypal) {
+    public void insertVacationToDB(String airline_name1, String airline_name2, String departure_time_1, String destination_time_1,
+                                   String departure_time_2, String destination_time_2, String flight_number_1, String flight_number_2,
+                                   String flight_date_1, String flight_date_2, String flight_baggage_1, String flight_baggage_2,
+                                   int number_of_tickets, String departure_city, String destination_city, String tickets_type, String vacation_type,
+                                   String stying_place_name, String stying_place_rank, String price, String connection1, String connection2,
+                                   String sell_all_tickets, String bank_acount_number, String number_snif, String bank_number, String paypal) {
         String post_type;
         System.out.println(current_user.get_User_type());
         if (current_user.get_User_type().equals("exceptional"))
@@ -187,7 +189,7 @@ public class VacationModel extends AModel {
 
 
     public List<String> searchVacationByVacationID(int vacation_id) {
-        String sql = "SELECT * from Vacation where vacation_id = ?";
+        String sql = "SELECT * from Vacation where vacation_idff = ?";
         List<String> VacationDetails = new ArrayList<String>();
         try (Connection conn = this.connect();
              PreparedStatement statement = conn.prepareStatement(sql)) {
@@ -270,6 +272,8 @@ public class VacationModel extends AModel {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        currentListOfVacations.clear();
+        currentListOfVacations = VacationDetails;
         return VacationDetails;
     }
 
@@ -328,6 +332,8 @@ public class VacationModel extends AModel {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        currentListOfVacations.clear();
+        currentListOfVacations = VacationDetails;
         return VacationDetails;
     }
 }

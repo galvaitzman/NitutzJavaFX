@@ -93,4 +93,8 @@ public class MainController{
         myVacationsController.start();
     }
 
+    public void activeDeleteOrUpdateVacationController(){
+
+    }
+
 }
