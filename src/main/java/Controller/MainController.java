@@ -18,6 +18,7 @@ public class MainController{
     Controller buyingVacationPaypalOrVisaPaymentController = new BuyingVacationPaypalOrVisaPaymentController();
     Controller viewVacationController = new ViewVacationController();
     Controller updateVacationDetailsController = new UpdateVacationDetailsController();
+    Controller showRequestsController = new ShowRequestsController();
     Stack <Controller> controllers = new Stack<Controller>();
 
     public MainController (){
@@ -86,7 +87,7 @@ public class MainController{
     }
 
 
-    public void activeMyVacationsController(){
+    public void activeMyVacationsContoller(){
         controllers.push(currentController);
         currentController = myVacationsController;
         myVacationsController.start();
@@ -98,10 +99,24 @@ public class MainController{
         updateVacationDetailsController.start();
     }
 
-    public void activeViewVacationController(){
+    public void activeShowRequestsController(){
         controllers.push(currentController);
-        currentController = viewVacationController;
-        viewVacationController.start();
+        currentController = showRequestsController;
+        showRequestsController.start();
+    }
+
+    public void activeShowApprovalsController(){
+
+    }
+
+    public void activeViewVacationController(){
+
+    }
+    public void activeYesOrNoForRequestController(){
+
+    }
+    public void activeMyVacationsController(){
+
     }
 
 }

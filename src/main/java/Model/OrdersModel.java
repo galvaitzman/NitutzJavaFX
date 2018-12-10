@@ -114,8 +114,8 @@ public class OrdersModel extends AModel{
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        currentListOfOrders.clear();
-        currentListOfOrders = orderArrayList;
+        currentListOfOrdersBuyer.clear();
+        currentListOfOrdersBuyer = orderArrayList;
         return orderArrayList;
 
     }
@@ -144,8 +144,8 @@ public class OrdersModel extends AModel{
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        currentListOfOrders.clear();
-        currentListOfOrders = orderArrayList;
+        currentListOfOrdersSeller.clear();
+        currentListOfOrdersSeller = orderArrayList;
         return orderArrayList;
     }
 
