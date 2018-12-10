@@ -86,13 +86,6 @@ public class MainController{
         createVacationController.start();
     }
 
-
-    public void activeMyVacationsContoller(){
-        controllers.push(currentController);
-        currentController = myVacationsController;
-        myVacationsController.start();
-    }
-
     public void activeUpdateVacationController(){
         controllers.push(currentController);
         currentController = updateVacationDetailsController;
@@ -110,13 +103,23 @@ public class MainController{
     }
 
     public void activeViewVacationController(){
-
+        controllers.push(currentController);
+        currentController = viewVacationController;
+        viewVacationController.start();
     }
     public void activeYesOrNoForRequestController(){
 
     }
     public void activeMyVacationsController(){
+        controllers.push(currentController);
+        currentController = myVacationsController;
+        myVacationsController.start();
+    }
 
+    public void activeBuyingVacationPaypalOrVisaPaymentController(){
+        controllers.push(currentController);
+        currentController = buyingVacationPaypalOrVisaPaymentController;
+        buyingVacationPaypalOrVisaPaymentController.start();
     }
 
 }
