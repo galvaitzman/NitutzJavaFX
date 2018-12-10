@@ -1,7 +1,7 @@
 package Model;
 
 public class Vacation {
-    private String[] vacation_details;
+    public String[] vacation_details;
 
     public Vacation()
     {
