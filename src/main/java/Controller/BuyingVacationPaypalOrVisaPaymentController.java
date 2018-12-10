@@ -32,7 +32,7 @@ public class BuyingVacationPaypalOrVisaPaymentController extends Controller {
                 }
             }
         });
-        buyingVacationPaypalOrVisaPaymentView.total_amount.setText(vacationModel.getCurrentVacation().getPrice());
+        //buyingVacationPaypalOrVisaPaymentView.total_amount.setText(vacationModel.getCurrentVacation().getPrice());
     }
     @Override
     public void start() {

@@ -23,7 +23,7 @@ public class MainController{
         Controller.setMainUserModel();
         Controller.setMainVacationModel();
         buyingVacationPaypalOrVisaPaymentController.start();
-        //initialController.start();
+        initialController.start();
         //searchVacationController.start();
         //createVacationController.start();
         //currentController.start();
