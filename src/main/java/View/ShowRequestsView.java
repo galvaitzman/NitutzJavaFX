@@ -20,7 +20,7 @@ public class ShowRequestsView {
     }
 
     public void showRequests (List<Order> listOfOrders) {
-
+        tableViewShowRequests.getItems().clear();
         colBuyer.setCellValueFactory(new PropertyValueFactory<Order, String>("user_name_buyer"));
         colVacationID.setCellValueFactory(new PropertyValueFactory<Order, Integer>("Vacation_id"));
         for(int i=0; i<listOfOrders.size(); i++)

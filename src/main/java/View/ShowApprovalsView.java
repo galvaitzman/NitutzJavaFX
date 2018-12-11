@@ -20,7 +20,7 @@ public class ShowApprovalsView {
     }
 
     public void showApprovals (List<Order> listOfOrders) {
-
+        tableViewShowApprovals.getItems().clear();
         colSeller.setCellValueFactory(new PropertyValueFactory<Order, String>("user_name_seller"));
         colVacationID.setCellValueFactory(new PropertyValueFactory<Order, String>("Vacation_id"));
         for(int i=0; i<listOfOrders.size(); i++)

@@ -24,6 +24,7 @@ public class SearchResultView extends AView {
     }
 
     public void showVacations (List<Vacation> listOfVacations){
+        tableViewShowVacations.getItems().clear();
 
         colFrom.setCellValueFactory(new PropertyValueFactory<Vacation,String>("Departure_city"));
         colTo.setCellValueFactory(new PropertyValueFactory<Vacation,String>("Destination_city"));

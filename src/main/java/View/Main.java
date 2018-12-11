@@ -47,7 +47,7 @@ public class Main extends Application {
          */
 
 
-//        createNewTableOrder();
+     //  createNewTableOrder();
      // OrdersModel ordersModel = new OrdersModel();
 
 
@@ -78,7 +78,7 @@ public class Main extends Application {
          * Vacation
          */
  //VacationModel vacationModel = new VacationModel();
-//         createNewTableVacation();
+     //    createNewTableVacation();
 //      //  vacationModel.current_user.setUser_name("dan");
        // vacationModel.current_user.set_User_type("exceptional");
        // vacationModel.updateVacationStatus(3,"in order");
