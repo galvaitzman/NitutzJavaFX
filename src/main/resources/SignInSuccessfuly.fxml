@@ -5,8 +5,9 @@
 
 <AnchorPane accessibleText="Vacation4U" prefHeight="449.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.SignInSuccessfulyView">
    <children>
-      <Button fx:id="searchVacation" layoutX="160.0" layoutY="116.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="166.0" text="Search Vacation" />
-      <Button fx:id="manageMyUser" layoutX="160.0" layoutY="57.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="166.0" text="Manage my user" />
+      <Button fx:id="showAllVacation" layoutX="160.0" layoutY="0" mnemonicParsing="false" prefHeight="39.0" prefWidth="166.0" text="Show all Vacation" />
+      <Button fx:id="searchVacation" layoutX="160.0" layoutY="57" mnemonicParsing="false" prefHeight="39.0" prefWidth="166.0" text="Search Vacation" />
+      <Button fx:id="manageMyUser" layoutX="160.0" layoutY="116.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="166.0" text="Manage my user" />
       <Button fx:id="myVacations" layoutX="160.0" layoutY="171.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="166.0" text="My vacations" />
        <Button fx:id="createNewVacation" layoutX="160.0" layoutY="231.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="166.0" text="Create vacation" />
       <Button fx:id="requestButton" layoutX="112.0" layoutY="291.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="277.0" text="press here to see the requests" />

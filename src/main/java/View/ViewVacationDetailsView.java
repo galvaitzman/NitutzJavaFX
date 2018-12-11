@@ -42,9 +42,13 @@ public class ViewVacationDetailsView extends AView{
     public TextField staying_place_name;
     public Button requestOrderButton;
     public Button back;
+    public Button signInButton;
+    public Label label1;
+    public Label label2;
 
-    public void start(ViewVacationController.ButtonRequestOrder requestOrder) {
+    public void start(ViewVacationController.ButtonRequestOrder requestOrder, ViewVacationController.ButtonSignIn buttonSignIn) {
         requestOrderButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, requestOrder);
+        signInButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonSignIn);
         back.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,new ButtonBack());
     }
 

@@ -10,7 +10,7 @@ public class SignInSuccessfulyController extends Controller {
         super("SignInSuccessfuly.fxml");
         signInSuccessfulyView = fxmlLoader.getController();
         signInSuccessfulyView.start(new ButtonSearchVacation(), new ButtonManageMyUser(), new ButtonMyVacations(),
-                new ButtonCreateVacation(), new ButtonShowRequests(), new ButtonShowApprovals());
+                new ButtonCreateVacation(), new ButtonShowRequests(), new ButtonShowApprovals(), new ButtonShowAllVacations());
     }
     @Override
     public void start() {
@@ -86,4 +86,14 @@ public class SignInSuccessfulyController extends Controller {
             mainController.activeShowApprovalsController();
         }
     }
+
+    public class ButtonShowAllVacations implements EventHandler{
+        @Override
+        public void handle(Event event) {
+            window.close();
+            vacationModel.searchAllVacation();
+            mainController.activeSearchResultContoller();
+        }
+    }
+
 }

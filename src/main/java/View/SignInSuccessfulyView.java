@@ -18,6 +18,7 @@ public class SignInSuccessfulyView extends AView{
     public Button approvalButton;
     public Button requestButton;
     public Button back;
+    public Button showAllVacation;
 
 
 
@@ -26,7 +27,8 @@ public class SignInSuccessfulyView extends AView{
                       SignInSuccessfulyController.ButtonMyVacations buttonMyVacations,
                       SignInSuccessfulyController.ButtonCreateVacation buttonCreateVacation,
                       SignInSuccessfulyController.ButtonShowRequests buttonShowRequests,
-                      SignInSuccessfulyController.ButtonShowApprovals buttonShowApprovals){
+                      SignInSuccessfulyController.ButtonShowApprovals buttonShowApprovals,
+                      SignInSuccessfulyController.ButtonShowAllVacations buttonShowAllVacations){
         searchVacation.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonSearchVacation);
         manageMyUser.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonManageMyUser);
         myVacations.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonMyVacations);
@@ -34,6 +36,7 @@ public class SignInSuccessfulyView extends AView{
         approvalButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonShowApprovals);
         requestButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonShowRequests);
         back.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,new ButtonBack());
+        showAllVacation.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonShowAllVacations);
         approvalButton.setVisible(false);
         requestButton.setVisible(false);
 

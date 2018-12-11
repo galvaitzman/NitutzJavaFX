@@ -11,7 +11,7 @@ public class ViewVacationController extends Controller {
     public ViewVacationController(){
         super("ViewVacationDetails.fxml");
         viewVacationDetailsView = fxmlLoader.getController();
-        viewVacationDetailsView.start(new ButtonRequestOrder());
+        viewVacationDetailsView.start(new ButtonRequestOrder(), new ButtonSignIn());
     }
 
     @Override
@@ -19,8 +19,18 @@ public class ViewVacationController extends Controller {
         window.show();
         window.setTitle("View Vacation Offer");
         viewVacationDetailsView.showVacationDetails(vacationModel.getCurrentVacation().getVacation_details());
-        if (userModel.getCurrent_user().getUser_name().equals("")) viewVacationDetailsView.requestOrderButton.setVisible(false);
-        else viewVacationDetailsView.requestOrderButton.setVisible(true);
+        if (userModel.getCurrent_user().getUser_name().equals("")){
+            viewVacationDetailsView.requestOrderButton.setVisible(false);
+            viewVacationDetailsView.label1.setVisible(true);
+            viewVacationDetailsView.label2.setVisible(true);
+            viewVacationDetailsView.signInButton.setVisible(true);
+        }
+        else{
+            viewVacationDetailsView.requestOrderButton.setVisible(true);
+            viewVacationDetailsView.label1.setVisible(false);
+            viewVacationDetailsView.label2.setVisible(false);
+            viewVacationDetailsView.signInButton.setVisible(false);
+        }
 
     }
 
@@ -35,6 +45,14 @@ public class ViewVacationController extends Controller {
             window.close();
             mainController.activeSearchResultContoller();
             alertRequestSubmitted.show();
+        }
+    }
+
+    public class ButtonSignIn implements EventHandler{
+        @Override
+        public void handle(Event event) {
+            window.close();
+            mainController.activeInitialController();
         }
     }
 
