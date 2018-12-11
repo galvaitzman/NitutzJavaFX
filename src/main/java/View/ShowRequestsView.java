@@ -1,7 +1,6 @@
 package View;
 
 import Model.Order;
-import Model.Vacation;
 import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -23,7 +22,7 @@ public class ShowRequestsView {
     public void showRequests (List<Order> listOfOrders) {
 
         colBuyer.setCellValueFactory(new PropertyValueFactory<Order, String>("user_name_buyer"));
-        colVacationID.setCellValueFactory(new PropertyValueFactory<Order, String>("Vacation_id"));
+        colVacationID.setCellValueFactory(new PropertyValueFactory<Order, Integer>("Vacation_id"));
         for(int i=0; i<listOfOrders.size(); i++)
         {
             tableViewShowRequests.getItems().add(listOfOrders.get(i));

@@ -1,9 +1,7 @@
 package Controller;
 
 import Model.Order;
-import Model.Vacation;
 import View.ShowApprovalsView;
-import View.ShowRequestsView;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TableView;
@@ -21,6 +19,7 @@ public class ShowApprovalsController extends Controller {
                     TableView.TableViewSelectionModel selectionModel = showApprovalsView.tableViewShowApprovals.getSelectionModel();
                     Order selectedOrder = (Order) selectionModel.getSelectedItem();
                     ordersModel.setCurrentOrder(selectedOrder);
+                    vacationModel.setCurrentVacation(vacationModel.searchVacationByVacationID(selectedOrder.getVacation_id()));
                     window.close();
                     mainController.activeBuyingVacationPaypalOrVisaPaymentController();
                 }

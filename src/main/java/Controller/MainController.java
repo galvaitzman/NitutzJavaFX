@@ -19,6 +19,7 @@ public class MainController{
     Controller viewVacationController = new ViewVacationController();
     Controller updateVacationDetailsController = new UpdateVacationDetailsController();
     Controller showRequestsController = new ShowRequestsController();
+    Controller showApprovalsController = new ShowApprovalsController();
     Stack <Controller> controllers = new Stack<Controller>();
 
     public MainController (){
@@ -99,7 +100,9 @@ public class MainController{
     }
 
     public void activeShowApprovalsController(){
-
+        controllers.push(currentController);
+        currentController = showApprovalsController;
+        showApprovalsController.start();
     }
 
     public void activeViewVacationController(){

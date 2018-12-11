@@ -109,7 +109,7 @@ public class OrdersModel extends AModel{
                     temp[col-1] = value.toString();
                     }
                 }
-                orderArrayList.add(new Order(temp[0] ,temp[1],temp[2],Integer.parseInt(temp[3]),temp[4],temp[5],temp[6]));
+                orderArrayList.add(new Order(Integer.parseInt(temp[0]) ,temp[1],temp[2],Integer.parseInt(temp[3]),temp[4],temp[5],temp[6]));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -139,7 +139,7 @@ public class OrdersModel extends AModel{
                         temp[col-1] = value.toString();
                     }
                 }
-                orderArrayList.add(new Order(temp[0] ,temp[1],temp[2],Integer.parseInt(temp[3]),temp[4],temp[5],temp[6]));
+                orderArrayList.add(new Order(Integer.parseInt(temp[0]) ,temp[1],temp[2],Integer.parseInt(temp[3]),temp[4],temp[5],temp[6]));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -149,5 +149,23 @@ public class OrdersModel extends AModel{
         return orderArrayList;
     }
 
+
+    public void cancleAllVacationIdWhenApproveOrder(int order_id, int vacation_id)
+    {
+        String sql = "UPDATE Orders SET order_status=? WHERE vacation_id = ?";
+        try (Connection conn = this.connect();
+             PreparedStatement statement = conn.prepareStatement(sql)) {
+            statement.setString(1, "canceled");
+            statement.setInt(2, order_id);
+            statement.setInt(2, vacation_id);
+
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        updateOrderStatus(order_id,"waiting for payment");
+
+    }
 
 }

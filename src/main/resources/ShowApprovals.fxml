@@ -11,7 +11,7 @@
             fx:controller="View.ShowApprovalsView"
             prefHeight="400.0" prefWidth="600.0">
     <children>
-        <TableView fx:id="tableViewShowRequests" layoutX="14.0" layoutY="76.0" prefHeight="565.0" prefWidth="448.0">
+        <TableView fx:id="tableViewShowApprovals" layoutX="14.0" layoutY="76.0" prefHeight="565.0" prefWidth="448.0">
             <columns>
                 <TableColumn fx:id="colVacationID" prefWidth="66.0" text="Vacation ID" />
                 <TableColumn fx:id="colSeller" prefWidth="71.0" text="Seller name"   />

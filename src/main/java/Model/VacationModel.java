@@ -188,8 +188,9 @@ public class VacationModel extends AModel {
     }
 
 
-    public List<String> searchVacationByVacationID(int vacation_id) {
-        String sql = "SELECT * from Vacation where vacation_idff = ?";
+    public Vacation searchVacationByVacationID(int vacation_id) {
+        Vacation vacation = new Vacation();
+        String sql = "SELECT * from Vacation where vacation_id = ?";
         List<String> VacationDetails = new ArrayList<String>();
         try (Connection conn = this.connect();
              PreparedStatement statement = conn.prepareStatement(sql)) {
@@ -201,22 +202,21 @@ public class VacationModel extends AModel {
                 for (int col = 1; col <= colCount; col++) {
                     Object value = rs.getObject(col);
                     if (value != null) {
-                        VacationDetails.add(value.toString());
+                       // VacationDetails.add(value.toString());
+                        vacation.vacation_details[col - 1] = value.toString();
                     }
                 }
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return VacationDetails;
+        return vacation;
     }
 
 
-    public boolean updateVacationStatus(int vacation_ID, String status) {
-        if (!searchVacationByVacationID(vacation_ID).isEmpty()) {
+    public void updateVacationStatus(int vacation_ID, String status) {
             String sql = "UPDATE Vacation SET status=?"
                     + "WHERE vacation_id  = ?";
-
             try (Connection conn = this.connect();
                  PreparedStatement pstmt = conn.prepareStatement(sql)) {
                 // set the corresponding param
@@ -224,13 +224,12 @@ public class VacationModel extends AModel {
                 pstmt.setInt(2, vacation_ID);
                 // update
                 pstmt.executeUpdate();
-                return true;
+
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
         }
-        return false;
-    }
+
 
     public boolean deleteVacation(int vacation_id) {
         String sql = "DELETE FROM Vacation WHERE vacation_id = ? AND status =?";

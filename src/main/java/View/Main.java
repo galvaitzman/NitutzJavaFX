@@ -16,7 +16,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-      new MainController();
+     new MainController();
         /*
 
         primaryStage.setScene(new Scene(root,382,249));
@@ -47,14 +47,17 @@ public class Main extends Application {
          */
 
 
-    //    createNewTableOrder();
-    //   OrdersModel ordersModel = new OrdersModel();
+//        createNewTableOrder();
+     // OrdersModel ordersModel = new OrdersModel();
 
 
 
-     //  AModel.current_user.setUser_name("itay");
+      // AModel.current_user.setUser_name("itay");
+     //  ordersModel.cancleAllVacationIdWhenApproveOrder(1,1);
+       // List<String> x = ordersModel.searchOrferByOrderID(1);
+      //  System.out.println("");
      //  ordersModel.insertOrderToDB("goni",12,"2");
-      //  ordersModel.insertOrderToDB("goni",14,"2");
+      //  ordersModel.insertOrd§erToDB("goni",14,"2");
       //  ordersModel.insertOrderToDB("itay",17,"2");
       //  ordersModel.insertOrderToDB("itay",2,"2");
        // ordersModel.insertOrderToDB("itay",18,"2");
@@ -75,7 +78,7 @@ public class Main extends Application {
          * Vacation
          */
  //VacationModel vacationModel = new VacationModel();
-        // createNewTableVacation();
+//         createNewTableVacation();
 //      //  vacationModel.current_user.setUser_name("dan");
        // vacationModel.current_user.set_User_type("exceptional");
        // vacationModel.updateVacationStatus(3,"in order");

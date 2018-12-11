@@ -147,7 +147,7 @@ public class CreateVacationController extends Controller {
                                "",
                                "",
                                "",
-                               String.valueOf(Integer.parseInt(createVacationPaymentView.paypal.getText())));
+                               createVacationPaymentView.paypal.getText());
                    }
                }
                else{
