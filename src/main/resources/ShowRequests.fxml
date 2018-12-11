@@ -24,5 +24,6 @@
         </columns>
       </TableView>
         <Button fx:id="back" layoutX="0" layoutY="0" mnemonicParsing="false" prefHeight="36.0" prefWidth="70.0" text="Back" />
+      <Label layoutX="23.0" layoutY="39.0" text="press on the relevant line in order to approve the vacation's proposal request " />
     </children>
 </AnchorPane>

@@ -20,6 +20,7 @@
             </columns>
         </TableView>
       <Button fx:id="back" layoutX="0" layoutY="0" mnemonicParsing="false" prefHeight="36.0" prefWidth="70.0" text="Back" />
+      <Label layoutX="113.0" layoutY="26.0" text="press on the relevant line in order to update your vacation " />
     </children>
 
 </AnchorPane>

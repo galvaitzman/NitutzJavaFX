@@ -20,6 +20,11 @@ public class SignInSuccessfulyController extends Controller {
             signInSuccessfulyView.manageMyUser.setVisible(false);
             signInSuccessfulyView.createNewVacation.setVisible(false);
         }
+        else{
+            signInSuccessfulyView.myVacations.setVisible(true);
+            signInSuccessfulyView.manageMyUser.setVisible(true);
+            signInSuccessfulyView.createNewVacation.setVisible(true);
+        }
         if (ordersModel.getOrdersInCaseSeller().size()>0 && !userModel.getCurrent_user().getUser_name().equals("")){
             signInSuccessfulyView.requestButton.setVisible(true);
             signInSuccessfulyView.alert("You have new purchase requests for your vacations");
