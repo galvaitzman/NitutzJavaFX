@@ -66,4 +66,6 @@ public abstract class AModel {
         this.currentOrder = currentOrder;
     }
 
+    public Order getCurrentOrder(){return  this.currentOrder;}
+
 }

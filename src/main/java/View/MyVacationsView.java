@@ -35,7 +35,7 @@ public class MyVacationsView extends AView {
         colDepartureDate.setCellValueFactory(new PropertyValueFactory<Vacation,String>("Flight_date_1"));
         colReturnDate.setCellValueFactory(new PropertyValueFactory<Vacation,String>("Flight_date_2"));
         colPrice.setCellValueFactory(new PropertyValueFactory<Vacation,String>("Price"));
-        colVacationID.setCellValueFactory(new PropertyValueFactory<Vacation,String>("VacationID"));
+        colVacationID.setCellValueFactory(new PropertyValueFactory<Vacation,String>("Vacation_ID"));
 
         for(int i=0; i<listOfVacations.size(); i++)
         {

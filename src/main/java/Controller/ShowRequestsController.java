@@ -1,7 +1,6 @@
 package Controller;
 
 import Model.Order;
-import Model.Vacation;
 import View.ShowRequestsView;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -24,7 +23,7 @@ public class ShowRequestsController extends Controller {
                     TableView.TableViewSelectionModel selectionModel = showRequestsView.tableViewShowRequests.getSelectionModel();
                     Order selectedOrder = (Order) selectionModel.getSelectedItem();
                     ordersModel.setCurrentOrder(selectedOrder);
-                  //  window.close();
+
                   //  mainController.activeYesOrNoForRequestController();
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Confirm request?" , ButtonType.YES, ButtonType.NO);
                     alert.showAndWait();
@@ -36,6 +35,7 @@ public class ShowRequestsController extends Controller {
                     else{
                         ordersModel.updateOrderStatus(selectedOrder.getOrder_id(),"canceled");
                     }
+                    window.close();
                     mainController.goBackToPreviousController();
                 }
             }
@@ -44,7 +44,6 @@ public class ShowRequestsController extends Controller {
     @Override
     public void start() {
         showRequestsView.showRequests(ordersModel.getOrdersInCaseSeller());
-        window.setTitle("Vacation Requests");
         window.show();
     }
 

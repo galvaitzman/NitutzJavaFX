@@ -5,6 +5,8 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
 public class BuyingVacationPaypalOrVisaPaymentController extends Controller {
 
@@ -43,7 +45,16 @@ public class BuyingVacationPaypalOrVisaPaymentController extends Controller {
     public class ButtonPurchaseVacation implements EventHandler{
         @Override
         public void handle(Event event) {
+            vacationModel.updateVacationStatus(Integer.parseInt(vacationModel.getCurrentVacation().getVacation_ID()),"done");
+            ordersModel.updateOrderStatus(ordersModel.getCurrentOrder().getOrder_id(),"done");
 
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "The vacation was successfully acquired" , ButtonType.OK);
+            alert.showAndWait();
+
+            vacationModel.setCurrentVacation(null);
+            ordersModel.setCurrentOrder(null);
+            window.close();
+            mainController.activeSignInSuccessfuly();
         }
     }
 }
