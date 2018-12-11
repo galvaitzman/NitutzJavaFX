@@ -15,107 +15,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-    String z ="" + ","+ "" + ","+ "" + ","+ "" + ","+ "" + "," +"";
-    String []s= z.split(",");
      new MainController();
-        /*
-
-        primaryStage.setScene(new Scene(root,382,249));
-        primaryStage.show();
-       // UserModel mm = new UserModel();
-       // mc = new MainController(mm);
-       // mv = new SignUpView();
-        initialView = fxmlLoader.getController();
-        mainModel = new UserModel();
-        initialController = new AfterSignInController(initialView,mainModel) ;*/
-        //FXMLLoader fxmlLoader = new FXMLLoader();
-        //Parent root = fxmlLoader.load(getClass().getResource("MainViewForm.fxml"));
-        //Scene scene = new Scene(root);
-        //primaryStage.setScene(scene);
-        //primaryStage.show();
-        //InitialView initialView = fxmlLoader.getController();
-        //initialController.signInPress();
-
-        /**
-         * this is the line befor the part B just the one line
-         */
-         //MainController mainController = new MainController();
-
-
-        //Part B
-        /**
-         * Orders
-         */
-
-
-     //  createNewTableOrder();
-     // OrdersModel ordersModel = new OrdersModel();
-
-
-
-      // AModel.current_user.setUser_name("itay");
-     //  ordersModel.cancleAllVacationIdWhenApproveOrder(1,1);
-       // List<String> x = ordersModel.searchOrferByOrderID(1);
-      //  System.out.println("");
-     //  ordersModel.insertOrderToDB("goni",12,"2");
-      //  ordersModel.insertOrd§erToDB("goni",14,"2");
-      //  ordersModel.insertOrderToDB("itay",17,"2");
-      //  ordersModel.insertOrderToDB("itay",2,"2");
-       // ordersModel.insertOrderToDB("itay",18,"2");
-/*
-        ordersModel.updateOrderStatus(4,"waiting for payment");
-        ordersModel.updateOrderStatus(1,"waiting for payment");
-
-        // ordersModel.insertOrderToDB("goni","11","2");
-    //    ordersModel.insertOrderToDB("itay","17","2");
-        List<Order> L = ordersModel.getOrdersInCaseBuyer();
-        System.out.println("");*/
-
- //      ordersModel.updateOrderStatus(1,"yoyoyo");
-
-
-
-        /**
-         * Vacation
-         */
- //VacationModel vacationModel = new VacationModel();
-     //    createNewTableVacation();
-//      //  vacationModel.current_user.setUser_name("dan");
-       // vacationModel.current_user.set_User_type("exceptional");
-       // vacationModel.updateVacationStatus(3,"in order");
-        // vacationModel.insertVacationToDB("elal","arkia","17:00","18:00","19:00", "20:00","12","13","2018-04-04","2018-04-09","","",2,"from","eilat","child","fun","","","700","","","sure","","","","");
-        // vacationModel.insertVacationToDB("elal","arkia","17:00","18:00","19:00", "20:00","12","13","2018-02-04","2018-04-10","","",1,"beer sheva","eilat","child","fun","","","700","","","sure","","","","");
-         //vacationModel.updateVacation(3,"elal","arkia","17:00","18:00","19:00", "20:00","12","13","2018-03-04","24/4/1993","","",1,"beer sheva","eilat","child","fun","","","700","","","sure","","","","xxxxxxxx");
-        // vacationModel.updateVacationStatus(3,"בוטלה");
-        // vacationModel.deleteVacation(2);
-        //  vacationModel.current_user = "gal";
-        //  vacationModel.searchVacationsByUser_Id();
-        //  UserModel.current_user.setUser_name("gal");
-        //  vacationModel.searchVacationsByUser_Id();
-
-        //   List<Vacation> l =  vacationModel.searchVacationsByParameters("","","from","");
-       // List<Vacation> l = ((VacationModel) vacationModel).searchVacationsByParameters("", "", "from", "eilat");
-       // System.out.println( vacationModel.deleteVacation(1));
-
-      //  List<Vacation> l =  vacationModel.searchVacationsByParameters("","","from","");
-      //  List<Vacation> l =  vacationModel.searchVacationsByParameters("10/04/1993","","from","");
-
-      //  System.out.println(new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime()));
-
-        /**
-         * Users
-         */
-/*       createNewTableUser();
-        UserModel mainModel = new UserModel();
-       mainModel.createUser("gal","123","18/04/1993","gal","vaitzman","beer-sheva","g@gmail.com");
-        mainModel.createUser("gal2","123","18/04/1993","gal","vaitzman","beer-sheva","g@gmail.com");
-        mainModel.createUser("gal3","123","18/04/1993","gal","vaitzman","beer-sheva","g@gmail.com");*/
-
     }
-
-
-
-
 
 
     public static void createNewTableVacation() {
@@ -219,40 +120,6 @@ public class Main extends Application {
         }
     }
 
-
-/*
-    private static Connection connect() {
-        // SQLite connection string
-        String url = "jdbc:sqlite:Vacation4U.db";
-        Connection conn = null;
-        try {
-            conn = DriverManager.getConnection(url);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return conn;
-    }
-
-  /*
-    public static void insertUser(String User_name, String Password, String Birth_day, String First_name, String Last_name, String City,String Email) {
-        String sql = "INSERT INTO Users(User_name,Password,Birth_day,First_name,Last_name,City,Email) VALUES(?,?,?,?,?,?,?)";
-
-        try (Connection conn = connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, User_name);
-            pstmt.setString(2, Password);
-            pstmt.setString(3, Birth_day);
-            pstmt.setString(4, First_name);
-            pstmt.setString(5, Last_name);
-            pstmt.setString(6, City);
-            pstmt.setString(7, Email);
-
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-*/
     public static void main(String[] args) {
        // createNewTable();
         launch(args);
