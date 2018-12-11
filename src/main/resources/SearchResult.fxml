@@ -1,31 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="631.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.SearchResultView">
     <children>
-      <TableView fx:id="tableViewShowVacations" layoutX="28.0" layoutY="76.0" prefHeight="565.0" prefWidth="607.0">
+      <TableView fx:id="tableViewShowVacations" layoutX="32.0" layoutY="70.0" prefHeight="535.0" prefWidth="600.0">
         <columns>
-            <TableColumn fx:id="colVacationID" prefWidth="126.0" text="Vacation ID" />
-            <TableColumn fx:id="colFrom" prefWidth="66.0" text="From" />
-            <TableColumn fx:id="colTo" prefWidth="71.0" text="To" />
-            <TableColumn fx:id="colDepartureDate" prefWidth="170.0" text="Departure date" />
-            <TableColumn fx:id="colReturnDate" prefWidth="119.0" text="Return date" />
-            <TableColumn fx:id="colPrice" prefWidth="54.0" text="Price" />
+            <TableColumn fx:id="colVacationID" minWidth="60.0" prefWidth="60.0" text="ID" />
+            <TableColumn fx:id="colFrom" minWidth="105.0" prefWidth="105.0" text="From" />
+            <TableColumn fx:id="colTo" minWidth="105.0" prefWidth="105.0" text="To" />
+            <TableColumn fx:id="colDepartureDate" minWidth="115.0" prefWidth="115.0" text="Departure" />
+            <TableColumn fx:id="colReturnDate" minWidth="115.0" prefWidth="115.0" text="Return" />
+            <TableColumn fx:id="colPrice" minWidth="98.0" prefWidth="98.0" text="Price" />
         </columns>
       </TableView>
+      <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="70.0" text="Back" />
     </children>
 </AnchorPane>

@@ -17,11 +17,12 @@
 
 <AnchorPane prefHeight="631.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ShowRequestsView">
     <children>
-      <TableView fx:id="tableViewShowRequests" layoutX="14.0" layoutY="76.0" prefHeight="565.0" prefWidth="448.0">
+      <TableView fx:id="tableViewShowRequests" layoutX="32.0" layoutY="70.0" prefHeight="535.0" prefWidth="600.0">
         <columns>
-            <TableColumn fx:id="colVacationID" prefWidth="66.0" text="Vacation ID" />
-            <TableColumn fx:id="colBuyer" prefWidth="71.0" text="Buyer name" />
+            <TableColumn fx:id="colVacationID" minWidth="298.0" prefWidth="66.0" text="Vacation ID" />
+            <TableColumn fx:id="colBuyer" minWidth="298.0" prefWidth="71.0" text="Buyer name" />
         </columns>
       </TableView>
+        <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="70.0" text="Back" />
     </children>
 </AnchorPane>

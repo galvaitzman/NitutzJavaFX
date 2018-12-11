@@ -10,11 +10,11 @@ public class SearchVacationController extends Controller {
     public SearchVacationController(){
         super("SearchVacation.fxml");
         searchVacationView = fxmlLoader.getController();
-        searchVacationView.start(new ButtonSearchVacation());
+        searchVacationView.start(new ButtonBackClickedHandler(), new ButtonSearchVacation());
     }
     @Override
     public void start() {
-        window.setTitle("Search Vacation");
+        window.setTitle("Search For Vacations");
         window.show();
     }
 
@@ -35,4 +35,13 @@ public class SearchVacationController extends Controller {
             window.close();
         }
     }
+
+    public class ButtonBackClickedHandler implements EventHandler {
+        @Override
+        public void handle(Event event) {
+            window.close();
+            mainController.activeSignInSuccessfuly();
+        }
+    }
+
 }

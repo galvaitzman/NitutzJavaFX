@@ -1,8 +1,10 @@
 package View;
 
+import Controller.SearchResultController;
 import Model.Vacation;
 import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -18,8 +20,11 @@ public class SearchResultView extends AView {
     public TableColumn colReturnDate;
     public TableColumn colPrice;
     public TableColumn colVacationID;
+    public Button backButton;
 
-    public void start(ChangeListener changeListener){
+    public void start(SearchResultController.ButtonBackClickedHandler backButtonClicked,
+                              ChangeListener changeListener){
+        backButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,backButtonClicked);
         tableViewShowVacations.getSelectionModel().selectedItemProperty().addListener(changeListener);
     }
 

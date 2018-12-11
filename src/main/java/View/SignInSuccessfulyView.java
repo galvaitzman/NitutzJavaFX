@@ -32,5 +32,8 @@ public class SignInSuccessfulyView extends AView{
         approvalButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonShowApprovals);
         requestButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonShowRequests);
 
+        approvalButton.setVisible(false);
+        requestButton.setVisible(false);
+
     }
 }

@@ -20,7 +20,7 @@ public class UpdateController extends Controller {
     @Override
     public void start() {
         window.show();
-        window.setTitle("Update");
+        window.setTitle("Update User");
         List<String> list = userModel.searchUserByUserName( userModel.getCurrent_user().getUser_name());
         if (!list.isEmpty()) {
             updateView.setTxtFields(list.get(0), list.get(1), list.get(2), list.get(3), list.get(4), list.get(5), list.get(6));

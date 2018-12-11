@@ -125,4 +125,9 @@ public class MainController{
         buyingVacationPaypalOrVisaPaymentController.start();
     }
 
+    public void goBackToPreviousController(){
+        currentController = controllers.pop();
+        currentController.start();
+    }
+
 }

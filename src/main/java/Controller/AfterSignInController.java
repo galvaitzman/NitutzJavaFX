@@ -28,8 +28,8 @@ public class AfterSignInController extends Controller {
     }
     @Override
     public void start() {
-        window.show();
         window.setTitle("Vacation4U");
+        window.show();
 
         if (userModel.getCurrent_user().getUser_name().equals(""))
         {

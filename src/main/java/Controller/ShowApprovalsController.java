@@ -4,6 +4,8 @@ import Model.Order;
 import View.ShowApprovalsView;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.scene.control.TableView;
 
 public class ShowApprovalsController extends Controller {
@@ -12,7 +14,7 @@ public class ShowApprovalsController extends Controller {
     public ShowApprovalsController() {
         super("ShowApprovals.fxml");
         showApprovalsView = fxmlLoader.getController();
-        showApprovalsView.start(new ChangeListener() {
+        showApprovalsView.start(new ButtonBackClickedHandler(), new ChangeListener() {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 if (showApprovalsView.tableViewShowApprovals.getSelectionModel().getSelectedItem() != null) {
@@ -30,6 +32,15 @@ public class ShowApprovalsController extends Controller {
     @Override
     public void start() {
         showApprovalsView.showApprovals(ordersModel.getOrdersInCaseBuyer());//
+        window.setTitle("Vacation Approvals");
         window.show();//
+    }
+
+    public class ButtonBackClickedHandler implements EventHandler {
+        @Override
+        public void handle(Event event) {
+            window.close();
+            mainController.activeSignInSuccessfuly();
+        }
     }
 }

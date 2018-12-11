@@ -1,6 +1,7 @@
 package View;
 
 import Controller.CreateVacationController;
+import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -11,6 +12,11 @@ import java.time.temporal.ChronoUnit;
 
 public class CreateVacationDetailsView  extends AView{
     @FXML
+    public Label ticket1;
+    public Label ticket2;
+    public Label ticket3;
+    public Label ticket4;
+    public Label ticket5;
     public ChoiceBox sellAllTickets;
     public ChoiceBox stayingPlaceRanking;
     public ChoiceBox vacationType;
@@ -42,10 +48,10 @@ public class CreateVacationDetailsView  extends AView{
     public CheckBox flightBack;
 
 
-    public void start(CreateVacationController.ButtonNumberOfTickets numberOfTicketsButton,
-                      CreateVacationController.ButtonMoveToPaymentMethod moveToPaymentMethod,
-                      CreateVacationController.ButtonFlightBack flightBackButton) {
-        ticketType1.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, numberOfTicketsButton);
+    public void start(
+            CreateVacationController.ButtonMoveToPaymentMethod moveToPaymentMethod,
+            CreateVacationController.ButtonFlightBack flightBackButton, ChangeListener changeListener) {
+        numberOfTickets.getSelectionModel().selectedIndexProperty().addListener(changeListener);
         moveToPaymentMethodButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, moveToPaymentMethod);
         flightBack.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,flightBackButton);
         ObservableList<String> sellAllTicketsItems = FXCollections.observableArrayList();
@@ -75,10 +81,11 @@ public class CreateVacationDetailsView  extends AView{
         ticketType3.setItems(ticketTypeItems);
         ticketType4.setItems(ticketTypeItems);
         ticketType5.setItems(ticketTypeItems);
-        ticketType2.setValue("Adult");
-        ticketType3.setValue("Adult");
-        ticketType4.setValue("Adult");
-        ticketType5.setValue("Adult");
+        ticketType1.setValue("");
+        ticketType2.setValue("");
+        ticketType3.setValue("");
+        ticketType4.setValue("");
+        ticketType5.setValue("");
         numberOfTickets.setValue("1");
         connectionItems.add("Connection");
         connectionItems.add("Direct");
@@ -102,16 +109,6 @@ public class CreateVacationDetailsView  extends AView{
         stayingPlaceRanking.setValue("1");
 
 
-
-
-    }
-
-    public void enableVacationType() {
-        int numOfTickets = Integer.parseInt(numberOfTickets.getValue().toString());
-        if (numOfTickets >= 2) ticketType2.setDisable(false);
-        if (numOfTickets >= 3) ticketType3.setDisable(false);
-        if (numOfTickets >= 4) ticketType4.setDisable(false);
-        if (numOfTickets == 5) ticketType5.setDisable(false);
     }
 
     public boolean isValidDate() {

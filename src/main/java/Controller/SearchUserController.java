@@ -18,7 +18,7 @@ public class SearchUserController extends Controller {
     @Override
     public void start(){
         window.show();
-        window.setTitle("Search");
+        window.setTitle("Search For User");
         searchView.usernameTextBox.setText("");
         //signUpView.signUpButton = (Button)root.lookup("#signUpButton");
 

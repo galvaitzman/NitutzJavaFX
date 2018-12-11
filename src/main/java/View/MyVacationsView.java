@@ -1,8 +1,10 @@
 package View;
 
+import Controller.MyVacationsController;
 import Model.Vacation;
 import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -17,7 +19,11 @@ public class MyVacationsView extends AView {
     public TableColumn colDepartureDate;
     public TableColumn colReturnDate;
     public TableColumn colPrice;
-    public void start(ChangeListener changeListener){
+    public TableColumn colVacationID;
+    public Button backButton;
+    public void start(MyVacationsController.ButtonBackClickedHandler backButtonClicked,
+                      ChangeListener changeListener){
+        backButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,backButtonClicked);
         tableViewShowVacations.getSelectionModel().selectedItemProperty().addListener(changeListener);
     }
 
@@ -29,9 +35,7 @@ public class MyVacationsView extends AView {
         colDepartureDate.setCellValueFactory(new PropertyValueFactory<Vacation,String>("Flight_date_1"));
         colReturnDate.setCellValueFactory(new PropertyValueFactory<Vacation,String>("Flight_date_2"));
         colPrice.setCellValueFactory(new PropertyValueFactory<Vacation,String>("Price"));
-
-
-
+        colVacationID.setCellValueFactory(new PropertyValueFactory<Vacation,String>("VacationID"));
 
         for(int i=0; i<listOfVacations.size(); i++)
         {

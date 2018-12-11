@@ -6,20 +6,19 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="View.MyVacationsView"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="631.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.MyVacationsView">
     <children>
-        <TableView fx:id="tableViewShowVacations" layoutX="14.0" layoutY="76.0" prefHeight="565.0" prefWidth="448.0">
+        <TableView fx:id="tableViewShowVacations" layoutX="32.0" layoutY="70.0" prefHeight="535.0" prefWidth="600.0">
             <columns>
-                <TableColumn fx:id="colFrom" prefWidth="66.0" text="From" />
-                <TableColumn fx:id="colTo" prefWidth="71.0" text="To" />
-                <TableColumn fx:id="colDepartureDate" prefWidth="93.0" text="Departure date" />
-                <TableColumn fx:id="colReturnDate" prefWidth="91.0" text="Return date" />
-                <TableColumn fx:id="colPrice" prefWidth="126.0" text="Price" />
+                <TableColumn fx:id="colVacationID" minWidth="60.0" prefWidth="60.0" text="ID" />
+                <TableColumn fx:id="colFrom" minWidth="115.0" prefWidth="115.0" text="From" />
+                <TableColumn fx:id="colTo" minWidth="115.0" prefWidth="115.0" text="To" />
+                <TableColumn fx:id="colDepartureDate" minWidth="105.0" prefWidth="105.0" text="Departure" />
+                <TableColumn fx:id="colReturnDate" minWidth="105.0" prefWidth="105.0" text="Return" />
+                <TableColumn fx:id="colPrice" minWidth="99.0" prefWidth="99.0" text="Price" />
             </columns>
         </TableView>
+      <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="70.0" text="Back" />
     </children>
 
 </AnchorPane>

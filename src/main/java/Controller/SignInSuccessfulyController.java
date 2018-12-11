@@ -22,7 +22,7 @@ public class SignInSuccessfulyController extends Controller {
         }
         if (ordersModel.getOrdersInCaseSeller().size()>0 && !userModel.getCurrent_user().getUser_name().equals("")){
             signInSuccessfulyView.requestButton.setVisible(true);
-            signInSuccessfulyView.alert("You have new requests for purchasing your vacations");
+            signInSuccessfulyView.alert("You have new purchase requests for your vacations");
         }
         else{
             signInSuccessfulyView.requestButton.setVisible(false);
@@ -41,6 +41,7 @@ public class SignInSuccessfulyController extends Controller {
         @Override
         public void handle(Event event) {
             window.close();
+            window.setTitle("Vacation4U");
             mainController.activaSearchVacationController();
         }
     }

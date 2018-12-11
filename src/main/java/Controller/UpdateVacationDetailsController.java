@@ -37,6 +37,7 @@ public class UpdateVacationDetailsController extends Controller {
                             updateVacation[25], updateVacation[26], updateVacation[27], updateVacation[28]);
                 updateVacationDetailsView.alert("Updated successfully");
                 window.close();
+                mainController.activeMyVacationsController();
         }
     }
     public class ButtonNumberOfTickets implements EventHandler {

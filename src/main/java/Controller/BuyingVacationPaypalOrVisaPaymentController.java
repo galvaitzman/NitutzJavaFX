@@ -35,6 +35,7 @@ public class BuyingVacationPaypalOrVisaPaymentController extends Controller {
     }
     @Override
     public void start() {
+        window.setTitle("Payment");
         window.show();
         buyingVacationPaypalOrVisaPaymentView.total_amount.setText(vacationModel.getCurrentVacation().getPrice());
     }

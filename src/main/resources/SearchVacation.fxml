@@ -6,17 +6,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.SearchVacationView">
    <children>
-      <DatePicker fx:id="departDate" layoutX="107.0" layoutY="249.0" />
-      <DatePicker fx:id="returnDate" layoutX="325.0" layoutY="249.0" />
-      <TextField fx:id="from" layoutX="107.0" layoutY="90.0" prefHeight="25.0" prefWidth="174.0" />
-      <TextField fx:id="to" layoutX="325.0" layoutY="90.0" prefHeight="25.0" prefWidth="174.0" />
-      <Label layoutX="398.0" layoutY="228.0" text="Return:" />
-      <Label layoutX="398.0" layoutY="64.0" text="to:" />
-      <Label layoutX="173.0" layoutY="64.0" text="from:" />
-      <Label layoutX="173.0" layoutY="228.0" text="Depart:" />
-      <Button fx:id="searchButton" layoutX="281.0" layoutY="328.0" mnemonicParsing="false" text="Search" />
+      <DatePicker fx:id="departDate" layoutX="107.0" layoutY="179.0" />
+      <DatePicker fx:id="returnDate" layoutX="107.0" layoutY="259.0" />
+      <TextField fx:id="from" layoutX="107.0" layoutY="95.0" prefHeight="25.0" prefWidth="174.0" />
+      <TextField fx:id="to" layoutX="331.0" layoutY="95.0" prefHeight="25.0" prefWidth="174.0" />
+      <Label layoutX="107.0" layoutY="232.0" text="Return:" />
+      <Label layoutX="331.0" layoutY="69.0" text="To:" />
+      <Label layoutX="107.0" layoutY="69.0" text="From:" />
+      <Label layoutX="107.0" layoutY="152.0" text="Depart:" />
+      <Button fx:id="searchButton" layoutX="262.0" layoutY="328.0" mnemonicParsing="false" text="Search" />
+      <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="70.0" text="Back" />
    </children>
 </AnchorPane>

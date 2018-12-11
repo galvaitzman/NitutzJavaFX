@@ -21,23 +21,53 @@ public class CreateVacationController extends Controller {
     public CreateVacationController(){
         super("CreateVacationDetails.fxml");
         createVacationDetailsView = fxmlLoader.getController();
-        createVacationDetailsView.start(new ButtonNumberOfTickets(),new ButtonMoveToPaymentMethod(), new ButtonFlightBack() );
+        createVacationDetailsView.start(new ButtonMoveToPaymentMethod(), new ButtonFlightBack(), new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number number2) {
+                int numOfTickets = Integer.parseInt(createVacationDetailsView.numberOfTickets.getItems().get((Integer) number2).toString());
+                createVacationDetailsView.ticketType1.setVisible(false);
+                createVacationDetailsView.ticketType2.setVisible(false);
+                createVacationDetailsView.ticketType3.setVisible(false);
+                createVacationDetailsView.ticketType4.setVisible(false);
+                createVacationDetailsView.ticketType5.setVisible(false);
+                createVacationDetailsView.ticket1.setVisible(false);
+                createVacationDetailsView.ticket2.setVisible(false);
+                createVacationDetailsView.ticket3.setVisible(false);
+                createVacationDetailsView.ticket4.setVisible(false);
+                createVacationDetailsView.ticket5.setVisible(false);
+                if (numOfTickets > 0) {
+                    createVacationDetailsView.ticket1.setVisible(true);
+                    createVacationDetailsView.ticketType1.setVisible(true);
+                }
+                if (numOfTickets > 1) {
+                    createVacationDetailsView.ticket2.setVisible(true);
+                    createVacationDetailsView.ticketType2.setVisible(true);
+                }
+                if (numOfTickets > 2) {
+                    createVacationDetailsView.ticket3.setVisible(true);
+                    createVacationDetailsView.ticketType3.setVisible(true);
+                }
+                if (numOfTickets > 3) {
+                    createVacationDetailsView.ticket4.setVisible(true);
+                    createVacationDetailsView.ticketType4.setVisible(true);
+                }
+                if (numOfTickets > 4) {
+                    createVacationDetailsView.ticket5.setVisible(true);
+                    createVacationDetailsView.ticketType5.setVisible(true);
+                }
+
+            }
+        });
 
     }
 
     @Override
     public void start() {
+        window.setTitle("Create Vacation");
         window.show();
-        window.setTitle("Create vacation");
     }
 
-    public class ButtonNumberOfTickets implements EventHandler {
-        @Override
-        public void handle(Event event) {
-           createVacationDetailsView.enableVacationType();
 
-        }
-    }
     public class ButtonMoveToPaymentMethod implements EventHandler {
         @Override
         public void handle(Event event) {
@@ -155,7 +185,7 @@ public class CreateVacationController extends Controller {
                }
            }
            catch (NumberFormatException e){
-               createVacationPaymentView.alert("Please fill all the requierd fields, only digits");
+               createVacationPaymentView.alert("Please fill all the required fields, only digits");
            }
 
         }

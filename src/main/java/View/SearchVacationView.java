@@ -17,12 +17,15 @@ public class SearchVacationView extends AView {
     public TextField from;
     public TextField to;
     public Button searchButton;
+    public Button backButton;
 
-    public void start (SearchVacationController.ButtonSearchVacation buttonSearchVacation){
+    public void start (SearchVacationController.ButtonBackClickedHandler backButtonClicked,
+            SearchVacationController.ButtonSearchVacation buttonSearchVacation){
+        backButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,backButtonClicked);
         searchButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonSearchVacation);
         from.setText("");
         to.setText("");
-
+        from.requestFocus();
     }
 
     public boolean isOneFieldsFull(){
@@ -40,20 +43,20 @@ public class SearchVacationView extends AView {
             if ( LocalDate.from(ld1).until(LocalDate.now(), ChronoUnit.DAYS) >= 0 ||
                     LocalDate.from(ld2).until(LocalDate.now(), ChronoUnit.DAYS) >= 0 ||
                     LocalDate.from(ld2).until(LocalDate.from(ld1),ChronoUnit.DAYS) >=0) {
-                alert("illegal dates");
+                alert("Illegal dates");
                 return false;
             }
         }
 
         else if (ld1!=null){
             if ( LocalDate.from(ld1).until(LocalDate.now(), ChronoUnit.DAYS) >= 0){
-                alert("illegal dates");
+                alert("Illegal dates");
                 return false;
             }
         }
         else if (ld2!=null){
             if ( LocalDate.from(ld2).until(LocalDate.now(), ChronoUnit.DAYS) >= 0){
-                alert("illegal dates");
+                alert("Illegal dates");
                 return false;
             }
         }
