@@ -1,6 +1,7 @@
 package View;
 
 
+import Controller.ButtonBack;
 import Controller.SignUpController;
 
 import javafx.fxml.FXML;
@@ -28,6 +29,7 @@ public class SignUpView extends AView{
     public Label erroremailLable;
     public Label errorbirthdayLable;
     public Label mandatoryFieldsMissing;
+    public Button back;
 
   /*
     public void showAlert() {
@@ -131,6 +133,7 @@ public class SignUpView extends AView{
 
     public void start(SignUpController.ButtonSignUpClickedHandler buttonSignUpClickedHandler){
         signUpButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonSignUpClickedHandler);
+        back.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,new ButtonBack());
     }
 
     public void setTxtFields(String userName,String password, String birthday, String firstName, String lastName, String city, String email ){

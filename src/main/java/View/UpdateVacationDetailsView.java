@@ -1,4 +1,5 @@
 package View;
+import Controller.ButtonBack;
 import Controller.CreateVacationController;
 
 import Controller.UpdateVacationDetailsController;
@@ -41,6 +42,7 @@ public class UpdateVacationDetailsView  extends AView{
     public TextField price;
     public TextField staying_place_name;
     public CheckBox flightBack;
+    public Button back;
 
 //
     public void start(UpdateVacationDetailsController.ButtonNumberOfTickets numberOfTicketsButton,
@@ -101,6 +103,7 @@ public class UpdateVacationDetailsView  extends AView{
 
         staying_place_name.setText("none");
         stayingPlaceRanking.setValue("1");
+        back.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,new ButtonBack());
 
 
 

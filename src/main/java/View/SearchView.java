@@ -1,6 +1,7 @@
 package View;
 
 
+import Controller.ButtonBack;
 import Controller.SearchUserController;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -20,11 +21,13 @@ public class SearchView extends AView{
     public TextField cityTextBox;
     public TextField emailTextBox;
     public Label errorUsernameLable;
+    public Button back;
 
 
 
     public void start(SearchUserController.ButtonSearchUserClickedHandler buttonSearchUserClickedHandler){
         searchButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonSearchUserClickedHandler);
+        back.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,new ButtonBack());
     }
 
     public void setTxtFields(String birthday, String firstName, String lastName, String city, String email ){

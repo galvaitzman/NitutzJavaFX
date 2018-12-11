@@ -43,11 +43,6 @@ public class AfterSignInController extends Controller {
             afterSignInView.updateMyUserButton.setVisible(true);
             afterSignInView.userNameLable.setText(userModel.getCurrent_user().getUser_name());
         }
-        //afterSignInView.updateMyUserButton = (Button)root.lookup("#updateMyUserButton");
-        //afterSignInView.searchUserButton = (Button)root.lookup("#searchUserButton");
-        //afterSignInView.deleteMyUserButton = (Button)root.lookup("#deleteMyUserButton");
-
-
 
     }
 
@@ -79,7 +74,4 @@ public class AfterSignInController extends Controller {
         }
     }
 
-    public String getCurrentUser(){
-        return userModel.getCurrent_user().getUser_name() ;
-    }
 }

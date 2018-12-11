@@ -27,6 +27,7 @@ public class MainController{
         Controller.setMainUserModel();
         Controller.setMainVacationModel();
         Controller.setMainOrderModel();
+        ButtonBack.setMainConroller(this);
         initialController.start();
         controllers.push(currentController);
     }
@@ -128,6 +129,10 @@ public class MainController{
     public void goBackToPreviousController(){
         currentController = controllers.pop();
         currentController.start();
+    }
+
+    public void closeWindow(){
+        currentController.window.close();
     }
 
 }

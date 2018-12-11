@@ -1,5 +1,6 @@
 package View;
 
+import Controller.ButtonBack;
 import Controller.ViewVacationController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -40,9 +41,11 @@ public class ViewVacationDetailsView extends AView{
     public TextField price;
     public TextField staying_place_name;
     public Button requestOrderButton;
+    public Button back;
 
     public void start(ViewVacationController.ButtonRequestOrder requestOrder) {
         requestOrderButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, requestOrder);
+        back.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,new ButtonBack());
     }
 
     public void showVacationDetails(String[] vacationDetails) {

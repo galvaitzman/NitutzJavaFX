@@ -18,6 +18,7 @@ import java.io.IOException;
 public class CreateVacationController extends Controller {
     private CreateVacationDetailsView createVacationDetailsView;
     private CreateVacationPaymentView createVacationPaymentView;
+    private Stage windowPayment;
     public CreateVacationController(){
         super("CreateVacationDetails.fxml");
         createVacationDetailsView = fxmlLoader.getController();
@@ -78,7 +79,7 @@ public class CreateVacationController extends Controller {
                 FXMLLoader fxmlLoaderPayment = new FXMLLoader();
                 Parent rootOfPayment = fxmlLoaderPayment.load(getClass().getResource("/" + "CreateVacationPayment.fxml").openStream());
                 Scene scenePayment = new Scene(rootOfPayment);
-                Stage windowPayment = new Stage();
+                windowPayment = new Stage();
                 windowPayment.setScene(scenePayment);
                 createVacationPaymentView = fxmlLoaderPayment.getController();
                 windowPayment.show();
@@ -179,13 +180,16 @@ public class CreateVacationController extends Controller {
                                "",
                                createVacationPaymentView.paypal.getText());
                    }
+                   createVacationPaymentView.alert("Vacation added successfuly");
+                   windowPayment.close();
+                   mainController.goBackToPreviousController();
                }
                else{
                    createVacationPaymentView.alert("Please choose Bank or Paypal");
                }
            }
            catch (NumberFormatException e){
-               createVacationPaymentView.alert("Please fill all the required fields, only digits");
+               createVacationPaymentView.alert("Please fill all the required fields, only digits if you chose Bank account");
            }
 
         }

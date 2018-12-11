@@ -1,5 +1,6 @@
 package View;
 
+import Controller.ButtonBack;
 import Controller.SearchVacationController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -17,11 +18,11 @@ public class SearchVacationView extends AView {
     public TextField from;
     public TextField to;
     public Button searchButton;
-    public Button backButton;
+    public Button back;
 
     public void start (SearchVacationController.ButtonBackClickedHandler backButtonClicked,
             SearchVacationController.ButtonSearchVacation buttonSearchVacation){
-        backButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,backButtonClicked);
+        back.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,new ButtonBack());
         searchButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonSearchVacation);
         from.setText("");
         to.setText("");

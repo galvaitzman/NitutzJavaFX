@@ -1,5 +1,6 @@
 package View;
 
+import Controller.ButtonBack;
 import Controller.CreateVacationController;
 import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
@@ -46,6 +47,7 @@ public class CreateVacationDetailsView  extends AView{
     public TextField price;
     public TextField staying_place_name;
     public CheckBox flightBack;
+    public Button back;
 
 
     public void start(
@@ -81,11 +83,10 @@ public class CreateVacationDetailsView  extends AView{
         ticketType3.setItems(ticketTypeItems);
         ticketType4.setItems(ticketTypeItems);
         ticketType5.setItems(ticketTypeItems);
-        ticketType1.setValue("");
-        ticketType2.setValue("");
-        ticketType3.setValue("");
-        ticketType4.setValue("");
-        ticketType5.setValue("");
+        ticketType2.setValue("Adult");
+        ticketType3.setValue("Adult");
+        ticketType4.setValue("Adult");
+        ticketType5.setValue("Adult");
         numberOfTickets.setValue("1");
         connectionItems.add("Connection");
         connectionItems.add("Direct");
@@ -107,6 +108,7 @@ public class CreateVacationDetailsView  extends AView{
 
         staying_place_name.setText("none");
         stayingPlaceRanking.setValue("1");
+        back.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,new ButtonBack());
 
 
     }

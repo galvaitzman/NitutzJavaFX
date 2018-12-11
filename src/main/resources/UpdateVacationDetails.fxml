@@ -69,6 +69,7 @@
       <ChoiceBox fx:id="connection1" layoutX="40.0" layoutY="390.0" prefHeight="25.0" prefWidth="185.0" />
       <CheckBox fx:id="flightBack" layoutX="258.0" layoutY="95.0" mnemonicParsing="false" text="Flight back" />
       <Label layoutX="285.0" layoutY="109.0" text="included" />
+        <Button fx:id="back" layoutX="0" layoutY="0" mnemonicParsing="false" prefHeight="36.0" prefWidth="70.0" text="Back" />
 
 
 

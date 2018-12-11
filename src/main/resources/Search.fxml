@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="anchor1" prefHeight="350.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.SearchView">
+<AnchorPane id="anchor1" prefHeight="350.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.SearchView">
    <children>
       <Label layoutX="91.0" layoutY="63.0" text="Enter username" />
       <TextField fx:id="usernameTextBox" layoutX="194.0" layoutY="58.0" prefHeight="27.0" prefWidth="125.0" />
@@ -65,5 +65,6 @@
          </font>
       </Label>
       <Label fx:id="mandatoryFieldsMissing" layoutX="141.0" layoutY="261.0" text="Mandatory fields missing" textFill="#f50000" visible="false" />
+      <Button mnemonicParsing="false" text="Back" fx:id="back" layoutX="0" layoutY="0" />
    </children>
 </AnchorPane>

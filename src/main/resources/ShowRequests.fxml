@@ -23,6 +23,6 @@
             <TableColumn fx:id="colBuyer" minWidth="298.0" prefWidth="71.0" text="Buyer name" />
         </columns>
       </TableView>
-        <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="70.0" text="Back" />
+        <Button fx:id="back" layoutX="0" layoutY="0" mnemonicParsing="false" prefHeight="36.0" prefWidth="70.0" text="Back" />
     </children>
 </AnchorPane>

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
@@ -8,7 +11,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="655.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.CreateVacationDetailsView">
+<AnchorPane prefHeight="655.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.CreateVacationDetailsView">
     <children>
             <TextField fx:id="departure_city" layoutX="40.0" layoutY="40.0" prefHeight="27.0" prefWidth="185.0" />
             <DatePicker fx:id="flight_date_1" layoutX="40.0" layoutY="90.0" prefHeight="27.0" prefWidth="185.0" />
@@ -72,6 +75,7 @@
       <ChoiceBox fx:id="connection1" layoutX="40.0" layoutY="390.0" prefHeight="25.0" prefWidth="185.0" />
       <CheckBox fx:id="flightBack" layoutX="258.0" layoutY="95.0" mnemonicParsing="false" text="Flight back" />
       <Label layoutX="285.0" layoutY="109.0" text="included" />
+      <Button fx:id="back" mnemonicParsing="false" prefHeight="36.0" prefWidth="70.0" text="Back" layoutX="0" layoutY="0" />
 
 
 

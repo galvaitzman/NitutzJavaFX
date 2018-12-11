@@ -1,6 +1,7 @@
 package View;
 
 import Controller.AfterSignInController;
+import Controller.ButtonBack;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -13,6 +14,7 @@ public class AfterSignInView extends AView{
     public Button searchUserButton;
     public Button deleteMyUserButton;
     public Label userNameLable;
+    public Button back;
 
     public void start(AfterSignInController.ButtonUpdateMyUserClickedHandler buttonUpdateMyUserClickedHandler,
                       AfterSignInController.ButtonSearchUserClickedHandler buttonSearchUserClickedHandler,
@@ -20,6 +22,7 @@ public class AfterSignInView extends AView{
         updateMyUserButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonUpdateMyUserClickedHandler);
         searchUserButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonSearchUserClickedHandler);
         deleteMyUserButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonDeleteClickedHandler);
+        back.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,new ButtonBack());
     }
 
     public void showAlert(String alertMessage){

@@ -18,5 +18,6 @@
           <Label fx:id="userNameLable" layoutX="54.0" layoutY="70.0" prefHeight="17.0" prefWidth="89.0" />
       <Button id="updateMyUserButton" fx:id="updateMyUserButton" defaultButton="true" layoutX="136.0" layoutY="182.0" mnemonicParsing="false"  prefHeight="27.0" prefWidth="139.0" text="Update my user" />
       <Button id="searchUserButton" fx:id="searchUserButton" defaultButton="true" layoutX="136.0" layoutY="233.0" mnemonicParsing="false"  prefHeight="27.0" prefWidth="139.0" text="Search user" />
+        <Button fx:id="back" layoutX="0" layoutY="0" mnemonicParsing="false" prefHeight="36.0" prefWidth="70.0" text="Back" />
     </children>
 </AnchorPane>

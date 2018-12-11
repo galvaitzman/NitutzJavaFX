@@ -19,6 +19,9 @@ public class ViewVacationController extends Controller {
         window.show();
         window.setTitle("View Vacation Offer");
         viewVacationDetailsView.showVacationDetails(vacationModel.getCurrentVacation().getVacation_details());
+        if (userModel.getCurrent_user().getUser_name().equals("")) viewVacationDetailsView.requestOrderButton.setVisible(false);
+        else viewVacationDetailsView.requestOrderButton.setVisible(true);
+
     }
 
     public class ButtonRequestOrder implements EventHandler {

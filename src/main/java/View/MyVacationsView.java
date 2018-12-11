@@ -1,5 +1,6 @@
 package View;
 
+import Controller.ButtonBack;
 import Controller.MyVacationsController;
 import Model.Vacation;
 import javafx.beans.value.ChangeListener;
@@ -20,11 +21,11 @@ public class MyVacationsView extends AView {
     public TableColumn colReturnDate;
     public TableColumn colPrice;
     public TableColumn colVacationID;
-    public Button backButton;
+    public Button back;
     public void start(MyVacationsController.ButtonBackClickedHandler backButtonClicked,
                       ChangeListener changeListener){
-        backButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,backButtonClicked);
         tableViewShowVacations.getSelectionModel().selectedItemProperty().addListener(changeListener);
+        back.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,new ButtonBack());
     }
 
     public void showVacations (List<Vacation> listOfVacations){

@@ -1,5 +1,6 @@
 package View;
 
+import Controller.ButtonBack;
 import Controller.ShowRequestsController;
 import Model.Order;
 import javafx.beans.value.ChangeListener;
@@ -16,12 +17,12 @@ public class ShowRequestsView {
     public TableView tableViewShowRequests;
     public TableColumn colBuyer;
     public TableColumn colVacationID;
-    public Button backButton;
+    public Button back;
 
     public void start(ShowRequestsController.ButtonBackClickedHandler backButtonClicked,
                       ChangeListener changeListener){
         tableViewShowRequests.getSelectionModel().selectedItemProperty().addListener(changeListener);
-        backButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,backButtonClicked);
+        back.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,new ButtonBack());
     }
 
     public void showRequests (List<Order> listOfOrders) {

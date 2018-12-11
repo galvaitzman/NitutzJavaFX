@@ -1,5 +1,6 @@
 package View;
 
+import Controller.ButtonBack;
 import Controller.SignInSuccessfulyController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -16,6 +17,7 @@ public class SignInSuccessfulyView extends AView{
     public Button createNewVacation;
     public Button approvalButton;
     public Button requestButton;
+    public Button back;
 
 
 
@@ -31,7 +33,7 @@ public class SignInSuccessfulyView extends AView{
         createNewVacation.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonCreateVacation);
         approvalButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonShowApprovals);
         requestButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonShowRequests);
-
+        back.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,new ButtonBack());
         approvalButton.setVisible(false);
         requestButton.setVisible(false);
 

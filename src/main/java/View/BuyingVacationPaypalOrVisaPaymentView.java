@@ -1,5 +1,6 @@
 package View;
 
+import Controller.ButtonBack;
 import Controller.BuyingVacationPaypalOrVisaPaymentController;
 import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
@@ -19,6 +20,7 @@ public class BuyingVacationPaypalOrVisaPaymentView extends AView{
     public TextField paypal_account;
     public TextField total_amount;
     public TextField paypal_password;
+    public Button back;
 //    need to change the controller to baying
     public void start(BuyingVacationPaypalOrVisaPaymentController.ButtonPurchaseVacation buttonPurchaseVacation, ChangeListener changeListener){
         paypalOrVisa.getSelectionModel().selectedIndexProperty().addListener(changeListener);
@@ -28,6 +30,7 @@ public class BuyingVacationPaypalOrVisaPaymentView extends AView{
         paypalOrViseItems.add("Visa account");
         paypalOrVisa.setItems(paypalOrViseItems);
         total_amount.setEditable(false);
+        back.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,new ButtonBack());
 
     }
 }

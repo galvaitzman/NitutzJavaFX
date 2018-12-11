@@ -1,5 +1,6 @@
 package View;
 
+import Controller.ButtonBack;
 import Controller.UpdateController;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -27,6 +28,7 @@ public class UpdateView extends AView{
     public Label erroremailLable;
     public Label errorbirthdayLable;
     public Label mandatoryFieldsMissing;
+    public Button back;
 
   /*
     public void showAlert() {
@@ -130,6 +132,7 @@ public class UpdateView extends AView{
 
     public void start(UpdateController.ButtonUpdateClickedHandler buttonUpdateClickedHandler){
         updateButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonUpdateClickedHandler);
+        back.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,new ButtonBack());
     }
 
     public void setTxtFields(String userName,String password, String birthday, String firstName, String lastName, String city, String email ){

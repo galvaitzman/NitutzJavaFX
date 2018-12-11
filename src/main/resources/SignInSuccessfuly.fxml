@@ -11,5 +11,6 @@
        <Button fx:id="createNewVacation" layoutX="160.0" layoutY="231.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="166.0" text="Create vacation" />
       <Button fx:id="requestButton" layoutX="112.0" layoutY="291.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="277.0" text="press here to see the requests" />
       <Button fx:id="approvalButton" layoutX="112.0" layoutY="351.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="277.0" text="press here to see the approvals" />
+      <Button fx:id="back" layoutX="0" layoutY="0" mnemonicParsing="false" prefHeight="36.0" prefWidth="70.0" text="Back" />
    </children>
 </AnchorPane>
