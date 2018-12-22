@@ -120,14 +120,14 @@ public class OrdersModel extends AModel{
 
     }
 
-    public List<Order> getOrdersInCaseSeller()
+    public List<Order> getOrdersInCaseSeller(String status)
     {
         List<Order> orderArrayList = new ArrayList<>();
         String sql = "SELECT * from Orders where user_name_seller = ? AND order_status = ? ORDER BY vacation_id";
         try (Connection conn = this.connect();
              PreparedStatement statement = conn.prepareStatement(sql)) {
             statement.setString(1, current_user.getUser_name());
-            statement.setString(2, "waiting for approval of purchase offer");
+            statement.setString(2, status);
             ResultSet rs = statement.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
             int colCount = rsmd.getColumnCount();
@@ -167,5 +167,7 @@ public class OrdersModel extends AModel{
         updateOrderStatus(order_id,"waiting for payment");
 
     }
+
+
 
 }

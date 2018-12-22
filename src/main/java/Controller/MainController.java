@@ -20,6 +20,7 @@ public class MainController{
     Controller updateVacationDetailsController = new UpdateVacationDetailsController();
     Controller showRequestsController = new ShowRequestsController();
     Controller showApprovalsController = new ShowApprovalsController();
+    Controller theMoneyWasRecievedApprovalContoller = new TheMoneyWasRecievedApprovalContoller();
     Stack <Controller> controllers = new Stack<Controller>();
 
     public MainController (){
@@ -131,6 +132,12 @@ public class MainController{
         currentController.start();
     }
 
+    public void activeTheMoneyWasRecievedApprovalContoller(){
+        controllers.push(currentController);
+        currentController =  theMoneyWasRecievedApprovalContoller;
+        theMoneyWasRecievedApprovalContoller.start();
+
+    }
     public void closeWindow(){
         currentController.window.close();
     }

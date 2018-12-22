@@ -4,8 +4,6 @@ import Model.Order;
 import View.ShowRequestsView;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableView;
@@ -15,7 +13,7 @@ public class ShowRequestsController extends Controller {
     public ShowRequestsController(){
         super("ShowRequests.fxml");
         showRequestsView = fxmlLoader.getController();
-        showRequestsView.start(new ButtonBackClickedHandler(), new ChangeListener() {
+        showRequestsView.start(new ChangeListener() {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 if(showRequestsView.tableViewShowRequests.getSelectionModel().getSelectedItem() != null)
@@ -43,15 +41,9 @@ public class ShowRequestsController extends Controller {
     }
     @Override
     public void start() {
-        showRequestsView.showRequests(ordersModel.getOrdersInCaseSeller());
+        showRequestsView.showRequests(ordersModel.getOrdersInCaseSeller("waiting for approval of purchase offer"));
         window.show();
     }
 
-    public class ButtonBackClickedHandler implements EventHandler {
-        @Override
-        public void handle(Event event) {
-            window.close();
-            mainController.activeSignInSuccessfuly();
-        }
-    }
+
 }

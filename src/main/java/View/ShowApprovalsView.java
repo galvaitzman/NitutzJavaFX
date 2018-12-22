@@ -12,7 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.util.List;
 
-public class ShowApprovalsView {
+public class ShowApprovalsView extends AView{
     @FXML
     public TableView tableViewShowApprovals;//
     public TableColumn colSeller;

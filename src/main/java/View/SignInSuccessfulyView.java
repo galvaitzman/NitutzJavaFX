@@ -4,9 +4,6 @@ import Controller.ButtonBack;
 import Controller.SignInSuccessfulyController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-
-import java.awt.*;
 
 public class SignInSuccessfulyView extends AView{
 
@@ -17,6 +14,7 @@ public class SignInSuccessfulyView extends AView{
     public Button createNewVacation;
     public Button approvalButton;
     public Button requestButton;
+    public Button moneyRecievedButton;
     public Button back;
     public Button showAllVacation;
 
@@ -28,6 +26,7 @@ public class SignInSuccessfulyView extends AView{
                       SignInSuccessfulyController.ButtonCreateVacation buttonCreateVacation,
                       SignInSuccessfulyController.ButtonShowRequests buttonShowRequests,
                       SignInSuccessfulyController.ButtonShowApprovals buttonShowApprovals,
+                      SignInSuccessfulyController.ButtonShowMoneyReceiving buttonShowMoneyReceiving,
                       SignInSuccessfulyController.ButtonShowAllVacations buttonShowAllVacations){
         searchVacation.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonSearchVacation);
         manageMyUser.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonManageMyUser);
@@ -37,8 +36,10 @@ public class SignInSuccessfulyView extends AView{
         requestButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonShowRequests);
         back.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,new ButtonBack());
         showAllVacation.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonShowAllVacations);
+        moneyRecievedButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonShowMoneyReceiving);
         approvalButton.setVisible(false);
         requestButton.setVisible(false);
+        moneyRecievedButton.setVisible(false);
 
     }
 }

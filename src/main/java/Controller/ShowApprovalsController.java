@@ -22,8 +22,10 @@ public class ShowApprovalsController extends Controller {
                     Order selectedOrder = (Order) selectionModel.getSelectedItem();
                     ordersModel.setCurrentOrder(selectedOrder);
                     vacationModel.setCurrentVacation(vacationModel.searchVacationByVacationID(selectedOrder.getVacation_id()));
+                    showApprovalsView.alert("Your request to purchase the vacation was approved. please contact the vacation's seller by this email: "+
+                            userModel.searchUserByUserName(selectedOrder.getUser_name_seller()).get(6));
                     window.close();
-                    mainController.activeBuyingVacationPaypalOrVisaPaymentController();
+                    mainController.goBackToPreviousController();
                 }
             }
         });

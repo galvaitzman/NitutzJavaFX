@@ -67,10 +67,8 @@
       <Label fx:id="ticket3" layoutX="459.0" layoutY="525.0" text="ticket type 3:" />
       <Label fx:id="ticket4" layoutX="459.0" layoutY="555.0" text="ticket type 4:" />
       <Label fx:id="ticket5" layoutX="459.0" layoutY="585.0" text="ticket type 5:" />
-      <Button fx:id="moveToPaymentMethodButton" layoutX="325.0" layoutY="616.0" mnemonicParsing="false" text="Here" />
+      <Button fx:id="createVacation" layoutX="325.0" layoutY="616.0" mnemonicParsing="false" text="Create vacation" />
       <ChoiceBox fx:id="numberOfTickets" layoutX="165.0" layoutY="463.0" prefHeight="25.0" prefWidth="104.0" />
-      <Label layoutX="41.0" layoutY="620.0" text="How would you want to get your sell's money? press" />
-      <Label layoutX="376.0" layoutY="620.0" text="to choose your favorite method of payment." />
       <ChoiceBox fx:id="connection2" layoutX="350.0" layoutY="390.0" prefHeight="25.0" prefWidth="210.0" />
       <ChoiceBox fx:id="connection1" layoutX="40.0" layoutY="390.0" prefHeight="25.0" prefWidth="185.0" />
       <CheckBox fx:id="flightBack" layoutX="258.0" layoutY="95.0" mnemonicParsing="false" text="Flight back" />

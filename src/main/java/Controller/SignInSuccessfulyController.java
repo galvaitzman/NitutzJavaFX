@@ -10,7 +10,7 @@ public class SignInSuccessfulyController extends Controller {
         super("SignInSuccessfuly.fxml");
         signInSuccessfulyView = fxmlLoader.getController();
         signInSuccessfulyView.start(new ButtonSearchVacation(), new ButtonManageMyUser(), new ButtonMyVacations(),
-                new ButtonCreateVacation(), new ButtonShowRequests(), new ButtonShowApprovals(), new ButtonShowAllVacations());
+                new ButtonCreateVacation(), new ButtonShowRequests(), new ButtonShowApprovals(), new ButtonShowAllVacations(),new ButtonShowMoneyReceiving());
     }
     @Override
     public void start() {
@@ -20,12 +20,12 @@ public class SignInSuccessfulyController extends Controller {
             signInSuccessfulyView.manageMyUser.setVisible(false);
             signInSuccessfulyView.createNewVacation.setVisible(false);
         }
-        else{
+        else {
             signInSuccessfulyView.myVacations.setVisible(true);
             signInSuccessfulyView.manageMyUser.setVisible(true);
             signInSuccessfulyView.createNewVacation.setVisible(true);
         }
-        if (ordersModel.getOrdersInCaseSeller().size()>0 && !userModel.getCurrent_user().getUser_name().equals("")){
+        if (ordersModel.getOrdersInCaseSeller("waiting for approval of purchase offer").size()>0 && !userModel.getCurrent_user().getUser_name().equals("")){
             signInSuccessfulyView.requestButton.setVisible(true);
             signInSuccessfulyView.alert("You have new purchase requests for your vacations");
         }
@@ -39,6 +39,14 @@ public class SignInSuccessfulyController extends Controller {
         else{
             signInSuccessfulyView.approvalButton.setVisible(false);
         }
+        if (ordersModel.getOrdersInCaseSeller("waiting for payment").size()>0 && !userModel.getCurrent_user().getUser_name().equals("")){
+            signInSuccessfulyView.moneyRecievedButton.setVisible(true);
+            signInSuccessfulyView.alert("Please approve receiving the money for your vacation");
+        }
+        else{
+            signInSuccessfulyView.moneyRecievedButton.setVisible(false);
+        }
+
 
     }
 
@@ -101,4 +109,12 @@ public class SignInSuccessfulyController extends Controller {
         }
     }
 
+
+    public class ButtonShowMoneyReceiving implements EventHandler{
+        @Override
+        public void handle(Event event) {
+            window.close();
+            mainController.activeTheMoneyWasRecievedApprovalContoller();
+        }
+    }
 }

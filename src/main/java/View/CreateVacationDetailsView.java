@@ -27,7 +27,6 @@ public class CreateVacationDetailsView  extends AView{
     public ChoiceBox ticketType4;
     public ChoiceBox ticketType5;
     public ChoiceBox numberOfTickets;
-    public Button moveToPaymentMethodButton;
     public TextField departure_city;
     public DatePicker flight_date_1;
     public TextField departure_time_1;
@@ -48,13 +47,14 @@ public class CreateVacationDetailsView  extends AView{
     public TextField staying_place_name;
     public CheckBox flightBack;
     public Button back;
+    public Button createVacation;
 
 
     public void start(
-            CreateVacationController.ButtonMoveToPaymentMethod moveToPaymentMethod,
+            CreateVacationController.ButtonCreateVacation createVacationButton,
             CreateVacationController.ButtonFlightBack flightBackButton, ChangeListener changeListener) {
         numberOfTickets.getSelectionModel().selectedIndexProperty().addListener(changeListener);
-        moveToPaymentMethodButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, moveToPaymentMethod);
+        createVacation.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, createVacationButton);
         flightBack.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,flightBackButton);
         ObservableList<String> sellAllTicketsItems = FXCollections.observableArrayList();
         ObservableList<String> vacationTypeItems = FXCollections.observableArrayList();
