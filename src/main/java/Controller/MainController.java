@@ -21,6 +21,8 @@ public class MainController{
     Controller showRequestsController = new ShowRequestsController();
     Controller showApprovalsController = new ShowApprovalsController();
     Controller theMoneyWasRecievedApprovalContoller = new TheMoneyWasRecievedApprovalContoller();
+    Controller myVacationsToTradeController = new MyVacationsToTradeController();
+    Controller showTradeRequestsController = new ShowTradeRequestsController();
     Stack <Controller> controllers = new Stack<Controller>();
 
     public MainController (){
@@ -28,6 +30,7 @@ public class MainController{
         Controller.setMainUserModel();
         Controller.setMainVacationModel();
         Controller.setMainOrderModel();
+        Controller.setMainTradeModel();
         ButtonBack.setMainConroller(this);
         initialController.start();
         controllers.push(currentController);
@@ -112,9 +115,7 @@ public class MainController{
         currentController = viewVacationController;
         viewVacationController.start();
     }
-    public void activeYesOrNoForRequestController(){
 
-    }
     public void activeMyVacationsController(){
         controllers.push(currentController);
         currentController = myVacationsController;
@@ -136,8 +137,20 @@ public class MainController{
         controllers.push(currentController);
         currentController =  theMoneyWasRecievedApprovalContoller;
         theMoneyWasRecievedApprovalContoller.start();
-
     }
+
+    public void activeMyVacationToTradeController(){
+        controllers.push(currentController);
+        currentController =  myVacationsToTradeController;
+        myVacationsToTradeController.start();
+    }
+
+    public void activeShowTradesControllers(){
+        controllers.push(currentController);
+        currentController = showTradeRequestsController;
+        showTradeRequestsController.start();
+    }
+
     public void closeWindow(){
         currentController.window.close();
     }

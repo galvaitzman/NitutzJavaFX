@@ -1,7 +1,7 @@
 package Controller;
 
-import Model.AModel;
 import Model.OrdersModel;
+import Model.TradeModel;
 import Model.UserModel;
 import Model.VacationModel;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +17,7 @@ public abstract class Controller{
     protected static UserModel userModel;
     protected static VacationModel vacationModel;
     protected static OrdersModel ordersModel;
+    protected static TradeModel tradeModel;
     protected Stage window = new Stage();
     Parent root = null;
     FXMLLoader fxmlLoader = new FXMLLoader();
@@ -29,9 +30,8 @@ public abstract class Controller{
         mainController = other;
     }
     public static void setMainOrderModel (){ordersModel = new OrdersModel(); }
-    public static void setMainVacationModel (){
-        vacationModel = new VacationModel();
-    }
+    public static void setMainVacationModel (){ vacationModel = new VacationModel(); }
+    public static void setMainTradeModel (){ tradeModel = new TradeModel(); }
 
     public abstract void start();
 

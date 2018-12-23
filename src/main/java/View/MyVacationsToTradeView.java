@@ -1,7 +1,6 @@
 package View;
 
 import Controller.ButtonBack;
-import Controller.SearchResultController;
 import Model.Vacation;
 import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
@@ -12,9 +11,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.util.List;
 
-public class SearchResultView extends AView {
+public class MyVacationsToTradeView {
     @FXML
-    public TableView tableViewShowVacations;
+    public TableView tableViewShowVacationsToTrade;
     public TableColumn colFrom;
     public TableColumn colTo;
     public TableColumn colDepartureDate;
@@ -22,16 +21,14 @@ public class SearchResultView extends AView {
     public TableColumn colPrice;
     public TableColumn colVacationID;
     public Button back;
-
-    public void start(SearchResultController.ButtonBackClickedHandler backButtonClicked,
-                              ChangeListener changeListener){
-        tableViewShowVacations.getSelectionModel().selectedItemProperty().addListener(changeListener);
+    public void start(ChangeListener changeListener){
+        tableViewShowVacationsToTrade.getSelectionModel().selectedItemProperty().addListener(changeListener);
         back.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,new ButtonBack());
     }
 
-    public void showVacations (List<Vacation> listOfVacations){
-        tableViewShowVacations.getItems().clear();
+    public void showVacationsToTrade (List<Vacation> listOfVacations){
 
+        tableViewShowVacationsToTrade.getItems().clear();
         colFrom.setCellValueFactory(new PropertyValueFactory<Vacation,String>("Departure_city"));
         colTo.setCellValueFactory(new PropertyValueFactory<Vacation,String>("Destination_city"));
         colDepartureDate.setCellValueFactory(new PropertyValueFactory<Vacation,String>("Flight_date_1"));
@@ -39,18 +36,9 @@ public class SearchResultView extends AView {
         colPrice.setCellValueFactory(new PropertyValueFactory<Vacation,String>("Price"));
         colVacationID.setCellValueFactory(new PropertyValueFactory<Vacation,String>("Vacation_ID"));
 
-
-
-
-        for(int i=0; i<listOfVacations.size(); i++)
+        for(int i = 0; i < listOfVacations.size(); i++)
         {
-        tableViewShowVacations.getItems().add(listOfVacations.get(i));
+            tableViewShowVacationsToTrade.getItems().add(listOfVacations.get(i));
         }
     }
-
 }
-
-
-
-
-

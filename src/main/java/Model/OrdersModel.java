@@ -50,7 +50,7 @@ public class OrdersModel extends AModel{
 
 
 
-    public List<String> searchOrferByOrderID(int order_id) {
+    public List<String> searchOrderByOrderID(int order_id) {
         String sql = "SELECT * from Orders where order_id = ?";
         List<String> OrdersDetails = new ArrayList<String>();
         try (Connection conn = this.connect();

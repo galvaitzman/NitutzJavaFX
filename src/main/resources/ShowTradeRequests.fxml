@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="View.ShowTradeRequestsView"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>colVacationIDSeller
+        <TableView fx:id="tableViewShowTradeRequests" layoutX="32.0" layoutY="70.0" prefHeight="535.0" prefWidth="600.0">
+            <columns>
+                <TableColumn fx:id="colVacationIDBuyer" minWidth="298.0" prefWidth="66.0" text="Offered Vacation ID " />
+                <TableColumn fx:id="colBuyer" minWidth="298.0" prefWidth="71.0" text="Buyer name" />
+                <TableColumn fx:id="colVacationIDSeller" minWidth="298.0" prefWidth="71.0" text="Demand Vacation ID" />
+            </columns>
+        </TableView>
+        <Button fx:id="back" layoutX="0" layoutY="0" mnemonicParsing="false" prefHeight="36.0" prefWidth="70.0" text="Back" />
+        <Label layoutX="23.0" layoutY="39.0" text="press on the relevant line in order to approve the trade " />
+    </children>
+
+</AnchorPane>

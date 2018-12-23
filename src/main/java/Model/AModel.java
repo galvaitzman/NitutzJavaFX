@@ -12,6 +12,8 @@ public abstract class AModel {
     protected Vacation currentVacation;
     protected List<Order> currentListOfOrdersBuyer = new ArrayList<>();
     protected List<Order> currentListOfOrdersSeller = new ArrayList<>();
+    protected List<Trade> currentListOfTradesBuyer = new ArrayList<>();
+    protected List<Trade> currentListOfTradesSeller = new ArrayList<>();
     protected Order currentOrder;
     protected Connection connect() {
         // SQLite connection string

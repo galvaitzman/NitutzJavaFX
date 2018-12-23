@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="View.MyVacationsToTradeView"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <TableView fx:id="tableViewShowVacationsToTrade" layoutX="32.0" layoutY="70.0" prefHeight="535.0" prefWidth="600.0">
+            <columns>
+                <TableColumn fx:id="colVacationID" minWidth="60.0" prefWidth="60.0" text="ID" />
+                <TableColumn fx:id="colFrom" minWidth="115.0" prefWidth="115.0" text="From" />
+                <TableColumn fx:id="colTo" minWidth="115.0" prefWidth="115.0" text="To" />
+                <TableColumn fx:id="colDepartureDate" minWidth="105.0" prefWidth="105.0" text="Departure" />
+                <TableColumn fx:id="colReturnDate" minWidth="105.0" prefWidth="105.0" text="Return" />
+                <TableColumn fx:id="colPrice" minWidth="99.0" prefWidth="99.0" text="Price" />
+
+            </columns>
+        </TableView>
+        <Button fx:id="back" layoutX="0" layoutY="0" mnemonicParsing="false" prefHeight="36.0" prefWidth="70.0" text="Back" />
+        <Label layoutX="113.0" layoutY="26.0" text="press on the relevant line in order to choose the vacation you want to trade" />
+    </children>
+
+</AnchorPane>

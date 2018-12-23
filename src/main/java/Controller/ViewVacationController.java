@@ -11,7 +11,7 @@ public class ViewVacationController extends Controller {
     public ViewVacationController(){
         super("ViewVacationDetails.fxml");
         viewVacationDetailsView = fxmlLoader.getController();
-        viewVacationDetailsView.start(new ButtonRequestOrder(), new ButtonSignIn());
+        viewVacationDetailsView.start(new ButtonRequestOrder(), new ButtonSignIn(), new ButtonTradeVacation());
     }
 
     @Override
@@ -53,6 +53,15 @@ public class ViewVacationController extends Controller {
         public void handle(Event event) {
             window.close();
             mainController.activeInitialController();
+        }
+    }
+    public class ButtonTradeVacation implements EventHandler{
+        @Override
+        public void handle(Event event) {
+            vacationModel.searchVacationsByStatus("valid");
+            window.close();
+            mainController.activeMyVacationToTradeController();//
+
         }
     }
 

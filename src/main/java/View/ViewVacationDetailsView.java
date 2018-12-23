@@ -41,15 +41,17 @@ public class ViewVacationDetailsView extends AView{
     public TextField price;
     public TextField staying_place_name;
     public Button requestOrderButton;
+    public Button tradeOrderButton;
     public Button back;
     public Button signInButton;
     public Label label1;
     public Label label2;
 
-    public void start(ViewVacationController.ButtonRequestOrder requestOrder, ViewVacationController.ButtonSignIn buttonSignIn) {
+    public void start(ViewVacationController.ButtonRequestOrder requestOrder, ViewVacationController.ButtonSignIn buttonSignIn, ViewVacationController.ButtonTradeVacation buttonTradeVacation) {
         requestOrderButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, requestOrder);
         signInButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonSignIn);
         back.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,new ButtonBack());
+        tradeOrderButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonTradeVacation);
     }
 
     public void showVacationDetails(String[] vacationDetails) {

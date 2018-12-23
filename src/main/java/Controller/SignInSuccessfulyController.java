@@ -10,7 +10,8 @@ public class SignInSuccessfulyController extends Controller {
         super("SignInSuccessfuly.fxml");
         signInSuccessfulyView = fxmlLoader.getController();
         signInSuccessfulyView.start(new ButtonSearchVacation(), new ButtonManageMyUser(), new ButtonMyVacations(),
-                new ButtonCreateVacation(), new ButtonShowRequests(), new ButtonShowApprovals(), new ButtonShowAllVacations(),new ButtonShowMoneyReceiving());
+                new ButtonCreateVacation(), new ButtonShowRequests(), new ButtonShowApprovals(),
+                new ButtonShowMoneyReceiving(), new ButtonShowAllVacations(), new ButtonShowTradeRequests());
     }
     @Override
     public void start() {
@@ -45,6 +46,13 @@ public class SignInSuccessfulyController extends Controller {
         }
         else{
             signInSuccessfulyView.moneyRecievedButton.setVisible(false);
+        }
+        if (tradeModel.getTradesInCaseSeller().size()>0 && !userModel.getCurrent_user().getUser_name().equals("")){
+            signInSuccessfulyView.tradeButton.setVisible(true);
+            signInSuccessfulyView.alert("You have new requests for trade for your vacations");
+        }
+        else{
+            signInSuccessfulyView.tradeButton.setVisible(false);
         }
 
 
@@ -117,4 +125,14 @@ public class SignInSuccessfulyController extends Controller {
             mainController.activeTheMoneyWasRecievedApprovalContoller();
         }
     }
+
+    public class ButtonShowTradeRequests implements EventHandler{
+        @Override
+        public void handle(Event event) {
+            window.close();
+            mainController.activeShowTradesControllers();
+        }
+    }
+
+
 }

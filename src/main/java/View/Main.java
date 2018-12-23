@@ -120,6 +120,31 @@ public class Main extends Application {
         }
     }
 
+
+    public static void createNewTableTrade() {
+        // SQLite connection string
+        String url = "jdbc:sqlite:Vacation4U.db";
+        // SQL statement for creating a new table
+        String sql = "CREATE TABLE IF NOT EXISTS Trades(\n"
+                + "	trade_id INTEGER NOT NULL PRIMARY KEY,\n"
+                + "	user_name_buyer varchar(255) NOT NULL ,\n"
+                + "	vacation_id_buyer INTEGER NOT NULL,\n"
+                + "	user_name_seller varchar(255) NOT NULL,\n"
+                + "	vacation_id_seller INTEGER NOT NULL,\n"
+                + "	trade_status varchar(255) NOT NULL,\n"
+                + "	last_update varchar(255) NOT NULL\n"
+                + ");" ;
+
+        try (Connection conn = DriverManager.getConnection(url);
+             Statement stmt = conn.createStatement()) {
+            // create a new table
+            stmt.execute(sql);
+            System.out.println("the table created");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     public static void main(String[] args) {
        // createNewTable();
         launch(args);

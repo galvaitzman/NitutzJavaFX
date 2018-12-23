@@ -17,6 +17,7 @@ public class SignInSuccessfulyView extends AView{
     public Button moneyRecievedButton;
     public Button back;
     public Button showAllVacation;
+    public Button tradeButton;
 
 
 
@@ -27,7 +28,8 @@ public class SignInSuccessfulyView extends AView{
                       SignInSuccessfulyController.ButtonShowRequests buttonShowRequests,
                       SignInSuccessfulyController.ButtonShowApprovals buttonShowApprovals,
                       SignInSuccessfulyController.ButtonShowMoneyReceiving buttonShowMoneyReceiving,
-                      SignInSuccessfulyController.ButtonShowAllVacations buttonShowAllVacations){
+                      SignInSuccessfulyController.ButtonShowAllVacations buttonShowAllVacations,
+                      SignInSuccessfulyController.ButtonShowTradeRequests buttonShowTradeRequests){
         searchVacation.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonSearchVacation);
         manageMyUser.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonManageMyUser);
         myVacations.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonMyVacations);
@@ -37,6 +39,7 @@ public class SignInSuccessfulyView extends AView{
         back.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,new ButtonBack());
         showAllVacation.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonShowAllVacations);
         moneyRecievedButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonShowMoneyReceiving);
+        tradeButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonShowTradeRequests);
         approvalButton.setVisible(false);
         requestButton.setVisible(false);
         moneyRecievedButton.setVisible(false);
