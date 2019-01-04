@@ -1,6 +1,6 @@
 package Controller;
 
-import Model.Order;
+import Model.Trade;
 import View.ShowTradeRequestsView;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -11,7 +11,7 @@ import javafx.scene.control.TableView;
 public class ShowTradeRequestsController extends Controller{
     private ShowTradeRequestsView showTradeRequestsView;
     public ShowTradeRequestsController(){
-       super("ShowTradeRequests.fxml");
+        setFxmlLoader("ShowTradeRequests.fxml");
         showTradeRequestsView = fxmlLoader.getController();
         showTradeRequestsView.start(new ChangeListener() {
         @Override
@@ -19,19 +19,23 @@ public class ShowTradeRequestsController extends Controller{
             if(showTradeRequestsView.tableViewShowTradeRequests.getSelectionModel().getSelectedItem() != null)
             {
                 TableView.TableViewSelectionModel selectionModel = showTradeRequestsView.tableViewShowTradeRequests.getSelectionModel();
-                Order selectedOrder = (Order) selectionModel.getSelectedItem();
-                ordersModel.setCurrentOrder(selectedOrder);
-
-                //  mainController.activeYesOrNoForRequestController();
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Confirm request?" , ButtonType.YES, ButtonType.NO);
+                Trade selectedTrade = (Trade) selectionModel.getSelectedItem();
+                tradeModel.setCurrentTrade(selectedTrade);
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Confirm Trade?" , ButtonType.YES, ButtonType.NO);
                 alert.showAndWait();
 
                 if (alert.getResult() == ButtonType.YES) {
-                    ordersModel.cancleAllVacationIdWhenApproveOrder(selectedOrder.getOrder_id(),selectedOrder.getVacation_id());
-                    vacationModel.updateVacationStatus(selectedOrder.getVacation_id(),"in order");
+                    tradeModel.updateTradeStatus(selectedTrade.getTrade_id(),"Approved");
+                    vacationModel.updateVacationStatus(selectedTrade.getVacation_id_buyer(),"done");
+                    vacationModel.updateVacationStatus(selectedTrade.getVacation_id_seller(),"done");
+                   // tradeModel.changeStatusForAllTradesAfterShowedToTheSellerAndApproved();
+                    tradeModel.CancleAllTradesContainIdVacation(selectedTrade.getVacation_id_buyer());
+                    tradeModel.CancleAllTradesContainIdVacation(selectedTrade.getVacation_id_seller());
+
+                    ordersModel.cancleAllVacationIdWhenApproveTrade(selectedTrade.getVacation_id_buyer(),selectedTrade.getVacation_id_seller());
                 }
                 else{
-                    ordersModel.updateOrderStatus(selectedOrder.getOrder_id(),"canceled");
+                    tradeModel.updateTradeStatus(selectedTrade.getTrade_id(),"Rejected");
                 }
                 window.close();
                 mainController.goBackToPreviousController();
@@ -41,7 +45,7 @@ public class ShowTradeRequestsController extends Controller{
 }
     @Override
     public void start() {
-        showTradeRequestsView.showTradeRequests(ordersModel.getOrdersInCaseSeller("waiting for approval of purchase offer"));
+        showTradeRequestsView.showTradeRequests(tradeModel.getTradesInCaseSeller());
         window.show();
     }
 }

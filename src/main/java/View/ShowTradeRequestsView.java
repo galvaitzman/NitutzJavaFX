@@ -1,7 +1,6 @@
 package View;
 
 import Controller.ButtonBack;
-import Model.Order;
 import Model.Trade;
 import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
@@ -25,7 +24,7 @@ public class ShowTradeRequestsView {
         back.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,new ButtonBack());
     }
 
-    public void showTradeRequests (List<Order> listOfTradeRequests) {
+    public void showTradeRequests (List<Trade> listOfTradeRequests) {
         tableViewShowTradeRequests.getItems().clear();
         colBuyer.setCellValueFactory(new PropertyValueFactory<Trade, String>("user_name_buyer"));
         colVacationIDBuyer.setCellValueFactory(new PropertyValueFactory<Trade, Integer>("vacation_id_buyer"));

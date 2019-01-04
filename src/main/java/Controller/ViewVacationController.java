@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.AModel;
 import View.ViewVacationDetailsView;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -9,7 +10,7 @@ import javafx.scene.control.ButtonType;
 public class ViewVacationController extends Controller {
     private ViewVacationDetailsView viewVacationDetailsView;
     public ViewVacationController(){
-        super("ViewVacationDetails.fxml");
+        setFxmlLoader("ViewVacationDetails.fxml");
         viewVacationDetailsView = fxmlLoader.getController();
         viewVacationDetailsView.start(new ButtonRequestOrder(), new ButtonSignIn(), new ButtonTradeVacation());
     }
@@ -40,11 +41,18 @@ public class ViewVacationController extends Controller {
             String sellerId = vacationModel.getCurrentVacation().getVacation_details()[1];
             String vacationId = vacationModel.getCurrentVacation().getVacation_details()[0];
             String numOfTickets = vacationModel.getCurrentVacation().getVacation_details()[14];
-            ordersModel.insertOrderToDB(sellerId, Integer.parseInt(vacationId), numOfTickets);
-            Alert alertRequestSubmitted = new Alert(Alert.AlertType.INFORMATION, "Your request has been submitted!", ButtonType.OK);
-            window.close();
-            mainController.activeSearchResultContoller();
-            alertRequestSubmitted.show();
+            if(sellerId.equals(AModel.current_user.getUser_name()))
+            {
+                Alert alertRequestError = new Alert(Alert.AlertType.INFORMATION, "You can not purchase you own vacation!", ButtonType.OK);
+                alertRequestError.show();
+            }
+            else {
+                ordersModel.insertOrderToDB(sellerId, Integer.parseInt(vacationId), numOfTickets);
+                Alert alertRequestSubmitted = new Alert(Alert.AlertType.INFORMATION, "Your request has been submitted!", ButtonType.OK);
+                window.close();
+                mainController.activeSearchResultContoller();
+                alertRequestSubmitted.show();
+            }
         }
     }
 
@@ -58,10 +66,15 @@ public class ViewVacationController extends Controller {
     public class ButtonTradeVacation implements EventHandler{
         @Override
         public void handle(Event event) {
-            vacationModel.searchVacationsByStatus("valid");
-            window.close();
-            mainController.activeMyVacationToTradeController();//
-
+            String sellerId = vacationModel.getCurrentVacation().getVacation_details()[1];
+            if(sellerId.equals(AModel.current_user.getUser_name())){
+                Alert alertRequestError = new Alert(Alert.AlertType.INFORMATION, "You can not trade with you own vacation!", ButtonType.OK);
+                alertRequestError.show();
+            }
+            else {
+                window.close();
+                mainController.activeMyVacationToTradeController();
+            }
         }
     }
 

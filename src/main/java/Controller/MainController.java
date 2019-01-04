@@ -4,6 +4,7 @@ import java.util.Stack;
 
 public class MainController{
 
+    Controller showTradeRequestsController = new ShowTradeRequestsController();
     Controller initialController = new InitialController();
     Controller signUpController = new SignUpController();
     Controller afterSignInController = new AfterSignInController();
@@ -22,7 +23,8 @@ public class MainController{
     Controller showApprovalsController = new ShowApprovalsController();
     Controller theMoneyWasRecievedApprovalContoller = new TheMoneyWasRecievedApprovalContoller();
     Controller myVacationsToTradeController = new MyVacationsToTradeController();
-    Controller showTradeRequestsController = new ShowTradeRequestsController();
+    Controller showApprovedOrRejectedTradesController = new ShowApprovedOrRejectedTradesController();
+
     Stack <Controller> controllers = new Stack<Controller>();
 
     public MainController (){
@@ -149,6 +151,13 @@ public class MainController{
         controllers.push(currentController);
         currentController = showTradeRequestsController;
         showTradeRequestsController.start();
+    }
+
+
+    public void activeButtonShowApprovedfOrRejectedTradesController(){
+        controllers.push(currentController);
+        currentController =showApprovedOrRejectedTradesController ;
+        showApprovedOrRejectedTradesController.start();
     }
 
     public void closeWindow(){

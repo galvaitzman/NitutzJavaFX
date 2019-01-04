@@ -11,7 +11,7 @@ import javafx.scene.control.TableView;
 public class TheMoneyWasRecievedApprovalContoller extends Controller{
     private TheMoneyWasRecievedApprovalView theMoneyWasRecievedApprovalView;
     public TheMoneyWasRecievedApprovalContoller(){
-        super("TheMoneyWasRecievedApproval.fxml");
+        setFxmlLoader("TheMoneyWasRecievedApproval.fxml");
         theMoneyWasRecievedApprovalView = fxmlLoader.getController();
         theMoneyWasRecievedApprovalView.start(new ChangeListener() {
             @Override
@@ -27,11 +27,14 @@ public class TheMoneyWasRecievedApprovalContoller extends Controller{
                     alert.showAndWait();
 
                     if (alert.getResult() == ButtonType.YES) {
-                        ordersModel.cancleAllVacationIdWhenApproveOrder(selectedOrder.getOrder_id(),selectedOrder.getVacation_id());
-                        vacationModel.updateVacationStatus(selectedOrder.getVacation_id(),"in order");
+                       // ordersModel.cancleAllVacationIdWhenApproveOrder(selectedOrder.getOrder_id(),selectedOrder.getVacation_id());
+                        ordersModel.updateOrderStatus(selectedOrder.getOrder_id(),"done");
+                        vacationModel.updateVacationStatus(selectedOrder.getVacation_id(),"done");
+                      //  tradeModel.changeStatusForAllTradesContainIdVacation(selectedOrder.getVacation_id());
                     }
                     else{
                         ordersModel.updateOrderStatus(selectedOrder.getOrder_id(),"canceled");
+                        vacationModel.updateVacationStatus(selectedOrder.getVacation_id(), "valid");
                     }
                     window.close();
                     mainController.goBackToPreviousController();

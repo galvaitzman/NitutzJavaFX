@@ -1,6 +1,5 @@
 package Controller;
 
-import Model.AModel;
 import View.UpdateView;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -13,7 +12,7 @@ public class UpdateController extends Controller {
 
 
     public UpdateController(){
-        super("Update.fxml");
+        setFxmlLoader("Update.fxml");
         updateView = fxmlLoader.getController();
         updateView.start(new ButtonUpdateClickedHandler());
     }

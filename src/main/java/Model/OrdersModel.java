@@ -152,12 +152,14 @@ public class OrdersModel extends AModel{
 
     public void cancleAllVacationIdWhenApproveOrder(int order_id, int vacation_id)
     {
-        String sql = "UPDATE Orders SET order_status=? WHERE vacation_id = ?";
+        String sql = "UPDATE Orders SET order_status=? WHERE vacation_id = ? AND order_status = ?";
         try (Connection conn = this.connect();
              PreparedStatement statement = conn.prepareStatement(sql)) {
             statement.setString(1, "canceled");
-            statement.setInt(2, order_id);
+            //statement.setInt(2, order_id);
             statement.setInt(2, vacation_id);
+            statement.setString(3, "waiting for approval of purchase offer");
+
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -168,6 +170,19 @@ public class OrdersModel extends AModel{
 
     }
 
-
+    public void cancleAllVacationIdWhenApproveTrade(int vacation_id_seller, int vacation_id_buyer)
+    {
+        String sql = "UPDATE Orders SET order_status=? WHERE vacation_id = ? OR vacation_id = ? AND order_status = ?";
+        try (Connection conn = this.connect();
+             PreparedStatement statement = conn.prepareStatement(sql)) {
+            statement.setString(1, "canceled");
+            statement.setInt(2, vacation_id_seller);
+            statement.setInt(3, vacation_id_buyer);
+            statement.setString(4, "waiting for approval of purchase offer");
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
 }

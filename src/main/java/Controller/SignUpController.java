@@ -9,7 +9,7 @@ public class SignUpController extends Controller {
     private SignUpView signUpView;
 
     public SignUpController(){
-        super("SignUpView.fxml");
+        setFxmlLoader("SignUpView.fxml");
         signUpView = fxmlLoader.getController();
         signUpView.start(new ButtonSignUpClickedHandler());
         window.setOnCloseRequest(new EventHandler<WindowEvent>() {

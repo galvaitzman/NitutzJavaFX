@@ -3,17 +3,18 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane accessibleText="Vacation4U" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.SignInSuccessfulyView">
+<AnchorPane accessibleText="Vacation4U" prefHeight="562.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.SignInSuccessfulyView">
    <children>
       <Button fx:id="showAllVacation" layoutX="160.0" layoutY="0" mnemonicParsing="false" prefHeight="39.0" prefWidth="166.0" text="Show all Vacation" />
       <Button fx:id="searchVacation" layoutX="160.0" layoutY="57" mnemonicParsing="false" prefHeight="39.0" prefWidth="166.0" text="Search Vacation" />
       <Button fx:id="manageMyUser" layoutX="160.0" layoutY="116.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="166.0" text="Manage my user" />
       <Button fx:id="myVacations" layoutX="160.0" layoutY="171.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="166.0" text="My vacations" />
        <Button fx:id="createNewVacation" layoutX="160.0" layoutY="231.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="166.0" text="Create vacation" />
-      <Button fx:id="requestButton" layoutX="112.0" layoutY="291.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="277.0" text="press here to see the purchase requests" />
-      <Button fx:id="approvalButton" layoutX="112.0" layoutY="351.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="277.0" text="press here to see the approvals" />
-      <Button fx:id="moneyRecievedButton" layoutX="50.0" layoutY="411.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="400.0" text="press here to approve the money receiving for your vacations " />
-      <Button fx:id="tradeButton" layoutX="112.0" layoutY="471.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="277.0" text="press here to see the trade requests" />
+      <Button fx:id="requestButton" layoutX="51.0" layoutY="291.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="400.0" text="press here to see the purchase requests" />
+      <Button fx:id="approvalButton" layoutX="51.0" layoutY="345.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="400.0" text="press here to see the approvals" />
+      <Button fx:id="moneyRecievedButton" layoutX="50.0" layoutY="402.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="400.0" text="press here to approve the money receiving for your vacations " />
+      <Button fx:id="tradeButton" layoutX="50.0" layoutY="458.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="400.0" text="press here to see the trade requests" />
+      <Button fx:id="approvedfOrRejectedTradeButton" layoutX="51.0" layoutY="511.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="400.0" text="press here to see the update for your requests to trade" />
       <Button fx:id="back" layoutX="0" layoutY="0" mnemonicParsing="false" prefHeight="36.0" prefWidth="70.0" text="Back" />
    </children>
 </AnchorPane>

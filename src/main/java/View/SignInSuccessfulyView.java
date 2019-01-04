@@ -18,6 +18,7 @@ public class SignInSuccessfulyView extends AView{
     public Button back;
     public Button showAllVacation;
     public Button tradeButton;
+    public Button approvedfOrRejectedTradeButton;
 
 
 
@@ -29,12 +30,14 @@ public class SignInSuccessfulyView extends AView{
                       SignInSuccessfulyController.ButtonShowApprovals buttonShowApprovals,
                       SignInSuccessfulyController.ButtonShowMoneyReceiving buttonShowMoneyReceiving,
                       SignInSuccessfulyController.ButtonShowAllVacations buttonShowAllVacations,
-                      SignInSuccessfulyController.ButtonShowTradeRequests buttonShowTradeRequests){
+                      SignInSuccessfulyController.ButtonShowTradeRequests buttonShowTradeRequests,
+                      SignInSuccessfulyController.ButtonShowApprovedfOrRejectedTrades buttonApprovedfOrRejectedTrade){
         searchVacation.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonSearchVacation);
         manageMyUser.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonManageMyUser);
         myVacations.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonMyVacations);
         createNewVacation.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonCreateVacation);
         approvalButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonShowApprovals);
+        approvedfOrRejectedTradeButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonApprovedfOrRejectedTrade);
         requestButton.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonShowRequests);
         back.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,new ButtonBack());
         showAllVacation.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED,buttonShowAllVacations);

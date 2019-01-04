@@ -1,6 +1,5 @@
 package Controller;
 
-import Model.AModel;
 import View.AfterSignInView;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -12,7 +11,7 @@ public class AfterSignInController extends Controller {
 
 
     public AfterSignInController(){
-        super("UserManagment.fxml");
+        setFxmlLoader("UserManagment.fxml");
         afterSignInView = fxmlLoader.getController();
         afterSignInView.start(new ButtonUpdateMyUserClickedHandler(),new ButtonSearchUserClickedHandler(),new ButtonDeleteClickedHandler());
         window.setOnCloseRequest(new EventHandler<WindowEvent>() {

@@ -248,6 +248,37 @@ public class VacationModel extends AModel {
     }
 
 
+
+    public List<Vacation> searchValidVacationsByUser_Id() {
+        String sql = "SELECT * from Vacation where user_name = ? AND status = ?";
+        List<Vacation> VacationDetails = new ArrayList<>();
+        try (Connection conn = this.connect();
+             PreparedStatement statement = conn.prepareStatement(sql)) {
+            statement.setString(1, current_user.getUser_name());
+            statement.setString(2, "valid");
+            ResultSet rs = statement.executeQuery();
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int colCount = rsmd.getColumnCount();
+            while (rs.next()) {
+                Vacation vac = new Vacation();
+                for (int col = 1; col <= colCount; col++) {
+                    Object value = rs.getObject(col);
+                    if (value != null) {
+                        vac.vacation_details[col - 1] = value.toString();
+                        // VacationDetails.add(value.toString());
+                    }
+                }
+                VacationDetails.add(vac);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        currentListOfVacations.clear();
+        currentListOfVacations = VacationDetails;
+        return VacationDetails;
+    }
+
+
     public List<Vacation> searchVacationsByUser_Id() {
         String sql = "SELECT * from Vacation where user_name = ?";
         List<Vacation> VacationDetails = new ArrayList<>();

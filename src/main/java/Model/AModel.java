@@ -15,6 +15,7 @@ public abstract class AModel {
     protected List<Trade> currentListOfTradesBuyer = new ArrayList<>();
     protected List<Trade> currentListOfTradesSeller = new ArrayList<>();
     protected Order currentOrder;
+    protected Trade currentTrade;
     protected Connection connect() {
         // SQLite connection string
         String url = "jdbc:sqlite:Vacation4U.db";
@@ -69,5 +70,8 @@ public abstract class AModel {
     }
 
     public Order getCurrentOrder(){return  this.currentOrder;}
+
+    public Trade getCurrentTrade(){ return this.currentTrade;}
+    public void setCurrentTrade(Trade currentTrade){this.currentTrade = currentTrade;}
 
 }

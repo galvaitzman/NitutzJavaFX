@@ -10,7 +10,7 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="View.ShowTradeRequestsView"
             prefHeight="400.0" prefWidth="600.0">
-    <children>colVacationIDSeller
+    <children>
         <TableView fx:id="tableViewShowTradeRequests" layoutX="32.0" layoutY="70.0" prefHeight="535.0" prefWidth="600.0">
             <columns>
                 <TableColumn fx:id="colVacationIDBuyer" minWidth="298.0" prefWidth="66.0" text="Offered Vacation ID " />

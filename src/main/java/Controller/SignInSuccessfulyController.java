@@ -6,16 +6,18 @@ import javafx.event.EventHandler;
 
 public class SignInSuccessfulyController extends Controller {
     SignInSuccessfulyView signInSuccessfulyView;
+
     public SignInSuccessfulyController(){
-        super("SignInSuccessfuly.fxml");
+        setFxmlLoader("SignInSuccessfuly.fxml");
         signInSuccessfulyView = fxmlLoader.getController();
         signInSuccessfulyView.start(new ButtonSearchVacation(), new ButtonManageMyUser(), new ButtonMyVacations(),
                 new ButtonCreateVacation(), new ButtonShowRequests(), new ButtonShowApprovals(),
-                new ButtonShowMoneyReceiving(), new ButtonShowAllVacations(), new ButtonShowTradeRequests());
+                new ButtonShowMoneyReceiving(), new ButtonShowAllVacations(), new ButtonShowTradeRequests(), new ButtonShowApprovedfOrRejectedTrades());
     }
     @Override
     public void start() {
-        window.show();
+
+
         if (userModel.getCurrent_user().getUser_name().equals("")){
             signInSuccessfulyView.myVacations.setVisible(false);
             signInSuccessfulyView.manageMyUser.setVisible(false);
@@ -53,6 +55,13 @@ public class SignInSuccessfulyController extends Controller {
         }
         else{
             signInSuccessfulyView.tradeButton.setVisible(false);
+        }
+        if (tradeModel.getTradesInCaseBuyer().size()>0 && !userModel.getCurrent_user().getUser_name().equals("")){
+            signInSuccessfulyView.approvedfOrRejectedTradeButton.setVisible(true);
+            signInSuccessfulyView.alert("You have new updates for your requests to trades");
+        }
+        else{
+            signInSuccessfulyView.approvedfOrRejectedTradeButton.setVisible(false);
         }
 
 
@@ -131,6 +140,15 @@ public class SignInSuccessfulyController extends Controller {
         public void handle(Event event) {
             window.close();
             mainController.activeShowTradesControllers();
+        }
+    }
+
+
+    public class ButtonShowApprovedfOrRejectedTrades implements EventHandler{
+        @Override
+        public void handle(Event event) {
+            window.close();
+            mainController.activeButtonShowApprovedfOrRejectedTradesController();
         }
     }
 

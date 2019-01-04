@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="631.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ShowApprovedOrRejectedTradesView">
+    <children>
+        <TableView fx:id="tableViewShowApprovedOrRejectedTrades" layoutX="32.0" layoutY="70.0" prefHeight="535.0" prefWidth="600.0">
+            <columns>
+                <TableColumn fx:id="colSeller" minWidth="298.0" prefWidth="71.0" text="Seller Name" />
+                <TableColumn fx:id="colVacationIdSeller" minWidth="298.0" prefWidth="71.0" text="Vacation id of seller" />
+                <TableColumn fx:id="colVacationIdBuyer" minWidth="298.0" prefWidth="71.0" text="Your vacation to trade" />
+                <TableColumn fx:id="colStatus" minWidth="298.0" prefWidth="71.0" text="Trade status" />
+
+            </columns>
+        </TableView>
+        <Button fx:id="back" layoutX="0" layoutY="0" mnemonicParsing="false" prefHeight="36.0" prefWidth="70.0" text="Back" />
+      <Label layoutX="99.0" layoutY="39.0" text="press on the relevant line in order to pay for the vacation" />
+    </children>
+
+</AnchorPane>

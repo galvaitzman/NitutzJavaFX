@@ -3,14 +3,13 @@ package Controller;
 import View.UpdateVacationDetailsView;
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import java.util.List;
 
 public class UpdateVacationDetailsController extends Controller {
 
     private UpdateVacationDetailsView updateVacationDetailsView;
 
     public UpdateVacationDetailsController() {
-        super("UpdateVacationDetails.fxml");
+        setFxmlLoader("UpdateVacationDetails.fxml");
         updateVacationDetailsView = fxmlLoader.getController();
         updateVacationDetailsView.start(new ButtonNumberOfTickets(),new ButtonUpdate(), new ButtonFlightBack());
     }

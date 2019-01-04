@@ -12,7 +12,7 @@ public class ShowApprovalsController extends Controller {
     private ShowApprovalsView showApprovalsView;
 
     public ShowApprovalsController() {
-        super("ShowApprovals.fxml");
+        setFxmlLoader("ShowApprovals.fxml");
         showApprovalsView = fxmlLoader.getController();
         showApprovalsView.start(new ButtonBackClickedHandler(), new ChangeListener() {
             @Override

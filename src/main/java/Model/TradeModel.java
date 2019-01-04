@@ -64,6 +64,31 @@ public class TradeModel extends AModel {
     }
 
 
+    private int trade_id;
+
+    private String user_name_buyer;
+    private int vacation_id_buyer;
+    private String user_name_seller;
+    private int vacation_id_seller;
+    private String trade_status;
+    private String last_update;
+
+    public void CancleAllTradesContainIdVacation(int vacation_id){
+        String sql = "UPDATE Trades SET trade_status = ? WHERE  vacation_id_buyer = ? OR vacation_id_seller = ? ";
+        try (Connection conn = this.connect();
+             PreparedStatement statement = conn.prepareStatement(sql)) {
+            statement.setString(1, "canceled");
+            statement.setInt(2, vacation_id);
+            statement.setInt(3, vacation_id);
+
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+
     public List<Trade> getTradesInCaseBuyer()
     {
         List<Trade> tradeArrayList = new ArrayList<>();
@@ -93,16 +118,6 @@ public class TradeModel extends AModel {
         currentListOfTradesBuyer = tradeArrayList;
         return tradeArrayList;
     }
-
-    private int trade_id;
-    private String user_name_buyer;
-    private int vacation_id_buyer;
-    private String user_name_seller;
-    private int vacation_id_seller;
-    private String trade_status;
-    private String last_update;
-
-
 
     public List<Trade> getTradesInCaseSeller()
     {
@@ -135,9 +150,9 @@ public class TradeModel extends AModel {
 
 
 
-    public void changeStatusForAllTradesAfterShowedToTheSeller()
+    public void changeStatusForAllTradesAfterShowedToTheBuyer()
     {
-        String sql = "UPDATE Trades SET trade_status = ? WHERE user_name_seller = ? AND trade_status = ? ";
+        String sql = "UPDATE Trades SET trade_status = ? WHERE user_name_buyer = ? AND trade_status = ? ";
         try (Connection conn = this.connect();
              PreparedStatement statement = conn.prepareStatement(sql)) {
             statement.setString(1, "Approved close");
@@ -149,7 +164,7 @@ public class TradeModel extends AModel {
             System.out.println(e.getMessage());
         }
 
-        String sql2 = "UPDATE Trades SET trade_status = ? WHERE user_name_seller = ? AND trade_status = ? ";
+        String sql2 = "UPDATE Trades SET trade_status = ? WHERE user_name_buyer = ? AND trade_status = ? ";
         try (Connection conn = this.connect();
              PreparedStatement statement = conn.prepareStatement(sql2)) {
             statement.setString(1, "Rejected close");
@@ -161,5 +176,18 @@ public class TradeModel extends AModel {
             System.out.println(e.getMessage());
         }
     }
-
+/*
+    public void changeStatusForAllTradesAfterShowedToTheSellerAndApproved(){
+        String sql = "UPDATE Trades SET trade_status = ? WHERE user_name_seller = ? AND trade_status = ? ";
+        try (Connection conn = this.connect();
+             PreparedStatement statement = conn.prepareStatement(sql)) {
+            statement.setString(1, "Rejected close");
+            statement.setString(2, current_user.getUser_name());
+            statement.setString(3, "waiting for approval of trade offer");
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+*/
 }

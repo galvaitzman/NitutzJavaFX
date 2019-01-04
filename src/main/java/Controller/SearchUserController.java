@@ -11,7 +11,7 @@ public class SearchUserController extends Controller {
     SearchView searchView;
 
     public SearchUserController(){
-        super("Search.fxml");
+        setFxmlLoader("Search.fxml");
         searchView = fxmlLoader.getController();
         searchView.start(new ButtonSearchUserClickedHandler());
     }
