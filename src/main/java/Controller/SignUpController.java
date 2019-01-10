@@ -9,7 +9,7 @@ public class SignUpController extends Controller {
     private SignUpView signUpView;
 
     public SignUpController(){
-        setFxmlLoader("SignUpView.fxml");
+        super("SignUpView.fxml");
         signUpView = fxmlLoader.getController();
         signUpView.start(new ButtonSignUpClickedHandler());
         window.setOnCloseRequest(new EventHandler<WindowEvent>() {
@@ -22,6 +22,7 @@ public class SignUpController extends Controller {
     public void start(){
         window.show();
         window.setTitle("Sign Up");
+        signUpView.setTxtFields("","","","","","","");
         //signUpView.signUpButton = (Button)root.lookup("#signUpButton");
 
     }

@@ -8,7 +8,8 @@ import java.util.List;
 
 public class TradeModel extends AModel {
 
-    
+
+
     public void insertTradeToDB(String user_name_seller, int vacation_id_seller, int vacation_id_buyer){
 
         String sql_trade_id = "SELECT max(trade_id) FROM Trades";
@@ -63,16 +64,6 @@ public class TradeModel extends AModel {
         }
     }
 
-
-    private int trade_id;
-
-    private String user_name_buyer;
-    private int vacation_id_buyer;
-    private String user_name_seller;
-    private int vacation_id_seller;
-    private String trade_status;
-    private String last_update;
-
     public void CancleAllTradesContainIdVacation(int vacation_id){
         String sql = "UPDATE Trades SET trade_status = ? WHERE  vacation_id_buyer = ? OR vacation_id_seller = ? ";
         try (Connection conn = this.connect();
@@ -80,7 +71,6 @@ public class TradeModel extends AModel {
             statement.setString(1, "canceled");
             statement.setInt(2, vacation_id);
             statement.setInt(3, vacation_id);
-
             statement.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());

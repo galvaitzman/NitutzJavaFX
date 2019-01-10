@@ -8,7 +8,7 @@ public class SignInSuccessfulyController extends Controller {
     SignInSuccessfulyView signInSuccessfulyView;
 
     public SignInSuccessfulyController(){
-        setFxmlLoader("SignInSuccessfuly.fxml");
+        super("SignInSuccessfuly.fxml");
         signInSuccessfulyView = fxmlLoader.getController();
         signInSuccessfulyView.start(new ButtonSearchVacation(), new ButtonManageMyUser(), new ButtonMyVacations(),
                 new ButtonCreateVacation(), new ButtonShowRequests(), new ButtonShowApprovals(),
@@ -17,7 +17,7 @@ public class SignInSuccessfulyController extends Controller {
     @Override
     public void start() {
 
-
+        window.show();
         if (userModel.getCurrent_user().getUser_name().equals("")){
             signInSuccessfulyView.myVacations.setVisible(false);
             signInSuccessfulyView.manageMyUser.setVisible(false);
@@ -50,6 +50,7 @@ public class SignInSuccessfulyController extends Controller {
             signInSuccessfulyView.moneyRecievedButton.setVisible(false);
         }
         if (tradeModel.getTradesInCaseSeller().size()>0 && !userModel.getCurrent_user().getUser_name().equals("")){
+
             signInSuccessfulyView.tradeButton.setVisible(true);
             signInSuccessfulyView.alert("You have new requests for trade for your vacations");
         }
@@ -63,6 +64,7 @@ public class SignInSuccessfulyController extends Controller {
         else{
             signInSuccessfulyView.approvedfOrRejectedTradeButton.setVisible(false);
         }
+
 
 
     }

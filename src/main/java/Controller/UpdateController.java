@@ -12,7 +12,7 @@ public class UpdateController extends Controller {
 
 
     public UpdateController(){
-        setFxmlLoader("Update.fxml");
+        super("Update.fxml");
         updateView = fxmlLoader.getController();
         updateView.start(new ButtonUpdateClickedHandler());
     }

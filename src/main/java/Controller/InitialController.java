@@ -10,7 +10,7 @@ public class InitialController extends Controller {
 
 
     public InitialController(){
-        setFxmlLoader("MainViewForm.fxml");
+        super("MainViewForm.fxml");
         initialView = fxmlLoader.getController();
         initialView.start(new ButtonSignInClickedHandler(),new ButtonSignUpClickedHandler(),new ButtonSignInAsGuestClickedHandler());
 

@@ -35,7 +35,7 @@ public abstract class Controller{
 
     public abstract void start();
 
-    public void setFxmlLoader(String fxml){
+    public Controller(String fxml){
         try {
             root = fxmlLoader.load(getClass().getResource("/" + fxml).openStream());
             scene = new Scene (root);

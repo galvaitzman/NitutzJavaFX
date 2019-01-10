@@ -11,7 +11,7 @@ import javafx.scene.control.TableView;
 public class MyVacationsToTradeController extends Controller{
     private MyVacationsToTradeView myVacationsToTradeView;
     public MyVacationsToTradeController(){
-        setFxmlLoader("MyVacationsToTrade.fxml");
+        super("MyVacationsToTrade.fxml");
         myVacationsToTradeView = fxmlLoader.getController();
         myVacationsToTradeView.start( new ChangeListener() {
             @Override

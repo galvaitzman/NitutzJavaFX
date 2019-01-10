@@ -11,7 +11,7 @@ public class AfterSignInController extends Controller {
 
 
     public AfterSignInController(){
-        setFxmlLoader("UserManagment.fxml");
+        super("UserManagment.fxml");
         afterSignInView = fxmlLoader.getController();
         afterSignInView.start(new ButtonUpdateMyUserClickedHandler(),new ButtonSearchUserClickedHandler(),new ButtonDeleteClickedHandler());
         window.setOnCloseRequest(new EventHandler<WindowEvent>() {

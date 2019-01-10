@@ -11,7 +11,7 @@ import javafx.scene.control.TableView;
 public class ShowTradeRequestsController extends Controller{
     private ShowTradeRequestsView showTradeRequestsView;
     public ShowTradeRequestsController(){
-        setFxmlLoader("ShowTradeRequests.fxml");
+        super("ShowTradeRequests.fxml");
         showTradeRequestsView = fxmlLoader.getController();
         showTradeRequestsView.start(new ChangeListener() {
         @Override
@@ -25,16 +25,16 @@ public class ShowTradeRequestsController extends Controller{
                 alert.showAndWait();
 
                 if (alert.getResult() == ButtonType.YES) {
+                    tradeModel.CancleAllTradesContainIdVacation(selectedTrade.getVacation_id_buyer());
+                    tradeModel.CancleAllTradesContainIdVacation(selectedTrade.getVacation_id_seller());
                     tradeModel.updateTradeStatus(selectedTrade.getTrade_id(),"Approved");
                     vacationModel.updateVacationStatus(selectedTrade.getVacation_id_buyer(),"done");
                     vacationModel.updateVacationStatus(selectedTrade.getVacation_id_seller(),"done");
                    // tradeModel.changeStatusForAllTradesAfterShowedToTheSellerAndApproved();
-                    tradeModel.CancleAllTradesContainIdVacation(selectedTrade.getVacation_id_buyer());
-                    tradeModel.CancleAllTradesContainIdVacation(selectedTrade.getVacation_id_seller());
 
                     ordersModel.cancleAllVacationIdWhenApproveTrade(selectedTrade.getVacation_id_buyer(),selectedTrade.getVacation_id_seller());
                 }
-                else{
+                else if(alert.getResult() == ButtonType.NO){
                     tradeModel.updateTradeStatus(selectedTrade.getTrade_id(),"Rejected");
                 }
                 window.close();

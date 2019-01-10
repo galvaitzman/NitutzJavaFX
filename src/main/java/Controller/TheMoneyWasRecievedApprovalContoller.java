@@ -11,7 +11,7 @@ import javafx.scene.control.TableView;
 public class TheMoneyWasRecievedApprovalContoller extends Controller{
     private TheMoneyWasRecievedApprovalView theMoneyWasRecievedApprovalView;
     public TheMoneyWasRecievedApprovalContoller(){
-        setFxmlLoader("TheMoneyWasRecievedApproval.fxml");
+        super("TheMoneyWasRecievedApproval.fxml");
         theMoneyWasRecievedApprovalView = fxmlLoader.getController();
         theMoneyWasRecievedApprovalView.start(new ChangeListener() {
             @Override

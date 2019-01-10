@@ -6,7 +6,7 @@ public class ShowApprovedOrRejectedTradesController extends Controller {
     private ShowApprovedOrRejectedTradesView showApprovedOrRejectedTradesView;
 
     public ShowApprovedOrRejectedTradesController() {
-        setFxmlLoader("ShowApprovedOrRejectedTrades.fxml");
+        super("ShowApprovedOrRejectedTrades.fxml");
         showApprovedOrRejectedTradesView = fxmlLoader.getController();
         showApprovedOrRejectedTradesView.start();
     }

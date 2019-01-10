@@ -63,4 +63,11 @@ public class SearchVacationView extends AView {
         }
         return true;
     }
+
+    public void clearAllFields(){
+         departDate.setValue(null);
+         returnDate.setValue(null);
+         from.setText("");
+         to.setText("");
+    }
 }

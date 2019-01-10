@@ -11,7 +11,7 @@ import javafx.scene.control.TableView;
 public class MyVacationsController extends Controller {
     private MyVacationsView myVacationsView;
     public MyVacationsController(){
-        setFxmlLoader("MyVacations.fxml");
+        super("MyVacations.fxml");
         myVacationsView = fxmlLoader.getController();
         myVacationsView.start(new ButtonBackClickedHandler(), new ChangeListener() {
             @Override

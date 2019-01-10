@@ -11,7 +11,7 @@ import javafx.scene.control.TableView;
 public class SearchResultController extends Controller {
     SearchResultView searchResultView;
     public SearchResultController(){
-        setFxmlLoader("SearchResult.fxml");
+        super("SearchResult.fxml");
          searchResultView = fxmlLoader.getController();
          searchResultView.start(new ButtonBackClickedHandler(), new ChangeListener() {
              @Override

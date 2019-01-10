@@ -9,7 +9,7 @@ public class UpdateVacationDetailsController extends Controller {
     private UpdateVacationDetailsView updateVacationDetailsView;
 
     public UpdateVacationDetailsController() {
-        setFxmlLoader("UpdateVacationDetails.fxml");
+        super("UpdateVacationDetails.fxml");
         updateVacationDetailsView = fxmlLoader.getController();
         updateVacationDetailsView.start(new ButtonNumberOfTickets(),new ButtonUpdate(), new ButtonFlightBack());
     }

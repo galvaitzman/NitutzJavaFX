@@ -9,7 +9,7 @@ import javafx.event.EventHandler;
 public class CreateVacationController extends Controller {
     private CreateVacationDetailsView createVacationDetailsView;
     public CreateVacationController(){
-        setFxmlLoader("CreateVacationDetails.fxml");
+        super("CreateVacationDetails.fxml");
         createVacationDetailsView = fxmlLoader.getController();
         createVacationDetailsView.start(new ButtonCreateVacation(), new ButtonFlightBack(), new ChangeListener<Number>() {
             @Override

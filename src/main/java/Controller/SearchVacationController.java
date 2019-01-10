@@ -8,13 +8,14 @@ public class SearchVacationController extends Controller {
 
     SearchVacationView searchVacationView;
     public SearchVacationController(){
-        setFxmlLoader("SearchVacation.fxml");
+        super("SearchVacation.fxml");
         searchVacationView = fxmlLoader.getController();
         searchVacationView.start(new ButtonBackClickedHandler(), new ButtonSearchVacation());
     }
     @Override
     public void start() {
         window.setTitle("Search For Vacations");
+        searchVacationView.clearAllFields();
         window.show();
     }
 

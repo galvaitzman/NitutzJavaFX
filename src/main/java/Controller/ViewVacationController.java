@@ -10,7 +10,7 @@ import javafx.scene.control.ButtonType;
 public class ViewVacationController extends Controller {
     private ViewVacationDetailsView viewVacationDetailsView;
     public ViewVacationController(){
-        setFxmlLoader("ViewVacationDetails.fxml");
+        super("ViewVacationDetails.fxml");
         viewVacationDetailsView = fxmlLoader.getController();
         viewVacationDetailsView.start(new ButtonRequestOrder(), new ButtonSignIn(), new ButtonTradeVacation());
     }
@@ -22,12 +22,14 @@ public class ViewVacationController extends Controller {
         viewVacationDetailsView.showVacationDetails(vacationModel.getCurrentVacation().getVacation_details());
         if (userModel.getCurrent_user().getUser_name().equals("")){
             viewVacationDetailsView.requestOrderButton.setVisible(false);
+            viewVacationDetailsView.tradeOrderButton.setVisible(false);
             viewVacationDetailsView.label1.setVisible(true);
             viewVacationDetailsView.label2.setVisible(true);
             viewVacationDetailsView.signInButton.setVisible(true);
         }
         else{
             viewVacationDetailsView.requestOrderButton.setVisible(true);
+            viewVacationDetailsView.tradeOrderButton.setVisible(true);
             viewVacationDetailsView.label1.setVisible(false);
             viewVacationDetailsView.label2.setVisible(false);
             viewVacationDetailsView.signInButton.setVisible(false);

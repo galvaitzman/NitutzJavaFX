@@ -12,7 +12,7 @@ public class BuyingVacationPaypalOrVisaPaymentController extends Controller {
 
     private BuyingVacationPaypalOrVisaPaymentView buyingVacationPaypalOrVisaPaymentView;
     public BuyingVacationPaypalOrVisaPaymentController(){
-        setFxmlLoader("BuyingVacationPaypalOrVisaPayment.fxml");
+        super("BuyingVacationPaypalOrVisaPayment.fxml");
         buyingVacationPaypalOrVisaPaymentView = fxmlLoader.getController();
         buyingVacationPaypalOrVisaPaymentView.start(new ButtonPurchaseVacation(), new ChangeListener<Number>() {
             @Override

@@ -11,7 +11,7 @@ import javafx.scene.control.TableView;
 public class ShowRequestsController extends Controller {
     private ShowRequestsView showRequestsView;
     public ShowRequestsController(){
-        setFxmlLoader("ShowRequests.fxml");
+        super("ShowRequests.fxml");
         showRequestsView = fxmlLoader.getController();
         showRequestsView.start(new ChangeListener() {
             @Override
@@ -31,7 +31,7 @@ public class ShowRequestsController extends Controller {
                         vacationModel.updateVacationStatus(selectedOrder.getVacation_id(),"in order");
                         tradeModel.CancleAllTradesContainIdVacation(selectedOrder.getVacation_id());
                     }
-                    else{
+                    else  if(alert.getResult() == ButtonType.NO){
                         ordersModel.updateOrderStatus(selectedOrder.getOrder_id(),"canceled");
                     }
                     window.close();
